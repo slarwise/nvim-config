@@ -52,6 +52,8 @@ if $TERM_PROGRAM ==# "iTerm.app"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
     set background=light
+    " Make comments italic
+    highlight Comment cterm=italic
 else
     set background=light
     colorscheme zellner
