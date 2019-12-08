@@ -39,8 +39,11 @@ set foldlevel=99 " Start with all folds open, least correct but fastest way (?)
 " Text encoding
 set encoding=utf-8
 
-" Font
+" GUI Font
 set guifont=Monaco:h12
+
+" Syntax highlighting
+syntax enable
 
 " Colors
 if $TERM_PROGRAM ==# "iTerm.app"
@@ -58,9 +61,6 @@ else
     set background=light
     colorscheme zellner
 endif
-
-" Syntax highlighting
-syntax enable
 
 " Line numbers
 set ruler " Show line and column number (only applies to CTRL-g if statusline)
