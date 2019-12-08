@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Arvid Bjurklint
+	email = bjarvid@student.chalmers.se
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = 0
+[mergetool]
+	prompt = 0
