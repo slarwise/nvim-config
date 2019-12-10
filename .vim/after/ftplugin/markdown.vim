@@ -1,8 +1,8 @@
-" Formatting
-augroup md_format
-    autocmd! InsertLeave <buffer>
-    autocmd InsertLeave <buffer> :normal m`gqap``
-augroup END
+" Automatic formatting, very slow so maybe not worth it
+" augroup md_format
+"     autocmd! InsertLeave <buffer>
+"     autocmd InsertLeave <buffer> :normal m`gqap``
+" augroup END
 
 " Compile with pandoc
 nnoremap <buffer> <LOCALLEADER>r :terminal ++hidden pandoc -o %:r.pdf %<CR>
