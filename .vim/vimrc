@@ -113,6 +113,12 @@ let maplocalleader="-"
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 
+" Navigating panes
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
 " Remove delay after pressing ESC and another character, i.e. key code delays
 set ttimeoutlen=0
 
@@ -150,4 +156,5 @@ let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
 " =============================================================================
 " Markdown
+" This is very slow in long paragraphs
 let g:markdown_folding=1
