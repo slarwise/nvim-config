@@ -58,7 +58,7 @@ if $TERM_PROGRAM ==# "iTerm.app"
     " Make comments italic
     highlight Comment cterm=italic
     " Change cursor shape depending on mode
-    let &t_SI = "\e[6 q"
+    let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
 else
     set background=light
