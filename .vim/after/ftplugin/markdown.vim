@@ -5,14 +5,14 @@
 " augroup END
 
 " Compile with pandoc
-nnoremap <buffer> <LOCALLEADER>r :terminal ++hidden pandoc -o %:r.pdf %<CR>
+nnoremap <buffer> <LOCALLEADER>r :terminal ++hidden pandoc -o %:r.pdf -V colorlinks %<CR>
 
 " Compile on write
 let b:markdown_compile_on_write = 0
 augroup md_compile
     autocmd! BufWritePost <buffer>
     autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
-                \ execute "terminal ++hidden pandoc -o %:r.pdf %" |
+                \ execute "terminal ++hidden pandoc -o %:r.pdf -V colorlinks %" |
                 \ endif
 augroup END
 
