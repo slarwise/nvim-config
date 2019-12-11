@@ -157,4 +157,4 @@ let g:tex_fold_enabled = 1
 " =============================================================================
 " Markdown
 " This is very slow in long paragraphs
-let g:markdown_folding=1
+" let g:markdown_folding=1
