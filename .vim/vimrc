@@ -119,6 +119,23 @@ nnoremap <LEADER>q :q<CR>
 " nnoremap <c-k> <c-w>k
 " nnoremap <c-l> <c-w>l
 
+function GoToNextWindow()
+    if winnr() == winnr('$')
+        echom('last window')
+    else
+        execute "normal! \<c-w>w"
+    endif
+endfunction
+
+function GoToPreviousWindow()
+    if winnr() == 1
+        echom('first window')
+    else
+        execute "normal! \<c-w>W"
+    endif
+endfunction
+
+
 " Should probably put this into a plugin
 " winnr() gives current winnr, winnr('$') gives total number of windows
 " <c-j> should
@@ -127,8 +144,15 @@ nnoremap <LEADER>q :q<CR>
 "       Go out of vim and go to next tmux pane, use system(cmd)
 "   else
 "       Go to next vim window
-nnoremap <c-j> <c-w>w
-nnoremap <c-k> <c-w>W
+" nnoremap <c-j> <c-w>w
+
+if !empty($TMUX)
+    nnoremap <c-j> :call GoToNextWindow()<cr>
+    nnoremap <c-k> :call GoToPreviousWindow()<cr>
+else
+    nnoremap <c-j> <c-w>w
+    nnoremap <c-k> <c-w>W
+endif
 
 " Remove delay after pressing ESC and another character, i.e. key code delays
 set ttimeoutlen=0
