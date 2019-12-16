@@ -113,42 +113,27 @@ let maplocalleader="-"
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 
-" Navigating windows
-" nnoremap <c-h> <c-w>h
-" nnoremap <c-j> <c-w>j
-" nnoremap <c-k> <c-w>k
-" nnoremap <c-l> <c-w>l
-
-function GoToNextWindow()
-    if winnr() == winnr('$')
-        echom('last window')
-    else
-        execute "normal! \<c-w>w"
-    endif
-endfunction
-
-function GoToPreviousWindow()
-    if winnr() == 1
-        echom('first window')
-    else
-        execute "normal! \<c-w>W"
-    endif
-endfunction
-
-
-" Should probably put this into a plugin
-" winnr() gives current winnr, winnr('$') gives total number of windows
-" <c-j> should
-" if tmux
-"   if winnr == winnr('$')
-"       Go out of vim and go to next tmux pane, use system(cmd)
-"   else
-"       Go to next vim window
-" nnoremap <c-j> <c-w>w
-
+" Navigating tmux panes and vim windows with the same mappings.
+" <c-j> to go to the next window/pane and <c-k> to previous.
 if !empty($TMUX)
-    nnoremap <c-j> :call GoToNextWindow()<cr>
-    nnoremap <c-k> :call GoToPreviousWindow()<cr>
+    function GoToNextWindow()
+        if winnr() == winnr('$')
+            execute "terminal ++hidden tmux select-pane -t+"
+        else
+            execute "normal! \<c-w>w"
+        endif
+    endfunction
+
+    function GoToPreviousWindow()
+        if winnr() == 1
+            execute "terminal ++hidden tmux select-pane -t+"
+        else
+            execute "normal! \<c-w>W"
+        endif
+    endfunction
+
+    nnoremap <silent> <c-j> :call GoToNextWindow()<cr>
+    nnoremap <silent> <c-k> :call GoToPreviousWindow()<cr>
 else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W
