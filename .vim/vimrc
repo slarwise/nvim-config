@@ -113,11 +113,22 @@ let maplocalleader="-"
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 
-" Navigating panes
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+" Navigating windows
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-l> <c-w>l
+
+" Should probably put this into a plugin
+" winnr() gives current winnr, winnr('$') gives total number of windows
+" <c-j> should
+" if tmux
+"   if winnr == winnr('$')
+"       Go out of vim and go to next tmux pane, use system(cmd)
+"   else
+"       Go to next vim window
+nnoremap <c-j> <c-w>w
+nnoremap <c-k> <c-w>W
 
 " Remove delay after pressing ESC and another character, i.e. key code delays
 set ttimeoutlen=0
