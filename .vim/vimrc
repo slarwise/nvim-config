@@ -126,7 +126,7 @@ if !empty($TMUX)
 
     function GoToPreviousWindow()
         if winnr() == 1
-            execute "terminal ++hidden tmux select-pane -t+"
+            execute "terminal ++hidden tmux select-pane -t-"
         else
             execute "normal! \<c-w>W"
         endif
