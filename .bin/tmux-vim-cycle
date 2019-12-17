@@ -1,2 +1,19 @@
 #!/bin/sh
+# Sends C-j/k if Vim is running in the current pane
 
+cmd="$(tmux display -p '#{pane_current_command}')"
+
+if [ $cmd = "vim" ]; then
+    direction="$(echo "$@" | tr '+-' 'jk')"
+    tmux send-keys "C-$direction"
+else
+    tmux select-pane -t "$@"
+    cmd_new_pane="$(tmux display -p '#{pane_current_command}')"
+    if [ $cmd_new_pane = "vim" ]; then
+        if [ "$@" = + ]; then
+            tmux send-keys C-w t
+        else
+            tmux send-keys C-w b
+        fi
+    fi
+fi
