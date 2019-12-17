@@ -117,18 +117,18 @@ nnoremap <LEADER>q :q<CR>
 " <c-j> to go to the next window/pane and <c-k> to previous.
 if exists("$TMUX")
     function GoToNextWindow()
-        if winnr() == winnr('$')
-            execute "terminal ++hidden tmux select-pane -t+"
-        else
+        if winnr() < winnr('$') || (str2nr(system("tmux list-panes|wc -l")) == 1)
             execute "normal! \<c-w>w"
+        else
+            execute "terminal ++hidden tmux select-pane -t+"
         endif
     endfunction
 
     function GoToPreviousWindow()
-        if winnr() == 1
-            execute "terminal ++hidden tmux select-pane -t-"
-        else
+        if winnr() > 1 || (str2nr(system("tmux list-panes|wc -l")) == 1)
             execute "normal! \<c-w>W"
+        else
+            execute "terminal ++hidden tmux select-pane -t-"
         endif
     endfunction
 
