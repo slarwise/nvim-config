@@ -115,7 +115,7 @@ nnoremap <LEADER>q :q<CR>
 
 " Navigating tmux panes and vim windows with the same mappings.
 " <c-j> to go to the next window/pane and <c-k> to previous.
-if !empty($TMUX)
+if exists("$TMUX")
     function GoToNextWindow()
         if winnr() == winnr('$')
             execute "terminal ++hidden tmux select-pane -t+"
