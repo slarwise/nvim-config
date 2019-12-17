@@ -1,3 +1,4 @@
+" General settings{{{
 " Use Vim settings rather than Vi settings
 set nocompatible
 
@@ -32,10 +33,8 @@ set clipboard=unnamed
 
 " Folding
 set foldlevel=99 " Start with all folds open, least correct but fastest way (?)
-
-" ============================================================================= 
-" Display
-" ============================================================================= 
+"}}}
+" Display{{{
 " Text encoding
 set encoding=utf-8
 
@@ -102,10 +101,8 @@ set textwidth=80 " Used for example in md files, when the line should be split
 " Splits
 set splitbelow
 set splitright
-
-" ============================================================================= 
-" Mappings
-" =============================================================================
+"}}}
+" Mappings{{{
 let mapleader=" "
 let maplocalleader="-"
 
@@ -171,13 +168,13 @@ nnoremap <LEADER>t :sp ~/Dropbox/Chalmers/todo.md<CR>
 " Searches recursively from the current directory, matching 
 nnoremap <LEADER>f :find **/*
 set path=.,, " Finds files in current directory and relative to current directory
-
-" ============================================================================= 
-" Filetype specifics (That cannot be put in the after-directory)
-" ============================================================================= 
+"}}}
+" Filetype specifics (That cannot be put in the after-directory){{{
 " Latex
 let g:tex_no_error=1
 let g:tex_flavor='latex'
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
 " =============================================================================
+"}}}
+" vim: set foldmethod=marker:
