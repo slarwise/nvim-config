@@ -1,5 +1,8 @@
 #!/bin/sh
-# Sends C-j/k if Vim is running in the current pane
+# Sends C-j/k if Vim is running in the current pane and goes to the top/bottom
+# of the vim windows if we enter with j/k
+# Need to fix such that going from a pane with vim to another pane with vim
+# works correctly
 
 cmd="$(tmux display -p '#{pane_current_command}')"
 
