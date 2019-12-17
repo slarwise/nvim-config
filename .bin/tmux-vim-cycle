@@ -4,6 +4,8 @@
 # Need to fix such that going from a pane with vim to another pane with vim
 # works correctly
 
+set -e
+
 cmd="$(tmux display -p '#{pane_current_command}')"
 
 if [ $cmd = "vim" ]; then
