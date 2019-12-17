@@ -1,19 +1,12 @@
 " General settings{{{
-" Use Vim settings rather than Vi settings
-set nocompatible
+set nocompatible " Use Vim settings rather than Vi settings
 
-" Allow backspace in insert mode
-set backspace+=indent,eol,start
+set backspace+=indent,eol,start " Allow backspace in insert mode
 
-" Disable localized menus
-set langmenu=none
+set langmenu=none " Disable localized menus
 
-" Use specific filetype settings
-filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
-" Indentation and tabs
 set smartindent " Takes the indent of above line, useful for regular txt-files
 set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
@@ -22,29 +15,20 @@ set softtabstop=4 " Actual length when using tabs
 set tabstop=8 " How tabs are read, best to always keep at 8 (default)
 set smarttab " Inserts blanks according to shiftwidth when pressing <TAB>
 
-" Searching
 set incsearch " Find the next search as we type search
 set ignorecase " Ignore case when searching...
 set smartcase " ...unless we type a capital
 
-" Copy/paste directly from system clipboard without having to specify the "*
-" register
-set clipboard=unnamed
+set clipboard=unnamed " Yank/paste automatically to/from system clipboard
 
-" Folding
-set foldlevel=99 " Start with all folds open, least correct but fastest way (?)
+set foldlevel=99 " Start with all folds open
 "}}}
 " Display{{{
-" Text encoding
-set encoding=utf-8
+set encoding=utf-8 " Text encoding
 
-" GUI Font
-set guifont=Monaco:h12
+syntax enable " Syntax highlighting
 
-" Syntax highlighting
-syntax enable
-
-" Colors
+" Fancier colors if using iTerm
 if $TERM_PROGRAM ==# "iTerm.app"
     " According to :h xterm-true-color
     " t_8f and t_8b are only set when $TERM is xterm*
@@ -60,19 +44,18 @@ if $TERM_PROGRAM ==# "iTerm.app"
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
 else
+" Otherwise use simpler colors
     set background=light
     colorscheme zellner
 endif
 
-" Line numbers
 set ruler " Show line and column number (only applies to CTRL-g if statusline)
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 
-" Minimal number of screen lines to keep above and below the cursor
-set scrolloff=2
 
-" Status line
+set scrolloff=2 " Minimal number of lines to keep above and below the cursor
+
 " Can I add word count here or show word count on write?
 set laststatus=2 " Always show statusline
 set statusline=
@@ -82,25 +65,19 @@ set statusline+=%h%m%r%w    " status flags
 set statusline+=%=  " right align remainder
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
 
-" Show mode (--INSERT--, --VISUAL--, ...)
-set showmode
+set showmode " Shows -- INSERT --, -- VISUAL --,...
+set showcmd " Display incomplete commands
 
-" Display incomplete commands
-set showcmd
-
-" Completion
-set wildmenu
+set wildmenu " Use a completion menu for directories/files
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz
-set completeopt=menuone,popup
-"
-" Word wrapping
-set breakindent " Indents word-wrapped lines as much as the parent line
-set linebreak " Ensures word-wrap does not split words 
-set textwidth=80 " Used for example in md files, when the line should be split
+set completeopt=menuone,popup " Display insertion completion as a popup
 
-" Splits
-set splitbelow
-set splitright
+set breakindent " Indents word-wrapped lines as much as the parent line
+set textwidth=80 " Sets when the line should break
+set linebreak " Ensures word-wrap does not split words 
+
+set splitbelow " Open new windows below the current...
+set splitright " ... and to the right
 "}}}
 " Mappings{{{
 let mapleader=" "
@@ -109,6 +86,33 @@ let maplocalleader="-"
 " Basic commands
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
+
+" Remove delay after pressing ESC and another character, i.e. key code delays
+set ttimeoutlen=0
+
+" Remap ö to colon for faster ex commands
+noremap ö :
+
+" Make
+nnoremap <LEADER>mm :make<CR>
+nnoremap <LEADER>mM :make!<CR>
+nnoremap <LEADER>mc :make clean<CR>
+nnoremap <LEADER>mC :make! clean<CR>
+
+" $MYVIMRC
+nnoremap <LEADER>sm :source $MYVIMRC<CR>
+nnoremap <LEADER>em :edit $MYVIMRC<CR>
+
+" Open explorer to my vim-folders
+nnoremap <LEADER>ef :Explore ~/Dropbox/dotfiles/.vim/after/ftplugin/<CR>
+
+" Todo-file
+nnoremap <LEADER>t :sp ~/Dropbox/Chalmers/todo.md<CR>
+
+" Finding files
+" Searches recursively from the current directory, matching 
+nnoremap <LEADER>f :find **/*
+set path=.,, " Finds files in current directory and relative to current directory
 
 " Navigating tmux panes and vim windows with the same mappings.
 " <c-j> to go to the next window/pane and <c-k> to previous.
@@ -141,33 +145,6 @@ else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W
 endif
-
-" Remove delay after pressing ESC and another character, i.e. key code delays
-set ttimeoutlen=0
-
-" Remap ö to colon for faster ex commands
-noremap ö :
-
-" Make
-nnoremap <LEADER>mm :make<CR>
-nnoremap <LEADER>mM :make!<CR>
-nnoremap <LEADER>mc :make clean<CR>
-nnoremap <LEADER>mC :make! clean<CR>
-
-" $MYVIMRC
-nnoremap <LEADER>sm :source $MYVIMRC<CR>
-nnoremap <LEADER>em :edit $MYVIMRC<CR>
-
-" Open explorer to my vim-folders
-nnoremap <LEADER>ef :Explore ~/Dropbox/dotfiles/.vim/after/ftplugin/<CR>
-
-" Todo-file
-nnoremap <LEADER>t :sp ~/Dropbox/Chalmers/todo.md<CR>
-
-" Finding files
-" Searches recursively from the current directory, matching 
-nnoremap <LEADER>f :find **/*
-set path=.,, " Finds files in current directory and relative to current directory
 "}}}
 " Filetype specifics (That cannot be put in the after-directory){{{
 " Latex
