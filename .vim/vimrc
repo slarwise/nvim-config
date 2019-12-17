@@ -87,6 +87,7 @@ let maplocalleader="-"
 " Basic commands
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
+nnoremap <LEADER>Q :qall<CR>
 
 " Remove delay after pressing ESC and another character, i.e. key code delays
 set ttimeoutlen=0
