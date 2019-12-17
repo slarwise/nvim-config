@@ -56,9 +56,8 @@ set relativenumber " Show numbers relative to current line number
 
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 
-" Can I add word count here or show word count on write?
 set laststatus=2 " Always show statusline
-set statusline=
+set statusline= " Empty the statusline
 set statusline+=%f	    " filename, relative to current working directory
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
 set statusline+=%h%m%r%w    " status flags
