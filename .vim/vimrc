@@ -121,6 +121,9 @@ if exists("$TMUX")
             execute "normal! \<c-w>w"
         else
             execute "terminal ++hidden tmux select-pane -t+"
+            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "vim"
+                execute "terminal ++hidden tmux send-keys C-w t"
+            endif
         endif
     endfunction
 
@@ -129,6 +132,9 @@ if exists("$TMUX")
             execute "normal! \<c-w>W"
         else
             execute "terminal ++hidden tmux select-pane -t-"
+            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "vim"
+                execute "terminal ++hidden tmux send-keys C-w b"
+            endif
         endif
     endfunction
 
