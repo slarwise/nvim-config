@@ -44,8 +44,8 @@ if $TERM_PROGRAM ==# "iTerm.app"
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
     " Status line style
-    highlight StatusLine ctermfg=4 ctermbg=black cterm=reverse
-    highlight StatusLineNC ctermfg=4 ctermbg=white
+    highlight StatusLine ctermfg=black ctermbg=darkblue cterm=italic,bold
+    highlight StatusLineNC ctermfg=white ctermbg=darkblue cterm=italic
 else
 " Otherwise use simpler colors
     set background=light
