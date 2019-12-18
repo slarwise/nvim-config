@@ -43,6 +43,9 @@ if $TERM_PROGRAM ==# "iTerm.app"
     " Change cursor shape depending on mode
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
+    " Status line style
+    highlight StatusLine ctermfg=4 ctermbg=black cterm=reverse
+    highlight StatusLineNC ctermfg=4 ctermbg=white
 else
 " Otherwise use simpler colors
     set background=light
