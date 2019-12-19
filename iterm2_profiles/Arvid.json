@@ -50,7 +50,7 @@
     "Green Component" : 0.82989895343780518
   },
   "Non-ASCII Anti Aliased" : true,
-  "Use Bright Bold" : true,
+  "Use Bright Bold" : false,
   "Ansi 10 Color" : {
     "Red Component" : 0.3988109827041626,
     "Color Space" : "Calibrated",
