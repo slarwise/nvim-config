@@ -38,14 +38,16 @@ if $TERM_PROGRAM ==# "iTerm.app"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
     set background=light
-    " Make comments italic
-    highlight Comment cterm=italic
+    let g:gruvbox_contrast_light='soft'
+    let g:gruvbox_italic=1
+    let g:gruvbox_italicize_comments=1
+    colorscheme gruvbox
     " Change cursor shape depending on mode
     let &t_SI = "\e[5 q"
     let &t_EI = "\e[2 q"
     " Status line style
-    highlight StatusLine ctermfg=black ctermbg=darkblue cterm=italic,bold
-    highlight StatusLineNC ctermfg=white ctermbg=darkblue cterm=italic
+    highlight StatusLine cterm=reverse,italic
+    highlight StatusLineNC cterm=reverse,italic
 else
 " Otherwise use simpler colors
     set background=light
