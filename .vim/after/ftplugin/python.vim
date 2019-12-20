@@ -9,9 +9,15 @@ if exists("$TMUX")
     function RunInNextTmuxPane()
         let pane_count = str2nr(trim(system("tmux list-panes|wc -l")))
         if pane_count > 1
-            execute "terminal ++hidden tmux send-keys -t+ C-u"
-            execute "terminal ++hidden tmux send-keys -t+ python" .
-                        \ " Space " . expand('%') . " Space " . " Enter "
+            if has('nvim')
+                call jobstart("tmux send-keys -t+ C-u")
+                call jobstart("tmux send-keys -t+ python" .
+                            \ " Space " . expand('%') . " Space " . " Enter ")
+            else
+                execute "terminal ++hidden tmux send-keys -t+ C-u"
+                execute "terminal ++hidden tmux send-keys -t+ python" .
+                            \ " Space " . expand('%') . " Space " . " Enter "
+            endif
         else
             echom "No tmux pane to run in"
         endif
