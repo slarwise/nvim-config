@@ -28,8 +28,8 @@ set encoding=utf-8 " Text encoding
 
 syntax enable " Syntax highlighting
 
-" Fancier colors if using iTerm
-if $TERM_PROGRAM ==# "iTerm.app"
+if exists("$COLORTERM")
+    " Fancy colors
     " According to :h xterm-true-color
     " t_8f and t_8b are only set when $TERM is xterm*
     " In tmux, $TERM is screen by default.
@@ -49,7 +49,7 @@ if $TERM_PROGRAM ==# "iTerm.app"
     highlight StatusLine cterm=reverse,italic
     highlight StatusLineNC cterm=reverse,italic
 else
-" Otherwise use simpler colors
+    " Simple colors
     set background=light
     colorscheme zellner
 endif
@@ -57,7 +57,6 @@ endif
 set ruler " Show line and column number (only applies to CTRL-g if statusline)
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
-
 
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 
