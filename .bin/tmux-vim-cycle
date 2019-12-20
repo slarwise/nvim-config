@@ -8,13 +8,13 @@ set -e
 
 cmd="$(tmux display -p '#{pane_current_command}')"
 
-if [ $cmd = "vim" ]; then
+if [ $cmd = "vim" ] || [ $cmd = "nvim" ]; then
     direction="$(echo "$@" | tr '+-' 'jk')"
     tmux send-keys "C-$direction"
 else
     tmux select-pane -t "$@"
     cmd_new_pane="$(tmux display -p '#{pane_current_command}')"
-    if [ $cmd_new_pane = "vim" ]; then
+    if [ $cmd_new_pane = "vim" ] || [ $cmd_new_pane = "nvim" ]; then
         if [ "$@" = + ]; then
             tmux send-keys C-w t
         else
