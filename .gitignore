@@ -2,3 +2,4 @@
 .ssh/*
 **/.swp
 scripts/*png
+.vim/.netrwhist
