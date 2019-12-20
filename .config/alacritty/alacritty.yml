@@ -177,6 +177,8 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
+  # I ran the above command and the following
+  # `defaults -currentHost write -globalDomain AppleFontSmoothing -int 2`
   use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
