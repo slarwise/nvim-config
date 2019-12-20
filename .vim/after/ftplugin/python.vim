@@ -1,4 +1,7 @@
 " General settings{{{
+if has('nvim')
+    let g:python_host_prog = "/usr/local/opt/python/libexec/bin/python"
+endif
 setlocal foldmethod=indent
 "}}}
 " Mappings{{{
