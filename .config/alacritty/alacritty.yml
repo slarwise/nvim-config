@@ -12,7 +12,7 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -33,9 +33,9 @@ env:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+   x: 8
+   y: 4
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -63,7 +63,7 @@ env:
   #startup_mode: Windowed
 
   # Window title
-  title: Alacrittyhej
+  title: Alacritty
 
   # Window class (Linux only):
   #class:
@@ -97,7 +97,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-#tabspaces: 8
+tabspaces: 8
 
 # Font configuration
 font:
@@ -109,10 +109,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: iosevska
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Light
 
   # Bold font face
   bold:
@@ -120,10 +120,10 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: iosevska
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    style: Regular
 
   # Italic font face
   italic:
@@ -131,10 +131,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: iosevska
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    style: Light Italic
 
   # Bold italic font face
   bold_italic:
@@ -142,19 +142,19 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: iosevska
+    family: Iosevka
 
     # The `style` can be specified to pick a specific face.
-    style: Bold Italic
+    style: Italic
 
   # Point size
-  size: 12.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -201,18 +201,18 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  cursor:
-   text: '0x000000'
-   cursor: '0xffffff'
+  # cursor:
+  #  text: '0x000000'
+  #  cursor: '0xffffff'
 
   # Selection colors
   #
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  selection:
-    text: '0xeaeaea'
-    background: '0x404040'
+  # selection:
+  #   text: '0xeaeaea'
+  #   background: '0x404040'
 
   # Normal colors
   normal:
@@ -258,7 +258,7 @@ colors:
   # Example:
   #   `- { index: 16, color: '0xff00ff' }`
   #
-  indexed_colors: []
+  # indexed_colors: []
 
 # Visual Bell
 #
@@ -284,7 +284,7 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
+  color: '0x555555'
 
 # Background opacity
 #
@@ -544,7 +544,6 @@ key_bindings:
 
   # (macOS only)
   - { key: Key0,   mods: Command,         action: ResetFontSize    }
-  - { key: Equals, mods: Command,         action: IncreaseFontSize }
   - { key: Add,    mods: Command,         action: IncreaseFontSize }
   - { key: Minus,  mods: Command,         action: DecreaseFontSize }
   - { key: K,      mods: Command,         action: ClearHistory     }
@@ -568,36 +567,36 @@ key_bindings:
   - { key: Left,    mods: Alt,      chars: "\x1bb"                  }
   - { key: Right,   mods: Alt,      chars: "\x1bf"                  }
 
+    # General quality of life improvements
+  - { key: Comma,     mods: Command,      command:
+      {program: "open", args: ["~/.config/alacritty/alacritty.yml"]}     }
+  - { key: N,         mods: Command,      action: SpawnNewInstance       }
+  - { key: Space,     mods: Alt,          chars: " "                     }
+
+    # Swedish macOS keyboard layout
   - { key: Key1,      mods: Alt,          chars: "\xA9"                  }
   - { key: Key2,      mods: Alt,          chars: "\x40"                  }
   - { key: Key3,      mods: Alt,          chars: "\xA3"                  }
   - { key: Key4,      mods: Alt,          chars: "\x24"                  }
   - { key: Key5,      mods: Alt,          chars: "∞"                     }
   - { key: Key6,      mods: Alt,          chars: "\xA7"                  }
-  - { key: Key7,      mods: Alt,          chars: "\x7C"                  }
-  - { key: Key8,      mods: Alt,          chars: "\x5B"                  }
-  - { key: Key9,      mods: Alt,          chars: "\x5D"                  }
+  - { key: 26,      mods: Alt,          chars: "\x7C"                  }
+  - { key: 28,      mods: Alt,          chars: "\x5B"                  }
+  - { key: 25,      mods: Alt,          chars: "\x5D"                  }
   - { key: Key0,      mods: Alt,          chars: "≈"                     }
   - { key: Minus,     mods: Alt,          chars: "\xB1"                  }
 
-## sv_SE PC Layout ('{', '}', '\' and '|' characters):
-#  - { key: Key7,      mods: Alt,          chars: "\x7B"                  }
-#  - { key: Key0,      mods: Alt,          chars: "\x7D"                  }
-#  - { key: Minus,     mods: Alt,          chars: "\x5C"                  }
-#  - { key: Grave,     mods: Alt,          chars: "\x7C"                  }
-  
   - { key: Key1,      mods: Alt|Shift,    chars: "\xA1"                  }
   - { key: Key2,      mods: Alt|Shift,    chars: "”"                     }
   - { key: Key3,      mods: Alt|Shift,    chars: "\xA5"                  }
   - { key: Key4,      mods: Alt|Shift,    chars: "\x24"                  }
   - { key: Key5,      mods: Alt|Shift,    chars: "‰"                     }
   - { key: Key6,      mods: Alt|Shift,    chars: "\xB6"                  }
-  - { key: Key7,      mods: Alt|Shift,    chars: "\x5C"                  }
-  - { key: Key8,      mods: Alt|Shift,    chars: "\x7B"                  }
-  - { key: Key9,      mods: Alt|Shift,    chars: "\x7D"                  }
+  - { key: 26,      mods: Alt|Shift,    chars: "\x5C"                  }
+  - { key: 28,      mods: Alt|Shift,    chars: "\x7B"                  }
+  - { key: 25,      mods: Alt|Shift,    chars: "\x7D"                  }
   - { key: Key0,      mods: Alt|Shift,    chars: "≠"                     }
   - { key: Minus,     mods: Alt|Shift,    chars: "\xBF"                  }
 
-# Replace the default bindings for these as the VirtualKeycodes don't match reality
-  - { key: Slash,     mods: Command,      action: DecreaseFontSize       }
-  - { key: Minus,     mods: Command,      action: IncreaseFontSize       }
+    # Make dead keys like tilde and caret spawn immediately
+  # - { key: 30,      mods: Shift,        chars: "\x60"                   }
