@@ -114,9 +114,9 @@ if exists("$TMUX")
         if winnr() < winnr('$') || (str2nr(system("tmux list-panes|wc -l")) == 1)
             execute "normal! \<c-w>w"
         else
-            execute "terminal ++hidden tmux select-pane -t+"
-            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "vim"
-                execute "terminal ++hidden tmux send-keys C-w t"
+            call jobstart("tmux select-pane -t+")
+            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
+                call jobstart("tmux send-keys C-w t")
             endif
         endif
     endfunction
@@ -125,9 +125,9 @@ if exists("$TMUX")
         if winnr() > 1 || (str2nr(system("tmux list-panes|wc -l")) == 1)
             execute "normal! \<c-w>W"
         else
-            execute "terminal ++hidden tmux select-pane -t-"
-            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "vim"
-                execute "terminal ++hidden tmux send-keys C-w b"
+            call jobstart("tmux select-pane -t-")
+            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
+                call jobstart("tmux send-keys C-w b")
             endif
         endif
     endfunction
