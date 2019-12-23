@@ -15,6 +15,7 @@ function! TmuxNextPaneExists()
     return pane_count > 1
 endfunction
 
+" Add check to see if next pane exists
 function! TmuxSendKeysNextPane(keys)
     let cmd = 'tmux send-keys -t+ ' . a:keys
     call system(cmd)
@@ -29,6 +30,8 @@ function! TmuxClearLineNextPane()
     endif
 endfunction
 
+" Add explicit check if next pane, exists, would be good to not check it
+" multiple times though.
 function! TmuxClearLineAndSendKeysNextPane(keys)
     call TmuxClearLineNextPane()
     call TmuxSendKeysNextPane(a:keys)
@@ -37,6 +40,8 @@ endfunction
 " Need to make compatible with vim as well as neovim. Refactor using send-keys,
 " next-pane exists and maybe new function for sending arbitrary tmux command
 " such as display and select-pane.
+" Use vim_programs = ['vim', 'nvim'] and index(vim_programs,
+" pane_current_command)
 function! TmuxGoToNextWindow()
     if winnr() < winnr('$') || (str2nr(system("tmux list-panes|wc -l")) == 1)
         execute "normal! \<c-w>w"
