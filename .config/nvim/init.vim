@@ -91,30 +91,8 @@ set path=.,, " Finds files in current directory and relative to current director
 " Navigating tmux panes and vim windows with the same mappings.
 " <c-j> to go to the next window/pane and <c-k> to previous.
 if exists("$TMUX")
-    function GoToNextWindow()
-        if winnr() < winnr('$') || (str2nr(system("tmux list-panes|wc -l")) == 1)
-            execute "normal! \<c-w>w"
-        else
-            call jobstart("tmux select-pane -t+")
-            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
-                call jobstart("tmux send-keys C-w t")
-            endif
-        endif
-    endfunction
-
-    function GoToPreviousWindow()
-        if winnr() > 1 || (str2nr(system("tmux list-panes|wc -l")) == 1)
-            execute "normal! \<c-w>W"
-        else
-            call jobstart("tmux select-pane -t-")
-            if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
-                call jobstart("tmux send-keys C-w b")
-            endif
-        endif
-    endfunction
-
-    nnoremap <silent> <c-j> :call GoToNextWindow()<cr>
-    nnoremap <silent> <c-k> :call GoToPreviousWindow()<cr>
+    nnoremap <silent> <c-j> :TmuxGoToNextWindow <CR>
+    nnoremap <silent> <c-k> :TmuxGoToPreviousWindow <CR>
 else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W
