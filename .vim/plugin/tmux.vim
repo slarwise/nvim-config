@@ -33,8 +33,12 @@ endfunction
 " Add explicit check if next pane, exists, would be good to not check it
 " multiple times though.
 function! TmuxClearLineAndSendKeysNextPane(keys)
-    call TmuxClearLineNextPane()
-    call TmuxSendKeysNextPane(a:keys)
+    if TmuxNextPaneExists()
+        call TmuxClearLineNextPane()
+        call TmuxSendKeysNextPane(a:keys)
+    else
+        echohl WarningMsg | echo 'No other tmux pane exists' | echohl None
+    endif
 endfunction
 
 " Need to make compatible with vim as well as neovim. Refactor using send-keys,
