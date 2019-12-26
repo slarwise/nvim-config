@@ -49,6 +49,8 @@ set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 " This could be made into a function (and made fancier)
+" Inspiration
+" https://www.reddit.com/r/vimporn/comments/efjcv0/gruvboxxx/ 
 set statusline= " Empty the statusline
 set statusline+=%f	    " filename, relative to current working directory
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
