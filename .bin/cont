@@ -10,6 +10,9 @@
 #   3 Check, maybe once every 0.5 seconds, if any of the files are updated,
 #       if so, run context <file>. If so, go to 1, else repeat 3.
 
+# TODO:
+#   - Don't track files that are commented out in the tex-file
+
 import argparse
 import subprocess
 import time
@@ -31,6 +34,8 @@ def find_dependent_files(fname):
     pattern = pattern[:-1]
     with open(fname) as f:
         for line in f.readlines():
+            if line.startswith('%'):
+                continue
             matches = re.findall(pattern, line)
             if matches:
                 for match in matches:
