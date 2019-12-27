@@ -4,19 +4,31 @@
 "     autocmd InsertLeave <buffer> :normal m`gqap``
 " augroup END
 
-" Compile with pandoc
-nnoremap <buffer> <LOCALLEADER>r :terminal ++hidden pandoc -o %:r.pdf -V colorlinks %<CR>
+let b:pandoc_cmd = 'pandoc -o ' . expand('%:r') . '.pdf ' .
+            \ '-V colorlinks ' . expand('%')
+function! RunCurrent()
+    echom b:pandoc_cmd
+    if has('nvim')
+        silent call jobstart(b:pandoc_cmd)
+    else
+        execute 'terminal ++hidden ' . expand(b:pandoc_cmd)
+    endif
+endfunction
 
 " Compile on write
 let b:markdown_compile_on_write = 0
 augroup md_compile
     autocmd! BufWritePost <buffer>
-    autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
-                \ execute "terminal ++hidden pandoc -o %:r.pdf -V colorlinks %" |
-                \ endif
+    if has('nvim')
+        autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
+                    \ silent call jobstart(b:pandoc_cmd) |
+                    \ endif
+    else 
+        autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
+                    \ execute "terminal ++hidden " . expand(b:pandoc_cmd) |
+                    \ endif
+    endif
 augroup END
-
-" Show word count on write
 
 " Folding, fold on headers only
 function! MarkdownLevel()

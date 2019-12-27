@@ -3,7 +3,6 @@
 setlocal keywordprg=texdoc
 
 " Mappings
-" /----------------------------------------------------------------------------\
 " Insert mode mappings
 
 " Math mode
@@ -35,6 +34,12 @@ inoremap <buffer> ;tit \title{}<CR>
             \\maketitle
             \<ESC>3kci}
 
-" Normal mode mappings
-nnoremap <LOCALLEADER>r :!clear && latexmk -pdf --shell-escape %<CR>
-" \----------------------------------------------------------------------------/
+function! RunCurrent()
+    !clear && latexmk -pdf --shell-escape %
+endfunction
+
+function! RunCurrentNextPane()
+    let tmux_run_cmd = 'latexmk SPACE -pdf SPACE --shell-escape SPACE '
+                \ . expand('%') . ' ENTER'
+    TmuxClearLineAndSendKeysNextPane tmux_run_cmd
+endfunction

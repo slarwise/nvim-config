@@ -84,8 +84,10 @@ nnoremap <LEADER>mC :make! clean<CR>
 nnoremap <LEADER>sm :source $MYVIMRC<CR>
 nnoremap <LEADER>em :edit $MYVIMRC<CR>
 
+nnoremap <LEADER>r :call RunCurrent() <CR>
+
 nnoremap <LEADER>ef :Explore ~/Dropbox/dotfiles/.vim/after/ftplugin/<CR>
-nnoremap <LEADER>t :sp ~/Dropbox/Chalmers/todo.md<CR>
+nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :find **/*
 set path=.,, " Finds files in current directory and relative to current directory
@@ -95,6 +97,7 @@ set path=.,, " Finds files in current directory and relative to current director
 if exists("$TMUX")
     nnoremap <silent> <c-j> :TmuxGoToNextWindow <CR>
     nnoremap <silent> <c-k> :TmuxGoToPreviousWindow <CR>
+    nnoremap <LEADER>tr :call RunCurrentNextPane() <CR>
 else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W

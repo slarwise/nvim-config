@@ -1,9 +1,9 @@
 " Utility functions for working with tmux
 
-" if exists("g:loaded_tmux") || !exists("$TMUX")
-"     finish
-" endif
-" let g:loaded_tmux = 1
+if exists("g:loaded_tmux") || !exists("$TMUX")
+    finish
+endif
+let g:loaded_tmux = 1
 
 command -nargs=1 TmuxClearLineAndSendKeysNextPane
             \ :call TmuxClearLineAndSendKeysNextPane(<args>)
