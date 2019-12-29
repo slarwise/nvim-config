@@ -1,33 +1,10 @@
-" Automatic formatting, very slow so maybe not worth it
-" augroup md_format
-"     autocmd! InsertLeave <buffer>
-"     autocmd InsertLeave <buffer> :normal m`gqap``
-" augroup END
-
-let b:pandoc_cmd = 'pandoc -o ' . expand('%:r') . '.pdf ' .
-            \ '-V colorlinks ' . expand('%')
-function! RunCurrent()
-    echom b:pandoc_cmd
-    if has('nvim')
-        silent call jobstart(b:pandoc_cmd)
-    else
-        execute 'terminal ++hidden ' . expand(b:pandoc_cmd)
-    endif
-endfunction
-
-" Compile on write
+set makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
 let b:markdown_compile_on_write = 0
-augroup md_compile
+augroup markdown_compile
     autocmd! BufWritePost <buffer>
-    if has('nvim')
-        autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
-                    \ silent call jobstart(b:pandoc_cmd) |
-                    \ endif
-    else 
-        autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
-                    \ execute "terminal ++hidden " . expand(b:pandoc_cmd) |
-                    \ endif
-    endif
+    autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
+                \ Neomake! |
+                \ endif
 augroup END
 
 " Folding, fold on headers only

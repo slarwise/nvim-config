@@ -3,12 +3,8 @@ if has('nvim')
 endif
 setlocal foldmethod=indent
 
-let b:run_cmd = '!clear && python %'
-function! RunCurrent()
-    !clear && python %
-endfunction
+compiler pyunit
+set makeprg=python\ %
 
-function! RunCurrentNextPane()
-    let tmux_run_cmd = 'python SPACE '.expand('%:p').' ENTER'
-    TmuxClearLineAndSendKeysNextPane tmux_run_cmd
-endfunction
+nnoremap <buffer> <LEADER>tm
+            \ :TmuxClearLineAndSendKeysNextPane "python SPACE ".expand('%')." ENTER"<CR>

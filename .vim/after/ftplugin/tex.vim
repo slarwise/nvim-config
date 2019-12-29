@@ -33,13 +33,3 @@ inoremap <buffer> ;tit \title{}<CR>
             \\date{\today}<CR>
             \\maketitle
             \<ESC>3kci}
-
-function! RunCurrent()
-    !clear && latexmk -pdf --shell-escape %
-endfunction
-
-function! RunCurrentNextPane()
-    let tmux_run_cmd = 'latexmk SPACE -pdf SPACE --shell-escape SPACE '
-                \ . expand('%') . ' ENTER'
-    TmuxClearLineAndSendKeysNextPane tmux_run_cmd
-endfunction
