@@ -179,7 +179,7 @@ font:
   # effect.
   # I ran the above command and the following
   # `defaults -currentHost write -globalDomain AppleFontSmoothing -int 2`
-  use_thin_strokes: false
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
