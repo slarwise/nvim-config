@@ -15,5 +15,6 @@ export LC_ALL="sv_SE.UTF-8"
 # Aliases
 alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
+alias contextdocs="cd /Library/TeX/Documentation/texmf-doc/context/"
 
 if [ "$TMUX" = "" ]; then tmux; fi
