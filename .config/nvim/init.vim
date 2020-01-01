@@ -1,9 +1,9 @@
-" Source files from where vim's path
+" Source files from where vim's path{{{
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
+"}}}
 " General settings{{{
-
 set langmenu=none " Disable localized menus
 filetype plugin indent on
 set smartindent " Takes the indent of above line, useful for regular txt-files
@@ -32,7 +32,6 @@ set splitbelow splitright " Open new windows below the current and to the right
 
 "}}}
 " Display{{{
-
 if exists("$COLORTERM")
     " Fancy colors
     " According to :h xterm-true-color
@@ -42,8 +41,15 @@ if exists("$COLORTERM")
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
-    set background=light
+    " Change background depending on system mode, use a timer.
+    " https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
+    if systemlist("defaults read -g AppleInterfaceStyle")[0] ==? "dark"
+        set background=dark
+    else
+        set background=light
+    endif
     let g:gruvbox_contrast_light='soft'
+    let g:gruvbox_contrast_dark='soft'
     let g:gruvbox_italic=1
     let g:gruvbox_italicize_comments=1
     colorscheme gruvbox
@@ -74,7 +80,6 @@ set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
 
 "}}}
 " Mappings{{{
-
 let mapleader=" "
 let maplocalleader="-"
 
@@ -110,7 +115,6 @@ endif
 
 "}}}
 " Filetype specifics (That cannot be put in the after-directory){{{
-
 " Latex
 let g:tex_no_error=1
 let g:tex_flavor='latex'
@@ -118,4 +122,4 @@ let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
 
 "}}}
-" vim: set foldmethod=marker:
+" vim:set foldmethod=marker foldlevel=0:
