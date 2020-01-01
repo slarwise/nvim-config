@@ -41,13 +41,7 @@ if exists("$COLORTERM")
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
-    " Change background depending on system mode, use a timer.
-    " https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
-    if systemlist("defaults read -g AppleInterfaceStyle")[0] ==? "dark"
-        set background=dark
-    else
-        set background=light
-    endif
+    set background=light
     let g:gruvbox_contrast_light='soft'
     let g:gruvbox_contrast_dark='hard'
     let g:gruvbox_italic=1
