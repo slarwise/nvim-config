@@ -15,3 +15,5 @@ export LC_ALL="sv_SE.UTF-8"
 # Aliases
 alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
+
+if [ "$TMUX" = "" ]; then tmux; fi
