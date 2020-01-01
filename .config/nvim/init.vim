@@ -1,3 +1,4 @@
+" Source files from where vim's path
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
@@ -12,10 +13,22 @@ set shiftround " When using <, >, round to nearest shiftwidth
 set softtabstop=4 " Actual length when using tabs
 set ignorecase " Ignore case when searching...
 set smartcase " ...unless we type a capital
-set nohlsearch " Don't highlight search matches
 set clipboard=unnamed " Yank/paste automatically to/from system clipboard
 set foldlevel=99 " Start with all folds open
 set ttimeoutlen=0 " Delay after pressing ESC and another character
+set path=.,, " Search relative to current dir and in current dir
+set path+=/Users/arvidbjurklint/Dropbox/Chalmers/
+set path+=/Users/arvidbjurklint/Dropbox/dotfiles/
+set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.bin/
+set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.config/
+set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.vim/
+set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
+set wildignorecase
+set completeopt=menu,menuone " Display insertion completion as a popup
+set breakindent " Indents word-wrapped lines as much as the parent line
+set textwidth=80 " Sets when the line should break
+set linebreak " Ensures word-wrap does not split words 
+set splitbelow splitright " Open new windows below the current and to the right
 
 "}}}
 " Display{{{
@@ -58,12 +71,6 @@ set statusline+=%h%m%r%w    " status flags
 set statusline+=%=  " right align remainder
 set statusline+=%{wordcount()['words']}\ words,\  " Show number of words
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
-set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz
-set completeopt=menu,menuone " Display insertion completion as a popup
-set breakindent " Indents word-wrapped lines as much as the parent line
-set textwidth=80 " Sets when the line should break
-set linebreak " Ensures word-wrap does not split words 
-set splitbelow splitright " Open new windows below the current and to the right
 
 "}}}
 " Mappings{{{
@@ -86,11 +93,10 @@ nnoremap <LEADER>cn :cprev <CR>
 nnoremap <LEADER>sm :source $MYVIMRC<CR>
 nnoremap <LEADER>em :edit $MYVIMRC<CR>
 
-nnoremap <LEADER>ef :Explore ~/Dropbox/dotfiles/.vim/after/ftplugin/<CR>
+nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/.vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
-nnoremap <LEADER>f :find **/*
-set path=.,, " Finds files in current directory and relative to current directory
+nnoremap <LEADER>f :find **/
 
 " Navigating tmux panes and vim windows with the same mappings.
 " <c-j> to go to the next window/pane and <c-k> to previous.
