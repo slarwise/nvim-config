@@ -1,0 +1,5 @@
+#!/bin/sh
+
+tmux new-session -d -s "0"
+tmux send-keys -t "0" "monitor-background-mode &" Enter
+tmux attach -t "0"
