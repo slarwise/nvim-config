@@ -24,11 +24,13 @@ set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.config/
 set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.vim/
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
 set wildignorecase
+set nohlsearch
 set completeopt=menu,menuone " Display insertion completion as a popup
 set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words 
 set splitbelow splitright " Open new windows below the current and to the right
+set shortmess=I " Disables intro on startup
 
 "}}}
 " Display{{{
@@ -40,8 +42,21 @@ if exists("$COLORTERM")
     " Therefore, we have to set them explicitly here.
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    function! UpdateBackground()
+        let mac_background = systemlist("defaults read -g AppleInterfaceStyle")[0]
+        if mac_background ==? "dark"
+            set background=dark
+        else
+            set background=light
+        endif
+        " redraw!
+    endfunction
+    call UpdateBackground()
+    augroup update_background
+        autocmd! Signal SIGUSR1
+        autocmd Signal SIGUSR1 call UpdateBackground()
+    augroup END
     set termguicolors
-    set background=light
     let g:gruvbox_contrast_light='soft'
     let g:gruvbox_contrast_dark='hard'
     let g:gruvbox_italic=1
