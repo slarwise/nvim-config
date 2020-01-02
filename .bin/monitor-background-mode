@@ -1,0 +1,48 @@
+#!/bin/sh
+# Reads system background and updates alacritty and vim colors accordingly
+
+# set -e
+
+n_ps_matches=$(ps | grep 'monitor_background_mode' | wc -l)
+if [ $n_ps_matches -gt 3 ]; then
+    exit 1
+fi
+
+print_background_mode () {
+    defaults read -g AppleInterfaceStyle
+}
+
+update_alacritty() {
+    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
+    if [ $1 = "Dark" ]; then
+        sed -i ".bak" "s/*light/*dark/" $alacritty_config
+        sed -i ".bak" "s/*dark/*dark/" $alacritty_config
+    else
+        sed -i ".bak" "s/*light/*light/" $alacritty_config
+        sed -i ".bak" "s/*dark/*light/" $alacritty_config
+    fi
+}
+
+update_tmux () {
+    tmux source-file ~/.tmux.conf
+}
+
+update_nvim () {
+    killall -SIGUSR1 'nvim' &> /dev/null
+}
+
+current_mode=$(print_background_mode)
+update_alacritty $current_mode
+update_nvim
+update_tmux
+
+while true; do
+    new_mode=$(print_background_mode)
+    if [ $current_mode != $current_mode ]; then
+        update_alacritty $new_mode
+        update_tmux
+        update_nvim
+        current_mode=$new_mode
+    fi
+    sleep 2
+done
