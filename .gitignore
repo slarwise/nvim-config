@@ -1,5 +1,6 @@
 **/.DS_Store
 .ssh/*
-**/.swp
+**/*.swp
 scripts/*png
 .vim/.netrwhist
+**/*.bak
