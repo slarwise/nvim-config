@@ -3,7 +3,7 @@
 
 # set -e
 
-n_ps_matches=$(ps | grep 'monitor_background_mode' | wc -l)
+n_ps_matches=$(ps | grep 'monitor-background-mode' | wc -l)
 if [ $n_ps_matches -gt 3 ]; then
     exit 1
 fi
