@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+mode="$(defaults read -g AppleInterfaceStyle)"
+
+if [ $mode = "Dark" ]; then
+    tmux set-option -g status-style 'bg=#504945 fg=#ebdbb2'
+    tmux set-option -g clock-mode-colour '#ebdbb2'
+else
+    tmux set-option -g status-style 'bg=#d5c4a1 fg=#3c3836'
+    tmux set-option -g clock-mode-colour '#3c3836'
+fi
+
