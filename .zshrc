@@ -14,5 +14,7 @@ alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
 alias contextdocs="cd /Library/TeX/Documentation/texmf-doc/context/"
 
-# Start tmux on start
-if [ "$TMUX" = "" ]; then tmux; fi
+# Start tmux when alacritty is started
+if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
+    tmux
+fi
