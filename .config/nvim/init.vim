@@ -41,20 +41,11 @@ if exists("$COLORTERM")
     " Therefore, we have to set them explicitly here.
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    function! UpdateBackground()
-        let mode = trim(system("get-background-mode"))
-        if mode ==? "dark"
-            set background=dark
-        else
-            set background=light
-        endif
-        redraw!
-    endfunction
-    call UpdateBackground()
-    augroup update_background
-        autocmd! Signal SIGUSR1
-        autocmd Signal SIGUSR1 call UpdateBackground()
-    augroup END
+    if trim(system("get-background-mode")) ==# "dark"
+        set background=dark
+    else
+        set background=light
+    endif
     set termguicolors
     let g:gruvbox_contrast_light='soft'
     let g:gruvbox_contrast_dark='hard'

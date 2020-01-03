@@ -1,37 +1,21 @@
 #!/bin/sh
-# Reads system background and updates alacritty and vim colors accordingly
+# Reads system background and updates alacritty, nvim and tmux colors
+# accordingly.
 
+# Check if this script is already running
 n_ps_matches=$(ps | grep 'monitor-background-mode' | wc -l)
 if [ $n_ps_matches -gt 3 ]; then
     exit 1
 fi
 
-update_alacritty() {
-    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
-    sed -i ".bak" "s/*light/*$1/" $alacritty_config
-    sed -i ".bak" "s/*dark/*$1/" $alacritty_config
-}
-
-update_tmux () {
-    tmux source-file ~/.tmux.conf
-}
-
-update_nvim () {
-    killall -SIGUSR1 'nvim' &> /dev/null
-}
-
 mode=$(get-background-mode)
-update_alacritty $mode
-update_nvim
-update_tmux
+set-background all $mode
 
 while true; do
     new_mode=$(get-background-mode)
     if [ $new_mode != $mode ]; then
-        update_alacritty $new_mode
-        update_tmux
-        update_nvim
         mode=$new_mode
+        set-background all $mode
     fi
     sleep 2
 done

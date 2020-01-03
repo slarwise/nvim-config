@@ -1,0 +1,88 @@
+#!/bin/sh
+
+# Arguments
+#   $1 - "alacritty", "nvim", "tmux" or "all"
+#   $2 - "dark", "light", "auto"
+
+if [ "$#" -ne "2" ]; then
+    echo "Incorrect number of arguments, must be two"
+    exit 1
+fi
+
+first_argument_ok=false
+programs="alacritty nvim tmux all"
+for program in $programs; do
+    if [ "$1" = "$program" ]; then
+        first_argument_ok=true
+        break
+    fi
+done
+if [ "$first_argument_ok" = "false" ] ; then
+    echo "Incorrect first argument, must be one of: $programs"
+    exit 1
+fi
+
+second_argument_ok=false
+background_modes="dark light auto"
+for mode in $background_modes; do
+    if [ "$2" = "$mode" ]; then
+        second_argument_ok=true
+        break
+    fi
+done
+if [ "$second_argument_ok" = "false" ] ; then
+    echo "Incorrect second argument, must be one of: $background_modes"
+    exit 1
+fi
+
+function set_background_nvim () {
+    pane_indices="$(tmux list-panes -F '#P')"
+    for index in $pane_indices; do
+        cmd="$(tmux display-message -p -t $index '#{pane_current_command}')"
+        if [ "$cmd" = "nvim" ]; then
+            tmux send-keys -t $index Escape :set Space background=$1 Enter
+        fi
+    done
+}
+
+function set_background_alacritty () {
+    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
+    sed -i ".bak" "s/*light/*$1/" $alacritty_config
+    sed -i ".bak" "s/*dark/*$1/" $alacritty_config
+}
+
+function set_background_tmux () {
+    case "$1" in
+        dark) tmux set-option -g status-style 'bg=#504945 fg=#ebdbb2'
+            tmux set-option -g clock-mode-colour '#ebdbb2'
+            tmux set-option -g pane-border-style 'fg=#504945'
+            tmux set-option -g pane-active-border-style 'fg=#ebdbb2'
+            ;;
+        light) tmux set-option -g status-style 'bg=#d5c4a1 fg=#3c3836'
+            tmux set-option -g clock-mode-colour '#3c3836'
+            ;;
+    esac
+}
+
+if [ "$2" = "auto" ]; then
+    mode="$(get-background-mode)"
+else
+    mode=$2
+fi
+
+case "$1" in
+    alacritty)
+        set_background_alacritty $mode
+        ;;
+    nvim)
+        set_background_nvim $mode
+        ;;
+    tmux)
+        set_background_tmux $mode
+        ;;
+    all)
+        set_background_alacritty $mode
+        set_background_nvim $mode
+        set_background_tmux $mode
+        ;;
+esac
