@@ -4,7 +4,13 @@
 	email = bjarvid@student.chalmers.se
 [merge]
 	tool = vimdiff
-[difftool]
-	prompt = 0
 [mergetool]
-	prompt = 0
+	prompt = false
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	path = nvim
+[mergetool "vimdiff"]
+	path = nvim
+[core]
+	editor = nvim
