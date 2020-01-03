@@ -12,6 +12,8 @@ alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
 alias contextdocs="cd /Library/TeX/Documentation/texmf-doc/context/"
 
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Start tmux when alacritty is started
 if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
     run-tmux-and-monitor-background
