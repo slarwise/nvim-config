@@ -35,7 +35,6 @@ set shortmess=I " Disables intro on startup
 "}}}
 " Display{{{
 if exists("$COLORTERM")
-    " Fancy colors
     " According to :h xterm-true-color
     " t_8f and t_8b are only set when $TERM is xterm*
     " In tmux, $TERM is screen by default.
@@ -43,13 +42,13 @@ if exists("$COLORTERM")
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     function! UpdateBackground()
-        let mac_background = systemlist("defaults read -g AppleInterfaceStyle")[0]
-        if mac_background ==? "dark"
+        let mode = trim(system("get-background-mode"))
+        if mode ==? "dark"
             set background=dark
         else
             set background=light
         endif
-        " redraw!
+        redraw!
     endfunction
     call UpdateBackground()
     augroup update_background
@@ -62,11 +61,9 @@ if exists("$COLORTERM")
     let g:gruvbox_italic=1
     let g:gruvbox_italicize_comments=1
     colorscheme gruvbox
-    " Status line style
     highlight StatusLine cterm=reverse,italic
     highlight StatusLineNC cterm=reverse,italic
 else
-    " Simple colors
     set background=light
     colorscheme zellner
 endif

@@ -15,4 +15,5 @@ alias contextdocs="cd /Library/TeX/Documentation/texmf-doc/context/"
 # Start tmux when alacritty is started
 if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
     run-tmux-and-monitor-background
+    # tmux
 fi
