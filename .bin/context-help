@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+import xml.etree.ElementTree as ET
+import subprocess
+
+parser = argparse.ArgumentParser()
+parser.add_argument('command')
+args = parser.parse_args()
+command = args.command
+
+tree = ET.parse('/Users/arvidbjurklint/context/tex/texmf-context/tex/context/interface/mkiv/context-en.xml')
+root = tree.getroot()
+
+tag_url = "{http://www.pragma-ade.com/commands}"
+
+command_root = ''
+
+# Find section
+for child1 in root:
+    for child2 in child1:
+        if child2.attrib['name'] == command:
+            command_root = child2
+
+if not command_root:
+    print('No help found')
+    os.sys.exit(0)
+    
+help_str = ''
+for parameter in command_root.iter(tag_url + "parameter"):
+    help_str += parameter.get('name') + ':\t'
+    for constant in parameter.iter(tag_url + "constant"):
+        help_str += constant.get('type') + ' '
+    for inherit in parameter.iter(tag_url + "inherit"):
+        help_str += 'inherits \\' + inherit.get('name') + ' '
+    help_str += '\n'
+
+for inherit in command_root.iter(tag_url + "inherit"):
+    help_str += 'inherits \\' + inherit.get('name') + '\n'
+
+print(help_str)
