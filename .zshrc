@@ -2,6 +2,8 @@
 autoload -Uz compinit
 compinit
 
+# Set stand-alone context earlier than texlive version in PATH
+export PATH=/Users/arvidbjurklint/context/tex/texmf-osx-64/bin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH=$PATH:~/.bin
 
