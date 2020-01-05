@@ -31,6 +31,9 @@ set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words 
 set splitbelow splitright " Open new windows below the current and to the right
 set shortmess=I " Disables intro on startup
+set number " Show line number on the left
+set relativenumber " Show numbers relative to current line number
+set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 
 "}}}
 " Display{{{
@@ -47,13 +50,7 @@ if exists("$COLORTERM")
         set background=light
     endif
     set termguicolors
-    let g:gruvbox_contrast_light='soft'
-    let g:gruvbox_contrast_dark='hard'
-    let g:gruvbox_italic=1
-    let g:gruvbox_italicize_comments=1
     colorscheme gruvbox
-    highlight StatusLine cterm=reverse,italic
-    highlight StatusLineNC cterm=reverse,italic
 else
     set background=light
     colorscheme zellner
@@ -61,9 +58,6 @@ endif
 
 let &t_SI = "\e[5 q" " Cursor: line in insert mode
 let &t_EI = "\e[2 q" " Cursor: block in other modes
-set number " Show line number on the left
-set relativenumber " Show numbers relative to current line number
-set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 " This could be made into a function (and made fancier)
 " Inspiration
 " https://www.reddit.com/r/vimporn/comments/efjcv0/gruvboxxx/ 
@@ -74,7 +68,6 @@ set statusline+=%h%m%r%w    " status flags
 set statusline+=%=  " right align remainder
 set statusline+=%{wordcount()['words']}\ words,\  " Show number of words
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
-
 "}}}
 " Mappings{{{
 let mapleader=" "
@@ -111,12 +104,18 @@ else
 endif
 
 "}}}
-" Filetype specifics (That cannot be put in the after-directory){{{
-" Latex
+" Plugin settings{{{
+" tex
 let g:tex_no_error=1
 let g:tex_flavor='latex'
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
+
+" gruvbox
+let g:gruvbox_contrast_light='soft'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=1
 
 "}}}
 " vim:set foldmethod=marker foldlevel=0:
