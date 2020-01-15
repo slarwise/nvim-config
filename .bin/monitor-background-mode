@@ -18,5 +18,5 @@ while true; do
         mode=$new_mode
         set-background all $mode
     fi
-    sleep $((60 - $(date +%S) ))
+    sleep 60
 done
