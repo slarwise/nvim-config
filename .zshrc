@@ -13,6 +13,7 @@ export LC_ALL="sv_SE.UTF-8"
 alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
 alias contextdocs="cd /Library/TeX/Documentation/texmf-doc/context/"
+alias contexthelp="open ~/Dropbox/Chalmers/report_writing/context/contextdocs/setup-en.pdf"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
