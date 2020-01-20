@@ -2,5 +2,6 @@
 .ssh/*
 **/*.swp
 scripts/*png
+scripts/*jpg
 .vim/.netrwhist
 **/*.bak
