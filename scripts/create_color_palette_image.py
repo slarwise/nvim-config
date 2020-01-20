@@ -19,6 +19,12 @@ yellowl = '#d79921'
 yellowd = '#b57614'
 bg2 = '#d5c4a1'
 mybg = '#ffecb6'
+fgl = '#3c3836'
+bgl = '#f2e5bc'
+blackl = '#fbf1c7'
+blackd = '#928374'
+whitel = '#3c3836'
+
 colors = (mybg, yellowl, yellowd, orangel, oranged)
 colors = (mybg, purplel, purpled, orangel, oranged)
 colors = (mybg, aqual, aquad, orangel, oranged)
@@ -32,6 +38,7 @@ colors = (orangel, orangel, oranged, oranged, oranged)
 colors = (grayl2, grayl2, purpled, purpled, purpled)
 colors = (blued, blued, oranged, oranged, oranged)
 colors = (bluel, bluel, blued, blued, blued)
+colors = (bgl, bgl, blackd, blackd, blackd)
 
 width = 1680/100
 height = 1050/100
@@ -43,5 +50,5 @@ for i, c in enumerate(colors):
 ax.set_xlim((0, len(colors)))
 ax.axis('off')
 
-plt.savefig('/Users/arvidbjurklint/Dropbox/dotfiles/scripts/gruvbox_colors_2.png',
+plt.savefig('/Users/arvidbjurklint/Dropbox/dotfiles/scripts/gruvbox_colors_3.png',
         bbox_inches='tight', pad_inches=0)
