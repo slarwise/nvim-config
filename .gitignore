@@ -3,5 +3,6 @@
 **/*.swp
 scripts/*png
 scripts/*jpg
+scripts/*pdf
 .vim/.netrwhist
 **/*.bak
