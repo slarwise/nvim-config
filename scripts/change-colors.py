@@ -12,8 +12,8 @@ width, height, channels = img.shape
 new_img = np.zeros(img.shape)
 
 color_scheme = np.array([
-        # [242, 229, 188], # background
-        # [60, 56, 54], # foreground
+        [242, 229, 188], # background
+       # [60, 56, 54], # foreground
         [251, 241, 199], # black
         [157, 0, 6], # red
         # [121, 116, 14], # green
