@@ -1,9 +1,6 @@
 [submodule ".vim/pack/my_plugins/start/commentary"]
 	path = .vim/pack/my_plugins/start/commentary
 	url = https://tpope.io/vim/commentary.git
-[submodule "/Users/arvidbjurklint/Dropbox/dotfiles/.vim/pack/my_plugins/start/gruvbox"]
-	path = /Users/arvidbjurklint/Dropbox/dotfiles/.vim/pack/my_plugins/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
 [submodule ".vim/pack/my_plugins/start/neomake"]
 	path = .vim/pack/my_plugins/start/neomake
 	url = https://github.com/neomake/neomake
