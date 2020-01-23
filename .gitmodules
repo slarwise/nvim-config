@@ -4,3 +4,6 @@
 [submodule ".vim/pack/my_plugins/start/neomake"]
 	path = .vim/pack/my_plugins/start/neomake
 	url = https://github.com/neomake/neomake
+[submodule ".vim/pack/my_plugins/start/gruvbox"]
+	path = .vim/pack/my_plugins/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
