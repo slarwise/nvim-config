@@ -36,6 +36,28 @@ set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 
 "}}}
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+    Plug 'morhetz/gruvbox'
+    Plug 'tpope/vim-commentary'
+    Plug 'neomake/neomake'
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf.vim'
+call plug#end()
+
+" gruvbox
+let g:gruvbox_contrast_light='soft'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=1
+
+" tex
+let g:tex_no_error=1
+let g:tex_flavor='latex'
+let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
+let g:tex_fold_enabled = 1
+
+"}}}
 " Display{{{
 if exists("$COLORTERM")
     " According to :h xterm-true-color
@@ -102,20 +124,6 @@ else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W
 endif
-
-"}}}
-" Plugin settings{{{
-" tex
-let g:tex_no_error=1
-let g:tex_flavor='latex'
-let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
-let g:tex_fold_enabled = 1
-
-" gruvbox
-let g:gruvbox_contrast_light='soft'
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
-let g:gruvbox_italicize_comments=1
 
 "}}}
 " vim:set foldmethod=marker foldlevel=0:
