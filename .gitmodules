@@ -1,3 +1,0 @@
-[submodule ".vim/pack/my_plugins/start/neomake"]
-	path = .vim/pack/my_plugins/start/neomake
-	url = https://github.com/neomake/neomake
