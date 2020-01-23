@@ -1,6 +1,5 @@
 " Source files from where vim's path{{{
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
-set runtimepath+=/usr/local/opt/fzf
 let &packpath = &runtimepath
 
 "}}}
