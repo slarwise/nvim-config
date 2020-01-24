@@ -1,8 +1,8 @@
 " Source files from where vim's path{{{
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-
 "}}}
+
 " General settings{{{
 set langmenu=none " Disable localized menus
 filetype plugin indent on
@@ -34,8 +34,8 @@ set shortmess=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
-
 "}}}
+
 " Plugins {{{
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
@@ -72,8 +72,8 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
 "}}}
+
 " Display{{{
 if exists("$COLORTERM")
     " According to :h xterm-true-color
@@ -107,6 +107,7 @@ set statusline+=%=  " right align remainder
 set statusline+=%{wordcount()['words']}\ words,\  " Show number of words
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
 "}}}
+
 " Mappings{{{
 let mapleader=" "
 let maplocalleader="-"
@@ -140,6 +141,6 @@ else
     nnoremap <c-j> <c-w>w
     nnoremap <c-k> <c-w>W
 endif
-
 "}}}
+
 " vim:set foldmethod=marker foldlevel=0:
