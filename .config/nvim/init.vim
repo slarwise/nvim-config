@@ -104,8 +104,8 @@ set statusline+=%f	    " filename, relative to current working directory
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
 set statusline+=%h%m%r%w    " status flags
 set statusline+=%=  " right align remainder
-set statusline+=%{wordcount()['words']}\ words,\  " Show number of words
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
+set fillchars=eob:\     " Remove the tilde at lines at end of buffer
 "}}}
 
 " Mappings{{{
