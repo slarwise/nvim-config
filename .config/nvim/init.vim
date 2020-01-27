@@ -94,8 +94,6 @@ else
     colorscheme zellner
 endif
 
-let &t_SI = "\e[5 q" " Cursor: line in insert mode
-let &t_EI = "\e[2 q" " Cursor: block in other modes
 " This could be made into a function (and made fancier)
 " Inspiration
 " https://www.reddit.com/r/vimporn/comments/efjcv0/gruvboxxx/ 
