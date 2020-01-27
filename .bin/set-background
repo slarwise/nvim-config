@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Arguments
-#   $1 - "alacritty", "nvim", "tmux" or "all"
+#   $1 - "alacritty", "kitty", "nvim", "tmux" or "all"
 #   $2 - "dark", "light", "auto"
 
 if [ "$#" -ne "2" ]; then
@@ -10,7 +10,7 @@ if [ "$#" -ne "2" ]; then
 fi
 
 first_argument_ok=false
-programs="alacritty nvim tmux all"
+programs="alacritty kitty nvim tmux all"
 for program in $programs; do
     if [ "$1" = "$program" ]; then
         first_argument_ok=true
@@ -35,6 +35,25 @@ if [ "$second_argument_ok" = "false" ] ; then
     exit 1
 fi
 
+function set_background_alacritty () {
+    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
+    sed -i ".bak" "s/*light/*$1/" $alacritty_config
+    sed -i ".bak" "s/*dark/*$1/" $alacritty_config
+}
+
+function set_background_kitty () {
+    case "$1" in
+        dark)
+            kitty @--to unix:/tmp/mykitty \
+                set-colors ~/.config/kitty/themes/gruvbox-dark.conf
+            ;;
+        light)
+            kitty @--to unix:/tmp/mykitty \
+                set-colors ~/.config/kitty/themes/gruvbox-light.conf
+            ;;
+    esac
+}
+
 function set_background_nvim () {
     pane_indices="$(tmux list-panes -F '#P')"
     for index in $pane_indices; do
@@ -43,12 +62,6 @@ function set_background_nvim () {
             tmux send-keys -t $index Escape :set Space background=$1 Enter
         fi
     done
-}
-
-function set_background_alacritty () {
-    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
-    sed -i ".bak" "s/*light/*$1/" $alacritty_config
-    sed -i ".bak" "s/*dark/*$1/" $alacritty_config
 }
 
 function set_background_tmux () {
@@ -74,6 +87,9 @@ case "$1" in
     alacritty)
         set_background_alacritty $mode
         ;;
+    kitty)
+        set_background_kitty $mode
+        ;;
     nvim)
         set_background_nvim $mode
         ;;
@@ -82,6 +98,7 @@ case "$1" in
         ;;
     all)
         set_background_alacritty $mode
+        set_background_kitty $mode
         set_background_nvim $mode
         set_background_tmux $mode
         ;;
