@@ -36,22 +36,26 @@ if [ "$second_argument_ok" = "false" ] ; then
 fi
 
 function set_background_alacritty () {
-    alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
-    sed -i ".bak" "s/*light/*$1/" $alacritty_config
-    sed -i ".bak" "s/*dark/*$1/" $alacritty_config
+    if [ "$TERM_PROGRAM" = "alacritty" ]; then
+        alacritty_config=~/Dropbox/dotfiles/.config/alacritty/alacritty.yml
+        sed -i ".bak" "s/*light/*$1/" $alacritty_config
+        sed -i ".bak" "s/*dark/*$1/" $alacritty_config
+    fi
 }
 
 function set_background_kitty () {
-    case "$1" in
-        dark)
-            kitty @--to unix:/tmp/mykitty \
-                set-colors ~/.config/kitty/themes/gruvbox-dark.conf
-            ;;
-        light)
-            kitty @--to unix:/tmp/mykitty \
-                set-colors ~/.config/kitty/themes/gruvbox-light.conf
-            ;;
-    esac
+    if [ "$TERM_PROGRAM" = "kitty" ]; then
+        case "$1" in
+            dark)
+                kitty @--to unix:/tmp/mykitty \
+                    set-colors ~/.config/kitty/themes/gruvbox-dark.conf
+                ;;
+            light)
+                kitty @--to unix:/tmp/mykitty \
+                    set-colors ~/.config/kitty/themes/gruvbox-light.conf
+                ;;
+        esac
+    fi
 }
 
 function set_background_nvim () {
