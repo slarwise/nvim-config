@@ -1,6 +1,12 @@
-# Brew completion
+# Completion
 autoload -Uz compinit
 compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+# Vi mode in terminal
+bindkey -v
 
 # Set stand-alone context earlier than texlive version in PATH
 export PATH=/Users/arvidbjurklint/context/tex/texmf-osx-64/bin:$PATH
