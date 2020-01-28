@@ -98,11 +98,13 @@ endif
 " This could be made into a function (and made fancier)
 " Inspiration
 " https://www.reddit.com/r/vimporn/comments/efjcv0/gruvboxxx/ 
-set statusline= " Empty the statusline
+set statusline=
+set statusline+=%{&modified?'\ \ ●\ ':'\ '}
+set statusline+=%{strlen(&filetype)?toupper(&filetype):'NONE'}
+set statusline+=%{'\ '}
 set statusline+=%f	    " filename, relative to current working directory
-set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
-set statusline+=%h%m%r%w    " status flags
-set statusline+=%=  " right align remainder
+set statusline+=%{&readonly?'\ READONLY\ ':''}
+set statusline+=%=
 set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
 set fillchars=eob:\     " Remove the tilde at lines at end of buffer
 "}}}
