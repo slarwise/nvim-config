@@ -76,37 +76,69 @@ let g:fzf_colors =
 "}}}
 
 " Display{{{
+if trim(system("get-background-mode")) ==# "dark"
+    set background=dark
+else
+    set background=light
+endif
+
 if exists("$COLORTERM")
     " According to :h xterm-true-color
     " t_8f and t_8b are only set when $TERM is xterm*
     " In tmux, $TERM is screen by default.
     " Therefore, we have to set them explicitly here.
+    set termguicolors
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    if trim(system("get-background-mode")) ==# "dark"
-        set background=dark
-    else
-        set background=light
-    endif
-    set termguicolors
     colorscheme gruvbox
 else
-    set background=light
     colorscheme zellner
 endif
 
-" This could be made into a function (and made fancier)
-" Inspiration
-" https://www.reddit.com/r/vimporn/comments/efjcv0/gruvboxxx/ 
-set statusline=
-set statusline+=%{&modified?'\ \ ●\ ':'\ '}
-set statusline+=%{strlen(&filetype)?toupper(&filetype):'NONE'}
-set statusline+=%{'\ '}
-set statusline+=%f	    " filename, relative to current working directory
-set statusline+=%{&readonly?'\ READONLY\ ':''}
-set statusline+=%=
-set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
+function! GetFiletypeSymbol()
+    if strlen(&filetype) == 0
+        return 'NONE'
+    endif
+    if &filetype ==# 'vim'
+        return ' '
+    elseif &filetype ==# 'python'
+        return ' '
+    elseif &filetype ==# 'c'
+        return ' '
+    else
+        return toupper(&filetype)
+    endif
+endfunction
+
+function! MyStatusline()
+    if &bg ==# 'dark'
+        execute 'highlight User1 guibg=' . g:terminal_color_0 .
+                    \ ' guifg=#504945'
+    else
+        execute 'highlight User1 guibg=' . g:terminal_color_0 .
+                    \ ' guifg=#d5c4a1'
+    endif
+    set statusline=
+    set statusline+=%1*%*
+    set statusline+=%{&modified?'●\ ':''}
+    set statusline+=%{GetFiletypeSymbol()}
+    set statusline+=\  
+    set statusline+=%f	    " filename, relative to current working directory
+    set statusline+=%{&readonly?'\ READONLY\ ':''}
+    set statusline+=%=
+    set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
+    set statusline+=%1*%*
+endfunction
+
+call MyStatusline()
+
+augroup statusline_colors
+    autocmd!
+    autocmd ColorScheme * call MyStatusline()
+augroup END
+
 set fillchars=eob:\     " Remove the tilde at lines at end of buffer
+
 "}}}
 
 " Mappings{{{
