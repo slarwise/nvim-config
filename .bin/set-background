@@ -70,13 +70,9 @@ function set_background_nvim () {
 
 function set_background_tmux () {
     case "$1" in
-        dark) tmux set-option -g status-style 'bg=#504945 fg=#ebdbb2'
-            tmux set-option -g clock-mode-colour '#ebdbb2'
-            tmux set-option -g pane-border-style 'fg=#504945'
-            tmux set-option -g pane-active-border-style 'fg=#ebdbb2'
+        dark) ~/.config/tmux/gruvbox-dark.conf
             ;;
-        light) tmux set-option -g status-style 'bg=#d5c4a1 fg=#3c3836'
-            tmux set-option -g clock-mode-colour '#3c3836'
+        light) ~/.config/tmux/gruvbox-light.conf
             ;;
     esac
 }
