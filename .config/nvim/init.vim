@@ -104,6 +104,8 @@ function! GetFiletypeSymbol()
         return '  '
     elseif &filetype ==# 'c'
         return '  '
+    elseif &filetype ==# 'markdown'
+        return '  '
     else
         return toupper(&filetype) . ' '
     endif
