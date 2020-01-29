@@ -96,14 +96,16 @@ else
 endif
 
 function! GetFiletypeSymbol()
-    if &filetype ==# 'vim'
-        return ' '
+    if strlen(&filetype) == 0
+        return ''
+    elseif &filetype ==# 'vim'
+        return '  '
     elseif &filetype ==# 'python'
-        return ' '
+        return '  '
     elseif &filetype ==# 'c'
-        return ' '
+        return '  '
     else
-        return toupper(&filetype)
+        return toupper(&filetype) . ' '
     endif
 endfunction
 
@@ -119,7 +121,6 @@ function! MyStatusline()
     set statusline+=%1*%*
     set statusline+=%{&modified?'●\ ':''}
     set statusline+=%{GetFiletypeSymbol()}
-    set statusline+=\  
     set statusline+=%f	    " filename, relative to current working directory
     set statusline+=%{&readonly?'\ READONLY\ ':''}
     set statusline+=%=
