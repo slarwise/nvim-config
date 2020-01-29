@@ -96,9 +96,6 @@ else
 endif
 
 function! GetFiletypeSymbol()
-    if strlen(&filetype) == 0
-        return 'NONE'
-    endif
     if &filetype ==# 'vim'
         return ' '
     elseif &filetype ==# 'python'
