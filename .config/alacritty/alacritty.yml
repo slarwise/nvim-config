@@ -22,19 +22,19 @@ tabspaces: 8
 
 font:
   normal:
-    family: Iosevka
+    family: Iosevka Nerd Font
     style: Light
 
   bold:
-    family: Iosevka
+    family: Iosevka Nerd Font
     style: Regular
 
   italic:
-    family: Iosevka
+    family: Iosevka Nerd Font
     style: Light Italic
 
   bold_italic:
-    family: Iosevka
+    family: Iosevka Nerd Font
     style: Italic
 
   size: 13
