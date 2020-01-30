@@ -4,7 +4,7 @@ endif
 setlocal foldmethod=indent
 
 compiler pyunit
-set makeprg=python\ %
+setlocal makeprg=python\ %
 
 let b:neomake_python_enabled_makers = ['python', 'pylint']
 let b:neomake_python_pylint_args = neomake#makers#ft#python#pylint().args +
