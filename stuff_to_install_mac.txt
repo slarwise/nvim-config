@@ -4,16 +4,15 @@ Att installera igen om jag återställer macen
 + XCode
 + brew install tmux
 + brew install python
-+ pip install (numpy, Pygments)
++ pip install (numpy, ...)
 + brew install vim
 + brew cask install ccleaner
 + brew cask install dropbox
 + brew cask install skim
-+ brew cask install spotify (Not working, probably need to update macOS)
++ brew cask install spotify
 + brew cask install mactex-no-gui
 + brew cask install microsoft-word (Word, Powerpoint, Excel)
 + brew cask install microsoft-excel
 + brew cask install microsoft-powerpoint
 + Norton Security 8.5
 + Amethyst
-
