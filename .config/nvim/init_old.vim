@@ -1,33 +1,11 @@
-" General settings{{{
-if has('nvim')
-    set runtimepath^=~/.vim runtimepath+=~/.vim/after
-    let &packpath = &runtimepath
-    set completeopt=menu,menuone " Display insertion completion as a popup
-    set fillchars=eob:\     " Remove the tilde at lines at end of buffer
-else
-    set nocompatible " Use Vim settings rather than Vi settings
-    set backspace+=indent,eol,start " Allow backspace in insert mode
-    set incsearch " Find the next search as we type search
-    set encoding=utf-8 " Text encoding
-    set ruler
-    set laststatus=2
-    syntax enable
-    set wildmenu
-    set completeopt=menuone,popup " Display insertion completion as a popup
-    if exists("$COLORTERM")
-        " Fancy colors
-        " According to :h xterm-true-color
-        " t_8f and t_8b are only set when $TERM is xterm*
-        " In tmux, $TERM is screen by default.
-        " Therefore, we have to set them explicitly here.
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-        " Change cursor shape depending on mode
-        let &t_SI = "\e[5 q"
-        let &t_EI = "\e[2 q"
-    endif
-endif
+" Source files from vim's path{{{
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc
+finish
+"}}}
 
+" General settings{{{
 set langmenu=none " Disable localized menus
 filetype plugin indent on
 set smartindent " Takes the indent of above line, useful for regular txt-files
@@ -51,6 +29,7 @@ set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.vim/
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
 set wildignorecase
 set nohlsearch
+set completeopt=menu,menuone " Display insertion completion as a popup
 set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words 
@@ -59,6 +38,7 @@ set shortmess=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
+set fillchars=eob:\     " Remove the tilde at lines at end of buffer
 "}}}
 
 " Plugins {{{
@@ -138,8 +118,8 @@ nnoremap <LEADER>cc :cclose <CR>
 nnoremap <LEADER>cn :cnext <CR>
 nnoremap <LEADER>cn :cprev <CR>
 
-nnoremap <LEADER>sm :source ~/.vim/vimrc <CR>
-nnoremap <LEADER>em :edit ~/.vim/vimrc<CR>
+nnoremap <LEADER>sm :source $MYVIMRC<CR>
+nnoremap <LEADER>em :edit $MYVIMRC<CR>
 
 nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/.vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
