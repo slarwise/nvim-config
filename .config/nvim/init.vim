@@ -13,7 +13,9 @@ set shiftround " When using <, >, round to nearest shiftwidth
 set softtabstop=4 " Actual length when using tabs
 set ignorecase " Ignore case when searching...
 set smartcase " ...unless we type a capital
-set clipboard=unnamed " Yank/paste automatically to/from system clipboard
+if has('clipboard')
+    set clipboard=unnamed " Yank/paste automatically to/from system clipboard
+endif
 set foldlevel=99 " Start with all folds open
 set ttimeoutlen=0 " Delay after pressing ESC and another character
 set path=.,, " Search relative to current dir and in current dir
@@ -103,6 +105,9 @@ nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 nnoremap <LEADER>Q :qall<CR>
 noremap ö :
+
+nnoremap <LEADER>th :set hlsearch!<CR>
+nnoremap <LEADER>tb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 
 nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
