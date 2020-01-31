@@ -127,7 +127,7 @@ nnoremap <LEADER>f :find **/
 nnoremap <c-j> <c-w>w
 nnoremap <c-k> <c-w>W
 
-function TmuxVimCyclerMappings()
+function! TmuxVimCyclerMappings()
     nnoremap <silent> <c-j> :TmuxGoToNextWindow <CR>
     nnoremap <silent> <c-k> :TmuxGoToPreviousWindow <CR>
 endfunction
