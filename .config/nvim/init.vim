@@ -34,6 +34,7 @@ set shortmess=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
+set fillchars=eob:\     " Remove the tilde at lines at end of buffer
 "}}}
 
 " Plugins {{{
@@ -73,6 +74,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" smoothstatus
+let g:smoothstatus_use_patched_symbols = 1
 "}}}
 
 " Display{{{
@@ -83,61 +87,11 @@ else
 endif
 
 if exists("$COLORTERM")
-    " According to :h xterm-true-color
-    " t_8f and t_8b are only set when $TERM is xterm*
-    " In tmux, $TERM is screen by default.
-    " Therefore, we have to set them explicitly here.
     set termguicolors
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     colorscheme gruvbox
 else
     colorscheme zellner
 endif
-
-function! GetFiletypeSymbol()
-    if strlen(&filetype) == 0
-        return ''
-    elseif &filetype ==# 'vim'
-        return '  '
-    elseif &filetype ==# 'python'
-        return '  '
-    elseif &filetype ==# 'c'
-        return '  '
-    elseif &filetype ==# 'markdown'
-        return '  '
-    else
-        return toupper(&filetype) . ' '
-    endif
-endfunction
-
-function! MyStatusline()
-    if &bg ==# 'dark'
-        execute 'highlight User1 guibg=' . g:terminal_color_0 .
-                    \ ' guifg=#504945'
-    else
-        execute 'highlight User1 guibg=' . g:terminal_color_0 .
-                    \ ' guifg=#d5c4a1'
-    endif
-    set statusline=
-    set statusline+=%1*%*
-    set statusline+=%{&modified?'●\ ':''}
-    set statusline+=%{GetFiletypeSymbol()}
-    set statusline+=%f	    " filename, relative to current working directory
-    set statusline+=%{&readonly?'\ READONLY\ ':''}
-    set statusline+=%=
-    set statusline+=%-14(%l/%L,%c%)  " line/total number of lines
-    set statusline+=%1*%*
-endfunction
-
-call MyStatusline()
-
-augroup statusline_colors
-    autocmd!
-    autocmd ColorScheme * call MyStatusline()
-augroup END
-
-set fillchars=eob:\     " Remove the tilde at lines at end of buffer
 
 "}}}
 
@@ -165,15 +119,21 @@ nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :find **/
 
-" Navigating tmux panes and vim windows with the same mappings.
-" <c-j> to go to the next window/pane and <c-k> to previous.
-if exists("$TMUX")
+nnoremap <c-j> <c-w>w
+nnoremap <c-k> <c-w>W
+
+function TmuxVimCyclerMappings()
     nnoremap <silent> <c-j> :TmuxGoToNextWindow <CR>
     nnoremap <silent> <c-k> :TmuxGoToPreviousWindow <CR>
-else
-    nnoremap <c-j> <c-w>w
-    nnoremap <c-k> <c-w>W
-endif
+endfunction
+
+augroup TmuxVimCycler
+    autocmd!
+    autocmd VimEnter * if exists('g:loaded_tmux') |
+                \ call TmuxVimCyclerMappings() |
+                \ endif
+augroup END
+
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
