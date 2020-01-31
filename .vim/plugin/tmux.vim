@@ -15,10 +15,13 @@ function! TmuxNextPaneExists()
     return pane_count > 1
 endfunction
 
-" Add check to see if next pane exists
 function! TmuxSendKeysNextPane(keys)
-    let cmd = 'tmux send-keys -t+ ' . a:keys
-    call system(cmd)
+    if TmuxNextPaneExists()
+        let cmd = 'tmux send-keys -t+ ' . a:keys
+        call system(cmd)
+    else
+        echohl WarningMsg | echo 'No other tmux pane exists' | echohl None
+    endif
 endfunction
 
 function! TmuxClearLineNextPane()
@@ -30,8 +33,6 @@ function! TmuxClearLineNextPane()
     endif
 endfunction
 
-" Add explicit check if next pane, exists, would be good to not check it
-" multiple times though.
 function! TmuxClearLineAndSendKeysNextPane(keys)
     if TmuxNextPaneExists()
         call TmuxClearLineNextPane()
@@ -41,17 +42,14 @@ function! TmuxClearLineAndSendKeysNextPane(keys)
     endif
 endfunction
 
-" Need to make compatible with vim as well as neovim. Refactor using send-keys,
-" next-pane exists and maybe new function for sending arbitrary tmux command
-" such as display and select-pane.
-" Use vim_programs = ['vim', 'nvim'] and index(vim_programs,
-" pane_current_command)
 function! TmuxGoToNextWindow()
     if winnr() < winnr('$') || (str2nr(system("tmux list-panes|wc -l")) == 1)
         execute "normal! \<c-w>w"
     else
         call system("tmux select-pane -t+")
-        if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
+        let pane_current_cmd =
+                    \ trim(system("tmux display -p '#{pane_current_command}'"))
+        if index(['vim', 'nvim'], pane_current_cmd) >= 0
             call system("tmux send-keys C-w t")
         endif
     endif
@@ -62,7 +60,9 @@ function! TmuxGoToPreviousWindow()
         execute "normal! \<c-w>W"
     else
         call system("tmux select-pane -t-")
-        if trim(system("tmux display -p '#{pane_current_command}'")) ==# "nvim"
+        let pane_current_cmd =
+                    \ trim(system("tmux display -p '#{pane_current_command}'"))
+        if index(['vim', 'nvim'], pane_current_cmd) >= 0
             call system("tmux send-keys C-w b")
         endif
     endif
