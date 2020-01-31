@@ -134,7 +134,7 @@ endfunction
 
 augroup TmuxVimCycler
     autocmd!
-    autocmd VimEnter * if exists('g:loaded_tmux') |
+    autocmd VimEnter * if exists('g:loaded_tmux') && g:loaded_tmux == 1 |
                 \ call TmuxVimCyclerMappings() |
                 \ endif
 augroup END
