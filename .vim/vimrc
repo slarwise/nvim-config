@@ -70,6 +70,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'slarwise/vim-tmux-cycle'
     Plug 'slarwise/vim-rounded-statusline'
+    Plug 'slarwise/vim-tmux-send'
 call plug#end()
 
 " gruvbox
