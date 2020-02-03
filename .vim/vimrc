@@ -142,16 +142,17 @@ nnoremap <LEADER>cn :cnext <CR>
 nnoremap <LEADER>cn :cprev <CR>
 
 nnoremap <LEADER>sm :source ~/.vim/vimrc <CR>
-nnoremap <LEADER>em :edit ~/.vim/vimrc<CR>
+nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
 
 nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/.vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :find **/
 
-nnoremap <c-j> :VimTmuxCycleNext <CR>
-nnoremap <c-k> :VimTmuxCyclePrevious <CR>
+nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
+nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
 
+nnoremap <LEADER>tm :SendMakeCmd <CR>
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
