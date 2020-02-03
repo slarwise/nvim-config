@@ -152,6 +152,7 @@ nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
 nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
 
 nnoremap <LEADER>tm :SendMakeCmd <CR>
+nnoremap <LEADER>tt :SendLine <CR>
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
