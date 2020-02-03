@@ -68,6 +68,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'neomake/neomake'
     Plug '/usr/local/opt/fzf'
     Plug 'junegunn/fzf.vim'
+    Plug 'slarwise/vim-tmux-cycle'
 call plug#end()
 
 " gruvbox
@@ -146,20 +147,8 @@ nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :find **/
 
-nnoremap <c-j> <c-w>w
-nnoremap <c-k> <c-w>W
-
-function! TmuxVimCyclerMappings()
-    nnoremap <silent> <c-j> :TmuxGoToNextWindow <CR>
-    nnoremap <silent> <c-k> :TmuxGoToPreviousWindow <CR>
-endfunction
-
-augroup TmuxVimCycler
-    autocmd!
-    autocmd VimEnter * if exists('g:loaded_tmux') && g:loaded_tmux == 1 |
-                \ call TmuxVimCyclerMappings() |
-                \ endif
-augroup END
+nnoremap <c-j> :VimTmuxCycleNext <CR>
+nnoremap <c-k> :VimTmuxCyclePrevious <CR>
 
 "}}}
 
