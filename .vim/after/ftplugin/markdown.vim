@@ -1,4 +1,5 @@
 setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
+nnoremap <buffer> <LOCALLEADER>o :!open %:r.pdf<CR>
 let b:markdown_compile_on_write = 0
 augroup markdown_compile
     autocmd! BufWritePost <buffer>
