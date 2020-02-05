@@ -8,9 +8,14 @@ kitty + complete setup zsh | source /dev/stdin
 # Vi mode in terminal
 bindkey -v
 
-# Set stand-alone context earlier than texlive version in PATH
-export PATH=/Users/arvidbjurklint/context/tex/texmf-osx-64/bin:$PATH
+# Set stand-alone context earlier than texlive version in PATH. Screws up
+# matplotlib.
+# export PATH=/Users/arvidbjurklint/context/tex/texmf-osx-64/bin:$PATH
+
+# Python path
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
+# My own scripts
 export PATH=$PATH:~/.bin
 
 export LANG="sv_SE.UTF-8"
