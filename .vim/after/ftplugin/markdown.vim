@@ -1,13 +1,3 @@
-setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
-nnoremap <buffer> <LOCALLEADER>o :!open %:r.pdf<CR>
-let b:markdown_compile_on_write = 0
-augroup markdown_compile
-    autocmd! BufWritePost <buffer>
-    autocmd BufWritePost <buffer> :if b:markdown_compile_on_write | 
-                \ Neomake! |
-                \ endif
-augroup END
-
 " Folding, fold on headers only
 function! MarkdownLevel()
     if getline(v:lnum) =~ '^# .*$'
@@ -30,5 +20,9 @@ function! MarkdownLevel()
     endif
     return "=" 
 endfunction
+
+setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
+nnoremap <buffer> <LOCALLEADER>o :!open %:r.pdf<CR>
+let b:compile_on_write=0
 setlocal foldexpr=MarkdownLevel()
 setlocal foldmethod=expr
