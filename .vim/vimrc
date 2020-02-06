@@ -110,9 +110,6 @@ augroup compile_on_write
                 \ Neomake! |
                 \ endif
 augroup END
-
-" rounded-statusline
-let g:rounded_statusline_use_patched_symbols = 1
 "}}}
 
 " Display{{{
