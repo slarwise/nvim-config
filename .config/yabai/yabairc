@@ -21,11 +21,11 @@ yabai -m config window_opacity_duration      0.0
 yabai -m config window_shadow                on
 yabai -m config window_border                on
 yabai -m config window_border_placement      exterior
-yabai -m config window_border_width          4
+yabai -m config window_border_width          3
 yabai -m config window_border_radius         -1.0
 yabai -m config active_window_border_topmost off
-yabai -m config active_window_border_color   0xff076678
-yabai -m config normal_window_border_color   0x99076678
+yabai -m config active_window_border_color   0xff3c3836
+yabai -m config normal_window_border_color   0x663c3836
 yabai -m config insert_window_border_color   0xffd75f5f
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
