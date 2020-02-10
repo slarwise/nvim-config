@@ -49,5 +49,6 @@ yabai -m rule --add app="Skim" border=off
 yabai -m rule --add app="Finder" border=off
 yabai -m rule --add app="Systeminställningar" border=off
 yabai -m rule --add app="Systeminställningar" manage=off
+yabai -m rule --add app="Förhandsvisning" border=off
 
 echo "yabai configuration loaded.."
