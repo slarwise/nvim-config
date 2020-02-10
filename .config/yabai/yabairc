@@ -44,9 +44,10 @@ yabai -m config right_padding                25
 yabai -m config window_gap                   25
 
 # App specific rules
-yabai -m rule --add app="Systeminställningar" manage=off
 yabai -m rule --add app="Safari" border=off
 yabai -m rule --add app="Skim" border=off
 yabai -m rule --add app="Finder" border=off
+yabai -m rule --add app="Systeminställningar" border=off
+yabai -m rule --add app="Systeminställningar" manage=off
 
 echo "yabai configuration loaded.."
