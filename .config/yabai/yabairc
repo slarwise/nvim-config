@@ -21,11 +21,11 @@ yabai -m config window_opacity_duration      0.0
 yabai -m config window_shadow                on
 yabai -m config window_border                on
 yabai -m config window_border_placement      exterior
-yabai -m config window_border_width          3
+yabai -m config window_border_width          2
 yabai -m config window_border_radius         -1.0
 yabai -m config active_window_border_topmost off
-yabai -m config active_window_border_color   0xffb57614
-yabai -m config normal_window_border_color   0xff076678
+yabai -m config active_window_border_color   0xff7c6f64
+yabai -m config normal_window_border_color   0xff7c6f64
 yabai -m config insert_window_border_color   0xffd75f5f
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
@@ -37,10 +37,16 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  20
-yabai -m config bottom_padding               20
-yabai -m config left_padding                 20
-yabai -m config right_padding                20
-yabai -m config window_gap                   20
+yabai -m config top_padding                  25
+yabai -m config bottom_padding               25
+yabai -m config left_padding                 25
+yabai -m config right_padding                25
+yabai -m config window_gap                   25
+
+# App specific rules
+yabai -m rule --add app="Systeminställningar" manage=off
+yabai -m rule --add app="Safari" border=off
+yabai -m rule --add app="Skim" border=off
+yabai -m rule --add app="Finder" border=off
 
 echo "yabai configuration loaded.."
