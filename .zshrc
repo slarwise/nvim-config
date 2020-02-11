@@ -25,6 +25,7 @@ alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
 alias context-commands="open ~/Dropbox/Chalmers/report-writing/context/docs/setup-en.pdf"
 alias context-ref="open ~/Dropbox/Chalmers/report-writing/context/docs/contextref.pdf"
+alias preview="qlmanage -p"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
