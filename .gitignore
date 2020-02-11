@@ -4,6 +4,6 @@
 scripts/*png
 scripts/*jpg
 scripts/*pdf
-.vim/.netrwhist
+vim/.netrwhist
 **/*.bak
-.vim/plugged
+vim/plugged
