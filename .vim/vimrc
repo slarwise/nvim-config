@@ -146,12 +146,12 @@ nnoremap <LEADER>f :find **/
 nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
 nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
 
-nnoremap <LEADER>dm :SendMakeCmd <CR>
-nnoremap <LEADER>dd :SendLine <CR>
-nnoremap <silent> <LEADER>d :set operatorfunc=SendSelection<CR>g@
-nnoremap <LEADER>de :SendKeys "ENTER" <CR>
-nnoremap <LEADER>dl :SendKeys "C-l" <CR>
-nnoremap <LEADER>du :SendKeys "C-u" <CR>
+nnoremap <LEADER>pm :SendMakeCmd <CR>
+nnoremap <LEADER>pp :SendLine <CR>
+nnoremap <silent> <LEADER>p :set operatorfunc=SendSelection<CR>g@
+nnoremap <LEADER>pe :SendKeys "ENTER" <CR>
+nnoremap <LEADER>pl :SendKeys "C-l" <CR>
+nnoremap <LEADER>pu :SendKeys "C-u" <CR>
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
