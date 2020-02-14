@@ -121,6 +121,17 @@ nnoremap qö q:
 
 nnoremap <LEADER>th :set hlsearch!<CR>
 nnoremap <LEADER>tb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
+let g:is_zen = 0
+function! Zen()
+    if g:is_zen
+        set number relativenumber laststatus=2 ruler
+        let g:is_zen = 0
+    else
+        set nonumber norelativenumber laststatus=0 noruler
+        let g:is_zen = 1
+    endif
+endfunction
+nnoremap <LEADER>tz :call Zen() <CR>
 
 nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
