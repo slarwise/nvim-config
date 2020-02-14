@@ -125,10 +125,15 @@ let g:is_zen = 0
 function! ToggleZen()
     if g:is_zen
         set number relativenumber laststatus=2 ruler
+        if exists("$TMUX")
+            silent !tmux set status on
+        endif
         let g:is_zen = 0
     else
         set nonumber norelativenumber laststatus=0 noruler
-        echo ''
+        if exists("$TMUX")
+            silent !tmux set status off
+        endif
         let g:is_zen = 1
     endif
 endfunction
