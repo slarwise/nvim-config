@@ -45,9 +45,6 @@ set ttimeoutlen=0 " Delay after pressing ESC and another character
 set path=.,, " Search relative to current dir and in current dir
 set path+=/Users/arvidbjurklint/Dropbox/Chalmers/
 set path+=/Users/arvidbjurklint/Dropbox/dotfiles/
-set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.bin/
-set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.config/
-set path+=/Users/arvidbjurklint/Dropbox/dotfiles/.vim/
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
 set wildignorecase
 set nohlsearch
