@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'slarwise/vim-tmux-cycle'
     Plug 'slarwise/vim-lifeline'
     Plug 'slarwise/vim-tmux-send'
+    Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " gruvbox
@@ -121,6 +122,7 @@ nnoremap qö q:
 
 nnoremap <LEADER>th :set hlsearch!<CR>
 nnoremap <LEADER>tb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
+nnoremap <silent><LEADER>tl :Limelight!! 0.8 <CR>
 let g:is_zen = 0
 function! ToggleZen()
     if g:is_zen
