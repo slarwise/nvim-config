@@ -117,6 +117,7 @@ nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 nnoremap <LEADER>Q :qall<CR>
 noremap ö :
+nnoremap qö q:
 
 nnoremap <LEADER>th :set hlsearch!<CR>
 nnoremap <LEADER>tb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
