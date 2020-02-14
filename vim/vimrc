@@ -99,11 +99,7 @@ augroup END
 "}}}
 
 " Display{{{
-if trim(system("get-background-mode")) ==# "dark"
-    set background=dark
-else
-    set background=light
-endif
+set background=light
 
 if exists("$COLORTERM")
     set termguicolors
