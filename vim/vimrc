@@ -71,7 +71,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
     Plug 'slarwise/vim-tmux-cycle'
-    Plug 'slarwise/vim-rounded-statusline'
+    Plug 'slarwise/vim-lifeline'
     Plug 'slarwise/vim-tmux-send'
 call plug#end()
 
