@@ -155,7 +155,7 @@ nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
 nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/.vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
-nnoremap <LEADER>f :find **/
+nnoremap <LEADER>f :find **/**<LEFT>
 
 nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
 nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
