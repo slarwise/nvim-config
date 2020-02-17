@@ -6,7 +6,7 @@ if has('nvim')
     set fillchars=eob:\     " Remove the tilde at lines at end of buffer
     set inccommand=nosplit " Show preview of what will happen on e.g. :s
 else
-    set nocompatible " Use Vim settings rather than Vi settings
+    " set nocompatible " Use Vim settings rather than Vi settings
     set backspace+=indent,eol,start " Allow backspace in insert mode
     set incsearch " Find the next search as we type search
     set encoding=utf-8 " Text encoding
@@ -31,7 +31,7 @@ endif
 
 set langmenu=none " Disable localized menus
 filetype plugin indent on
-set smartindent " Takes the indent of above line, useful for regular txt-files
+" set smartindent " Takes the indent of above line, useful for regular txt-files
 set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
@@ -57,6 +57,7 @@ set shortmess=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set scrolloff=2 " Minimal number of lines to keep above and below the cursor
+let g:python3_host_prog = "/usr/local/bin/python3"
 "}}}
 
 " Plugins {{{
@@ -152,7 +153,7 @@ nnoremap <LEADER>cn :cprev <CR>
 nnoremap <LEADER>sm :source ~/.vim/vimrc <CR>
 nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
 
-nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/.vim/after/ftplugin/
+nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :find **/
