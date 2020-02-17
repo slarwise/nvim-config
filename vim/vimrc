@@ -101,9 +101,8 @@ augroup compile_on_write
 augroup END
 "}}}
 
-" Display{{{
+" Colors {{{
 set background=light
-
 if exists("$COLORTERM")
     set termguicolors
     colorscheme gruvbox
@@ -169,4 +168,4 @@ nnoremap <LEADER>pl :SendKeys "C-l" <CR>
 nnoremap <LEADER>pu :SendKeys "C-u" <CR>
 "}}}
 
-" vim:set foldmethod=marker foldlevel=0:
+" vim:set foldmethod=marker:
