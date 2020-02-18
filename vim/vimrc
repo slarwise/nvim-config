@@ -125,7 +125,7 @@ nnoremap qö q:
 nnoremap <LEADER>th :set hlsearch!<CR>
 nnoremap <LEADER>tb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 nnoremap <silent><LEADER>tl :Limelight!! 0.8 <CR>
-nnoremap <LEADER>tz :Zen <CR>
+nnoremap <silent><LEADER>tz :Zen <CR>
 
 nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
