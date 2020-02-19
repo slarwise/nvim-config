@@ -150,6 +150,7 @@ nnoremap <silent> <LEADER>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
 nnoremap <LEADER>pe :SendKeys "ENTER" <CR>
 nnoremap <LEADER>pl :SendKeys "C-l" <CR>
 nnoremap <LEADER>pu :SendKeys "C-u" <CR>
+nnoremap <LEADER>pc :SendKeys "C-c" <CR>
 "}}}
 
 " vim:set foldmethod=marker:
