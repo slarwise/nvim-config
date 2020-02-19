@@ -7,7 +7,6 @@ if has('nvim')
     set inccommand=nosplit " Show preview of what will happen on e.g. :s
     let g:python3_host_prog = "/usr/local/bin/python3"
 else
-    " set nocompatible " Use Vim settings rather than Vi settings
     set backspace+=indent,eol,start " Allow backspace in insert mode
     set incsearch " Find the next search as we type search
     set encoding=utf-8 " Text encoding
@@ -32,7 +31,6 @@ endif
 
 set langmenu=none " Disable localized menus
 filetype plugin indent on
-" set smartindent " Takes the indent of above line, useful for regular txt-files
 set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
