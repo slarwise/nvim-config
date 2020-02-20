@@ -127,9 +127,9 @@ nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
 nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/vim/after/ftplugin/
 nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
-nnoremap <LEADER>f :find **/
+nnoremap <LEADER>f :silent find **/
 
-" Swedish version of vim-unimpaired, åä instead of [], ää toggles
+" Swedish version of vim-unimpaired, åä instead of [], Ä toggles
 nnoremap åo O<ESC>
 nnoremap äo o<ESC>
 
@@ -137,43 +137,46 @@ nnoremap åa :previous <CR>
 nnoremap äa :next <CR>
 nnoremap åA :first <CR>
 nnoremap äA :last <CR>
-nnoremap ääa :args <CR>
+nnoremap Äa :args <CR>
 
 nnoremap åc :cprevious <CR>
 nnoremap äc :cnext <CR>
 nnoremap åC :cfirst <CR>
 nnoremap äC :clast <CR>
-nnoremap <silent> ääc
+nnoremap <silent> Äc
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
 
-nnoremap ääb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
-nnoremap ääh :set hlsearch! <CR>
+nnoremap Äb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
+nnoremap Äh :set hlsearch! <CR>
 
-function! GetNextPrevFile(direction)
+function! GoToFileInCurrentDir(direction)
     if !len(expand('%'))
         return
     endif
-    let l:cmd = 'find ' . expand('%:h') . '/ -type f -depth 1'
-    let l:output = systemlist(l:cmd)
-    let l:files = sort(l:output)
-    let l:files = map(l:files, {_, val -> fnamemodify(val, ':t')})
-    let l:current_index = index(l:files, expand('%:t'))
-    if l:current_index ==# -1
+    let l:files = expand(expand('%:h') . '/*', 1, 1)
+    let l:dot_files = expand(expand('%:h') . '/.*', 1, 1)
+    let l:files += l:dot_files
+    call filter(l:files, {_, val -> !isdirectory(val)})
+    call sort(l:files)
+    if a:direction ==# 'first'
+        silent execute 'edit ' . l:files[0]
+        return
+    elseif a:direction ==# 'last'
+        silent execute 'edit ' . l:files[-1]
         return
     endif
-    if a:direction ==# 'previous'
-        if l:current_index > 0
-            execute 'edit ' . expand('%:h') . '/' . l:files[l:current_index-1]
-        endif
-    elseif a:direction ==# 'next'
-        if l:current_index < len(l:files)-1
-            execute 'edit ' . expand('%:h') . '/' . l:files[l:current_index+1]
-        endif
+    let l:current_index = index(l:files, expand('%'))
+    if a:direction ==# 'previous' && l:current_index > 0
+        silent execute 'edit ' . l:files[current_index - 1]
+    elseif a:direction ==# 'next' && l:current_index < len(l:files)-1
+        silent execute 'edit ' . l:files[current_index + 1]
     endif
 endfunction
-nnoremap åf :call GetNextPrevFile('previous') <CR>
-nnoremap äf :call GetNextPrevFile('next') <CR>
+nnoremap åf :call GoToFileInCurrentDir('previous') <CR>
+nnoremap äf :call GoToFileInCurrentDir('next') <CR>
+nnoremap åF :call GoToFileInCurrentDir('first') <CR>
+nnoremap äF :call GoToFileInCurrentDir('last') <CR>
 
 " Plugin mappings
 nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
@@ -188,8 +191,8 @@ nnoremap <LEADER>pu :SendKeys "C-u" <CR>
 nnoremap <LEADER>pc :SendKeys "C-c" <CR>
 nnoremap <LEADER>pd :SendKeys "C-d" <CR>
 
-nnoremap <silent>ääl :Limelight!! 0.8 <CR>
-nnoremap <silent>ääz :Zen <CR>
+nnoremap <silent>Äl :Limelight!! 0.8 <CR>
+nnoremap <silent>Äz :Zen <CR>
 
 nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
