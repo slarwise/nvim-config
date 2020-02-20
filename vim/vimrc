@@ -195,4 +195,4 @@ nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
 "}}}
 
-" vim:set foldmethod=marker:
+" vim:set foldmethod=marker foldlevel=0:
