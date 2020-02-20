@@ -154,8 +154,8 @@ function! GoToFileInCurrentDir(direction)
     if !len(expand('%'))
         return
     endif
-    let l:files = expand(expand('%:h') . '/*', 1, 1)
-    let l:dot_files = expand(expand('%:h') . '/.*', 1, 1)
+    let l:files = expand(expand('%:p:h') . '/*', 1, 1)
+    let l:dot_files = expand(expand('%:p:h') . '/.*', 1, 1)
     let l:files += l:dot_files
     call filter(l:files, {_, val -> !isdirectory(val)})
     call sort(l:files)
@@ -166,7 +166,7 @@ function! GoToFileInCurrentDir(direction)
         silent execute 'edit ' . l:files[-1]
         return
     endif
-    let l:current_index = index(l:files, expand('%'))
+    let l:current_index = index(l:files, expand('%:p'))
     if a:direction ==# 'previous' && l:current_index > 0
         silent execute 'edit ' . l:files[current_index - 1]
     elseif a:direction ==# 'next' && l:current_index < len(l:files)-1
