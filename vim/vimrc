@@ -188,8 +188,8 @@ nnoremap <LEADER>pu :SendKeys "C-u" <CR>
 nnoremap <LEADER>pc :SendKeys "C-c" <CR>
 nnoremap <LEADER>pd :SendKeys "C-d" <CR>
 
-nnoremap <silent><LEADER>tl :Limelight!! 0.8 <CR>
-nnoremap <silent><LEADER>tz :Zen <CR>
+nnoremap <silent>ääl :Limelight!! 0.8 <CR>
+nnoremap <silent>ääz :Zen <CR>
 
 nnoremap <LEADER>m :Neomake <CR>
 nnoremap <LEADER>M :Neomake! <CR>
