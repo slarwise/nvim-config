@@ -151,6 +151,9 @@ nnoremap ääb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 nnoremap ääh :set hlsearch! <CR>
 
 function! GetNextPrevFile(direction)
+    if !expand('%')
+        return
+    endif
     let l:cmd = 'find ' . expand('%:h') . '/ -type f -depth 1'
     let l:output = systemlist(l:cmd)
     let l:files = sort(l:output)
