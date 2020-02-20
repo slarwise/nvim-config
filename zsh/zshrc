@@ -21,6 +21,9 @@ export PATH=$PATH:~/.bin
 export LANG="sv_SE.UTF-8"
 export LC_ALL="sv_SE.UTF-8"
 
+setopt autocd # Don't have to write cd before dir
+setopt globstarshort # Writing ** means **/*
+
 alias dots="cd ~/Dropbox/dotfiles/"
 alias chalm="cd ~/Dropbox/Chalmers/"
 alias context-commands="open ~/Dropbox/Chalmers/report-writing/context/docs/setup-en.pdf"
