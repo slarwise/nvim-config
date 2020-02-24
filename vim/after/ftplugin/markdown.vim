@@ -26,3 +26,8 @@ nnoremap <buffer> <LOCALLEADER>o :!open %:r.pdf<CR>
 let b:compile_on_write=0
 setlocal foldexpr=MarkdownLevel()
 setlocal foldmethod=expr
+
+augroup NoMarkdownCodeHL
+    autocmd!
+    autocmd BufEnter *.md syn clear markdownCodeBlock
+augroup END
