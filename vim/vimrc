@@ -71,10 +71,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
     Plug 'slarwise/vim-tmux-cycle'
-    Plug 'slarwise/vim-lifeline'
     Plug 'slarwise/vim-tmux-send'
-    Plug 'junegunn/limelight.vim'
     Plug 'slarwise/vim-zen'
+    Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " gruvbox
@@ -130,9 +129,6 @@ nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 nnoremap <LEADER>f :silent find **/
 
 " Swedish version of vim-unimpaired, åä instead of [], Ä toggles
-nnoremap åo O<ESC>
-nnoremap äo o<ESC>
-
 nnoremap åa :previous <CR>
 nnoremap äa :next <CR>
 nnoremap åA :first <CR>
@@ -149,19 +145,20 @@ nnoremap <silent> Äc
 
 nnoremap Äb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 nnoremap Äh :set hlsearch! <CR>
+nnoremap Ä- :set cursorline! <CR>
 
+" Plugin mappings
 nnoremap åf :call go_to_file_in_current_dir#go_to('previous') <CR>
 nnoremap äf :call go_to_file_in_current_dir#go_to('next') <CR>
 nnoremap åF :call go_to_file_in_current_dir#go_to('first') <CR>
 nnoremap äF :call go_to_file_in_current_dir#go_to('last') <CR>
 
-" Plugin mappings
 nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
 nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
 
 nnoremap <LEADER>pm :SendMakeCmd <CR>
 nnoremap <LEADER>pp :SendLine <CR>
-nnoremap <silent> <LEADER>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
+nnoremap <silent><LEADER>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
 nnoremap <LEADER>pe :SendKeys "ENTER" <CR>
 nnoremap <LEADER>pl :SendKeys "C-l" <CR>
 nnoremap <LEADER>pu :SendKeys "C-u" <CR>
