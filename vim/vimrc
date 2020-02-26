@@ -128,6 +128,10 @@ nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <LEADER>f :silent find **/
 
+set wildcharm=<Tab>
+cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<C-j>"
+cnoremap <expr> <C-k> wildmenumode() ? "\<Up>\<Tab>" : "\<C-k>"
+
 " Swedish version of vim-unimpaired, åä instead of [], Ä toggles
 nnoremap åa :previous <CR>
 nnoremap äa :next <CR>
@@ -142,6 +146,11 @@ nnoremap äC :clast <CR>
 nnoremap <silent> Äc
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
+
+nnoremap ål :lprevious <CR>
+nnoremap äl :lnext <CR>
+nnoremap åL :lfirst <CR>
+nnoremap äL :llast <CR>
 
 nnoremap Äb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 nnoremap Äh :set hlsearch! <CR>
