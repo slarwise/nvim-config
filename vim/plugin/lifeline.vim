@@ -77,6 +77,10 @@ function! LifelineGetFiletypeSymbol() "{{{
         return '  '
     elseif &filetype ==# 'markdown'
         return '  '
+    elseif &filetype ==# 'conf' || &filetype ==# 'tmux'
+        return '  '
+    elseif &filetype ==# 'zsh' || &filetype ==# 'sh'
+        return '  '
     else
         return toupper(&filetype) . ' '
     endif
