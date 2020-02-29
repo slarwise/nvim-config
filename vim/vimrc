@@ -132,6 +132,8 @@ set wildcharm=<Tab>
 cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<C-j>"
 cnoremap <expr> <C-k> wildmenumode() ? "\<Up>\<Tab>" : "\<C-k>"
 
+nnoremap <LEADER>cm :execute ':%s/' . @/ . '//gn' <CR>
+
 " Swedish version of vim-unimpaired, åä instead of [], Ä toggles
 nnoremap åa :previous <CR>
 nnoremap äa :next <CR>
