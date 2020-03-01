@@ -55,7 +55,6 @@ set splitbelow splitright " Open new windows below the current and to the right
 set shortmess=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
-set scrolloff=2 " Minimal number of lines to keep above and below the cursor
 "}}}
 
 " Plugins {{{
