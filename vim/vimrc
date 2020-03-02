@@ -112,26 +112,30 @@ endif
 let mapleader=" "
 let maplocalleader="-"
 
+nnoremap Y y$
+
 nnoremap <LEADER>w :w<CR>
 nnoremap <LEADER>q :q<CR>
 nnoremap <LEADER>Q :qall<CR>
+
+" Make having a Swedish keyboard layout easier
 noremap ö :
 nnoremap qö q:
+noremap , ;
+noremap ; ,
 
 nnoremap <LEADER>sm :source ~/.vim/vimrc <CR>
 nnoremap <LEADER>ss :source % <CR>
 
 nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
-nnoremap <LEADER>ef :e ~/Dropbox/dotfiles/vim/after/ftplugin/
-nnoremap <LEADER>et :sp ~/Dropbox/Chalmers/todo.md<CR>
+nnoremap <LEADER>ef :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
+nnoremap <LEADER>et :split ~/Dropbox/Chalmers/todo.md<CR>
 
-nnoremap <LEADER>f :silent find **/
+nnoremap <LEADER>f :find **/
 
 set wildcharm=<Tab>
 cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<C-j>"
 cnoremap <expr> <C-k> wildmenumode() ? "\<Up>\<Tab>" : "\<C-k>"
-
-nnoremap <LEADER>cm :execute ':%s/' . @/ . '//gn' <CR>
 
 " Swedish version of vim-unimpaired, åä instead of [], Ä toggles
 nnoremap åa :previous <CR>
