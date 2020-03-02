@@ -51,5 +51,6 @@ yabai -m rule --add app="Systeminställningar" border=off
 yabai -m rule --add app="Systeminställningar" manage=off
 yabai -m rule --add app="Förhandsvisning" border=off
 yabai -m rule --add app="Spotify" border=off
+yabai -m rule --add app="Word" border=off
 
 echo "yabai configuration loaded.."
