@@ -35,8 +35,6 @@ set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
 set softtabstop=4 " Actual length when using tabs
-set ignorecase " Ignore case when searching...
-set smartcase " ...unless we type a capital
 if has('clipboard')
     set clipboard=unnamed " Yank/paste automatically to/from system clipboard
 endif
@@ -52,7 +50,7 @@ set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words 
 set splitbelow splitright " Open new windows below the current and to the right
-set shortmess=I " Disables intro on startup
+set shortmess+=I " Disables intro on startup
 set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 "}}}
