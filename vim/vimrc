@@ -109,20 +109,22 @@ endif
 "}}}
 
 " Mappings{{{
-let mapleader=" "
-let maplocalleader="-"
-
 nnoremap Y y$
+
+" Make having a Swedish keyboard layout easier
+let mapleader="ö"
+noremap Ö :
+noremap qö q:
+noremap , ;
+noremap ; ,
+noremap - /
+noremap _ ?
+noremap q- q/
+noremap ¨ ^
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :qall<CR>
-
-" Make having a Swedish keyboard layout easier
-noremap ö :
-nnoremap qö q:
-noremap , ;
-noremap ; ,
 
 nnoremap <leader>sm :source ~/.vim/vimrc <CR>
 nnoremap <leader>ss :source % <CR>

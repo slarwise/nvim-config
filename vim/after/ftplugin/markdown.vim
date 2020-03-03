@@ -22,7 +22,6 @@ function! MarkdownLevel()
 endfunction
 
 setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
-nnoremap <buffer> <LOCALLEADER>o :!open %:r.pdf<CR>
 let b:compile_on_write=0
 setlocal foldexpr=MarkdownLevel()
 setlocal foldmethod=expr
