@@ -114,9 +114,9 @@ let maplocalleader="-"
 
 nnoremap Y y$
 
-nnoremap <LEADER>w :w<CR>
-nnoremap <LEADER>q :q<CR>
-nnoremap <LEADER>Q :qall<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :qall<CR>
 
 " Make having a Swedish keyboard layout easier
 noremap ö :
@@ -124,14 +124,14 @@ nnoremap qö q:
 noremap , ;
 noremap ; ,
 
-nnoremap <LEADER>sm :source ~/.vim/vimrc <CR>
-nnoremap <LEADER>ss :source % <CR>
+nnoremap <leader>sm :source ~/.vim/vimrc <CR>
+nnoremap <leader>ss :source % <CR>
 
-nnoremap <LEADER>em :edit ~/.vim/vimrc <CR>
-nnoremap <LEADER>ef :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
-nnoremap <LEADER>et :split ~/Dropbox/Chalmers/todo.md<CR>
+nnoremap <leader>em :edit ~/.vim/vimrc <CR>
+nnoremap <leader>ef :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
+nnoremap <leader>et :split ~/Dropbox/Chalmers/todo.md<CR>
 
-nnoremap <LEADER>f :find **/
+nnoremap <leader>f :find **/
 
 set wildcharm=<Tab>
 cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<C-j>"
@@ -170,20 +170,20 @@ nnoremap äF :call go_to_file_in_current_dir#go_to('last') <CR>
 nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
 nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
 
-nnoremap <LEADER>pm :SendMakeCmd <CR>
-nnoremap <LEADER>pp :SendLine <CR>
-nnoremap <silent><LEADER>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
-nnoremap <LEADER>pe :SendKeys "ENTER" <CR>
-nnoremap <LEADER>pl :SendKeys "C-l" <CR>
-nnoremap <LEADER>pu :SendKeys "C-u" <CR>
-nnoremap <LEADER>pc :SendKeys "C-c" <CR>
-nnoremap <LEADER>pd :SendKeys "C-d" <CR>
+nnoremap <leader>pm :SendMakeCmd <CR>
+nnoremap <leader>pp :SendLine <CR>
+nnoremap <silent><leader>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
+nnoremap <leader>pe :SendKeys "ENTER" <CR>
+nnoremap <leader>pl :SendKeys "C-l" <CR>
+nnoremap <leader>pu :SendKeys "C-u" <CR>
+nnoremap <leader>pc :SendKeys "C-c" <CR>
+nnoremap <leader>pd :SendKeys "C-d" <CR>
 
 nnoremap <silent>Äl :Limelight!! 0.8 <CR>
 nnoremap <silent>Äz :Zen <CR>
 
-nnoremap <LEADER>m :Neomake <CR>
-nnoremap <LEADER>M :Neomake! <CR>
+nnoremap <leader>m :Neomake <CR>
+nnoremap <leader>M :Neomake! <CR>
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
