@@ -110,7 +110,7 @@ endif
 nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
-let mapleader="ö"
+let mapleader= "ö"
 noremap Ö :
 noremap qö q:
 noremap , ;
@@ -134,21 +134,21 @@ nnoremap <leader>et :split ~/Dropbox/Chalmers/todo.md<CR>
 nnoremap <leader>f :find **/
 
 set wildcharm=<Tab>
-cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<C-j>"
-cnoremap <expr> <C-k> wildmenumode() ? "\<Up>\<Tab>" : "\<C-k>"
+cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
+cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
 
-" Swedish version of vim-unimpaired, åä instead of [], Ä toggles
+" Swedish version of vim-unimpaired, åä instead of [], ää toggles
 nnoremap åa :previous <CR>
 nnoremap äa :next <CR>
 nnoremap åA :first <CR>
 nnoremap äA :last <CR>
-nnoremap Äa :args <CR>
+nnoremap ääa :args <CR>
 
 nnoremap åc :cprevious <CR>
 nnoremap äc :cnext <CR>
 nnoremap åC :cfirst <CR>
 nnoremap äC :clast <CR>
-nnoremap <silent> Äc
+nnoremap <silent> ääc
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
 
@@ -157,9 +157,9 @@ nnoremap äl :lnext <CR>
 nnoremap åL :lfirst <CR>
 nnoremap äL :llast <CR>
 
-nnoremap Äb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
-nnoremap Äh :set hlsearch! <CR>
-nnoremap Ä- :set cursorline! <CR>
+nnoremap ääb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
+nnoremap ääh :set hlsearch! <CR>
+nnoremap ää- :set cursorline! <CR>
 
 " Plugin mappings
 nnoremap åf :call go_to_file_in_current_dir#go_to('previous') <CR>
@@ -179,8 +179,8 @@ nnoremap <leader>pu :SendKeys "C-u" <CR>
 nnoremap <leader>pc :SendKeys "C-c" <CR>
 nnoremap <leader>pd :SendKeys "C-d" <CR>
 
-nnoremap <silent>Äl :Limelight!! 0.8 <CR>
-nnoremap <silent>Äz :Zen <CR>
+nnoremap <silent>ääl :Limelight!! 0.8 <CR>
+nnoremap <silent>ääz :Zen <CR>
 
 nnoremap <leader>m :Neomake <CR>
 nnoremap <leader>M :Neomake! <CR>
