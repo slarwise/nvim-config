@@ -121,13 +121,15 @@ nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
 let mapleader= "ö"
-noremap Ö :
-noremap qö q:
+nnoremap Ö :
+vnoremap Ö :
+nnoremap qö q:
+vnoremap qö q:
 noremap , ;
 noremap ; ,
 noremap - /
 noremap _ ?
-noremap q- q/
+nnoremap q- q/
 noremap ¨ ^
 
 nnoremap <leader>w :w<CR>
@@ -195,26 +197,26 @@ nnoremap <silent>ääz :Zen <CR>
 nnoremap <leader>m :Neomake <CR>
 nnoremap <leader>M :Neomake! <CR>
 
-nmap <f90> <Plug>Sneak_s
-xmap <f91> <Plug>Sneak_s
-omap <f92> <Plug>Sneak_s
-nmap <f93> <Plug>Sneak_S
-xmap <f94> <Plug>Sneak_S
-omap <f95> <Plug>Sneak_S
-nmap f <Plug>Sneak_f
-xmap f <Plug>Sneak_f
-omap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap F <Plug>Sneak_F
-omap F <Plug>Sneak_F
-nmap t <Plug>Sneak_t
-xmap t <Plug>Sneak_t
-omap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap T <Plug>Sneak_T
-omap T <Plug>Sneak_T
-nmap , <Plug>Sneak_;
-nmap ; <Plug>Sneak_,
+nnoremap <f90> <Plug>Sneak_s
+xnoremap <f91> <Plug>Sneak_s
+onoremap <f92> <Plug>Sneak_s
+nnoremap <f93> <Plug>Sneak_S
+xnoremap <f94> <Plug>Sneak_S
+onoremap <f95> <Plug>Sneak_S
+nnoremap f <Plug>Sneak_f
+xnoremap f <Plug>Sneak_f
+onoremap f <Plug>Sneak_f
+nnoremap F <Plug>Sneak_F
+xnoremap F <Plug>Sneak_F
+onoremap F <Plug>Sneak_F
+nnoremap t <Plug>Sneak_t
+xnoremap t <Plug>Sneak_t
+onoremap t <Plug>Sneak_t
+nnoremap T <Plug>Sneak_T
+xnoremap T <Plug>Sneak_T
+onoremap T <Plug>Sneak_T
+nnoremap , <Plug>Sneak_;
+nnoremap ; <Plug>Sneak_,
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
