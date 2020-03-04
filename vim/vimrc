@@ -97,6 +97,13 @@ augroup compile_on_write
                 \ Neomake! |
                 \ endif
 augroup END
+
+" sneak
+highlight link Sneak None
+augroup sneak_hl
+    autocmd!
+    autocmd ColorScheme * highlight link Sneak None
+augroup END
 "}}}
 
 " Colors {{{
@@ -189,30 +196,25 @@ nnoremap <leader>m :Neomake <CR>
 nnoremap <leader>M :Neomake! <CR>
 
 nmap <f90> <Plug>Sneak_s
-nmap <f91> <Plug>Sneak_S
-xmap <f93> <Plug>Sneak_s
+xmap <f91> <Plug>Sneak_s
+omap <f92> <Plug>Sneak_s
+nmap <f93> <Plug>Sneak_S
 xmap <f94> <Plug>Sneak_S
-omap <f95> <Plug>Sneak_s
-omap <f96> <Plug>Sneak_S
+omap <f95> <Plug>Sneak_S
 nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
 xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
 omap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap F <Plug>Sneak_F
 omap F <Plug>Sneak_F
 nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
 xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap T <Plug>Sneak_T
 omap T <Plug>Sneak_T
-map , <Plug>Sneak_;
-map ; <Plug>Sneak_,
-highlight link Sneak None
-augroup sneak_hl
-    autocmd!
-    autocmd ColorScheme * highlight link Sneak None
-augroup END
+nmap , <Plug>Sneak_;
+nmap ; <Plug>Sneak_,
 "}}}
 
 " vim:set foldmethod=marker foldlevel=0:
