@@ -75,6 +75,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'slarwise/vim-zen'
     Plug 'junegunn/limelight.vim'
     Plug 'justinmk/vim-sneak'
+    Plug 'tpope/vim-repeat'
 call plug#end()
 
 " gruvbox
