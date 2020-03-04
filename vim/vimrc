@@ -55,6 +55,7 @@ set number " Show line number on the left
 set relativenumber " Show numbers relative to current line number
 set ignorecase " Ignore cases in search, substitute
 set smartcase " Unless typing a capital letter
+set nojoinspaces " Do not put two spaces after [.!?] when formatting
 "}}}
 
 " Plugins {{{
