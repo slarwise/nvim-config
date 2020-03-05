@@ -22,6 +22,12 @@ def create_image(input_path, colors, output_path):
             'magenta': [143, 63, 113],
             'cyan': [66, 123, 88],
             'white': [124, 111, 100],
+            'brightred': [204, 36, 29],
+            'brightgreen': [152, 151, 26],
+            'brightyellow': [215, 153, 33],
+            'brightblue': [69, 133, 136],
+            'brightmagenta': [177, 98, 134],
+            'brightcyan': [104, 157, 106],
             }
 
     color_scheme = np.zeros((len(colors), 3))
