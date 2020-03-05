@@ -4,9 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-def color_distance(c1, c2):
-    return (c1[0]-c2[0])**2 + (c2[1]-c2[1])**2 + (c2[1]-c2[1])**2
-
 def create_image(input_path, colors, output_path):
     img = mpimg.imread(input_path)
     img = img[:, :, 0:3]
