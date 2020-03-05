@@ -93,3 +93,9 @@ alt - p : yabai -m window --toggle sticky;\
 # change layout of desktop
 ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
+
+# Make floating window fill left-most 4/10 of the screen
+shift + alt - left : yabai -m window --grid 10:10:0:0:4:10
+
+# Make floating window fill right-most 4/10 of the screen
+shift + alt - right: yabai -m window --grid 10:10:6:0:4:10
