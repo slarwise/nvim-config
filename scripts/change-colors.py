@@ -5,23 +5,36 @@ import matplotlib.image as mpimg
 def color_distance(c1, c2):
     return (c1[0]-c2[0])**2 + (c2[1]-c2[1])**2 + (c2[1]-c2[1])**2
 
-img = mpimg.imread('/Users/arvidbjurklint/Dropbox/dotfiles/scripts/catalina.png')
+# img = mpimg.imread('/Users/arvidbjurklint/Dropbox/dotfiles/scripts/catalina.png')
+img = mpimg.imread('/Users/arvidbjurklint/Dropbox/dotfiles/scripts/win95gruvbox.png')
 img = img[:, :, 0:3]
 width, height, channels = img.shape
 
 new_img = np.zeros(img.shape)
 
+# color_scheme = np.array([
+#         [242, 229, 188], # background
+#        # [60, 56, 54], # foreground
+#         [251, 241, 199], # black
+#         [157, 0, 6], # red
+#         # [121, 116, 14], # green
+#         [181, 118, 20], # yellow
+#         # [7, 102, 120], # blue
+#         # [143, 63, 113], # magenta
+#         # [66, 123, 88], # cyan
+#         # [124, 111, 100], # white
+    # ])
 color_scheme = np.array([
         [242, 229, 188], # background
-       # [60, 56, 54], # foreground
-        [251, 241, 199], # black
-        [157, 0, 6], # red
+        [60, 56, 54], # foreground
+        # [251, 241, 199], # black
+        # [157, 0, 6], # red
         # [121, 116, 14], # green
         [181, 118, 20], # yellow
-        # [7, 102, 120], # blue
+        [7, 102, 120], # blue
         # [143, 63, 113], # magenta
         # [66, 123, 88], # cyan
-        # [124, 111, 100], # white
+        [124, 111, 100], # white
     ])
 color_scheme = color_scheme / 255
 
