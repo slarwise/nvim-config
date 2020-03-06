@@ -102,3 +102,16 @@ shift + ctrl - c: yabai -m window --grid 10:10:6:0:4:10
 # Move to previous/next desktop
 shift + ctrl - h: skhd --key "ctrl - left"
 shift + ctrl - l: skhd --key "ctrl - right"
+
+# App specific hotkeys
+ctrl - j [
+    "Skim" : skhd --key "down"
+    "Förhandsvisning": skhd --key "down"
+    "Safari": skhd --key "down"
+]
+
+ctrl - k [
+    "Skim" : skhd --key "up"
+    "Förhandsvisning": skhd --key "up"
+    "Safari": skhd --key "up"
+]
