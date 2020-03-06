@@ -1,4 +1,18 @@
-# open terminal
+# yabai shortcuts
+#
+# Current leaders:
+#   - alt: Focus windows, toggle float, rotate windows
+#   - shift + alt: Increase window size
+#   - shift + cmd: Decrease window size, send to other space
+#   - shift + ctrl: Move window
+#
+# Unused keys:
+#   - alt - [[w,a,s,d], [x]]
+#   - shift + alt - [z,x,c]
+#   - shift + cmd - x
+#   - shift + ctrl - [j,k]
+#
+#   Maybe let spaces be z,x,c
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -91,17 +105,20 @@ ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 
 # Make floating window fill left-most 4/10 of the screen
-shift + ctrl - z : yabai -m window --grid 10:10:0:0:4:10
+shift + alt - z : yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:0:0:4:10
 
 # Make floating window fill middle 4/10 of the screen
-shift + ctrl - x : yabai -m window --grid 10:10:3:0:4:10
+shift + alt - x : yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:3:0:4:10
 
 # Make floating window fill right-most 4/10 of the screen
-shift + ctrl - c: yabai -m window --grid 10:10:6:0:4:10
+shift + alt - c: yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:6:0:4:10
 
 # Move to previous/next desktop
-shift + ctrl - h: skhd --key "ctrl - left"
-shift + ctrl - l: skhd --key "ctrl - right"
+alt - z : skhd --key "ctrl - left"
+alt - c : skhd --key "ctrl - right"
 
 # App specific hotkeys
 ctrl - j [
