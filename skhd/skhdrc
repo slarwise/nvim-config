@@ -13,6 +13,30 @@
 #   - shift + ctrl - [j,k]
 #
 #   Maybe let spaces be z,x,c
+#
+# Areas of usage:
+#   + Focus windows, spaces: alt
+#       + focus windows: alt - [h,j,k,l]
+#       + focus prev/next space: alt - [p,n]
+#       + toggle window parent zoom: alt - d
+#       + toggle window fullscreen mode: alt - f
+#       + toggle float and center: alt - t
+#       + toggle float and fill 4/10 of left/center/rightmost screen: alt -
+#               [z,x,c]
+#   + Move windows around in the tree, rotate etc: shift + cmd, shift + alt
+#       + move window: shift + cmd - [h,j,k,l]
+#       + swap window: shift + alt - [h,j,k,l]
+#       + rotate: shift + cmd - r
+#       + send to prev/next space: shift + cmd [p,n]
+#       + mirror tree x/y-axis: shift + cmd - [x,y]
+#       + toggle window split type: shift + cmd - e
+#   + Change size of windows
+#       + increase size: shift + alt - [a,s,w,d]
+#       + decrease size: shift + cmd - [a,s,w,d]
+#       + balance size: shift + alt - 0
+#   + Move floating windows
+#       + shift + ctrl - [h,j,k,l]
+#       
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -20,30 +44,59 @@ alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
-# swap window
-shift + alt - h : yabai -m window --swap west
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - l : yabai -m window --swap east
+# focus space
+alt - n : skhd --key "ctrl - right"
+alt - p : skhd --key "ctrl - left"
 
-# move window
+# toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# toggle window fullscreen zoom
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window split type
+shift + cmd - e : yabai -m window --toggle split
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+# Make floating window fill left-most 4/10 of the screen
+alt - z : yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:0:0:4:10
+
+# Make floating window fill middle 4/10 of the screen
+alt - x : yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:3:0:4:10
+
+# Make floating window fill right-most 4/10 of the screen
+alt - c: yabai -m window --toggle float;\
+          yabai -m window --grid 10:10:6:0:4:10
+
+# move window in tree
 shift + cmd - h : yabai -m window --warp west
 shift + cmd - j : yabai -m window --warp south
 shift + cmd - k : yabai -m window --warp north
 shift + cmd - l : yabai -m window --warp east
 
-# balance size of windows
-shift + alt - 0 : yabai -m space --balance
+# swap window in tree
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# rotate tree
+shift + cmd - r : yabai -m space --rotate 90
 
 # send window to desktop and follow focus
-shift + cmd - c : yabai -m window --space next; skhd --key "ctrl - right"
-shift + cmd - z : yabai -m window --space prev; skhd --key "ctrl - left"
+shift + cmd - n : yabai -m window --space next; skhd --key "ctrl - right"
+shift + cmd - p : yabai -m window --space prev; skhd --key "ctrl - left"
 
-# move window
-shift + ctrl - a : yabai -m window --move rel:-40:0
-shift + ctrl - s : yabai -m window --move rel:0:40
-shift + ctrl - w : yabai -m window --move rel:0:-40
-shift + ctrl - d : yabai -m window --move rel:40:0
+# mirror tree y-axis
+shift + cmd - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+shift + cmd - x : yabai -m space --mirror x-axis
 
 # increase window size
 shift + alt - a : yabai -m window --resize left:-40:0
@@ -57,68 +110,14 @@ shift + cmd - s : yabai -m window --resize bottom:0:-40
 shift + cmd - w : yabai -m window --resize top:0:40
 shift + cmd - d : yabai -m window --resize right:-40:0
 
-# rotate tree
-alt - r : yabai -m space --rotate 90
+# balance size of windows
+shift + alt - 0 : yabai -m space --balance
 
-# mirror tree y-axis
-alt - y : yabai -m space --mirror y-axis
-
-# mirror tree x-axis
-alt - x : yabai -m space --mirror x-axis
-
-# toggle desktop offset
-alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
-
-# toggle window parent zoom
-alt - d : yabai -m window --toggle zoom-parent
-
-# toggle window fullscreen zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
-
-# toggle window native fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
-
-# toggle window border
-shift + alt - b : yabai -m window --toggle border
-
-# toggle window split type
-alt - e : yabai -m window --toggle split
-
-# float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
-
-# toggle sticky (show on all spaces)
-alt - s : yabai -m window --toggle sticky
-
-# toggle topmost (keep above other windows)
-alt - o : yabai -m window --toggle topmost
-
-# toggle sticky(+float), topmost, border and picture-in-picture
-alt - p : yabai -m window --toggle sticky;\
-          yabai -m window --toggle topmost;\
-          yabai -m window --toggle border;\
-          yabai -m window --toggle pip
-
-# change layout of desktop
-ctrl + alt - a : yabai -m space --layout bsp
-ctrl + alt - d : yabai -m space --layout float
-
-# Make floating window fill left-most 4/10 of the screen
-shift + alt - z : yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:0:0:4:10
-
-# Make floating window fill middle 4/10 of the screen
-shift + alt - x : yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:3:0:4:10
-
-# Make floating window fill right-most 4/10 of the screen
-shift + alt - c: yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:6:0:4:10
-
-# Move to previous/next desktop
-alt - z : skhd --key "ctrl - left"
-alt - c : skhd --key "ctrl - right"
+# move window
+shift + ctrl - h : yabai -m window --move rel:-40:0
+shift + ctrl - j : yabai -m window --move rel:0:40
+shift + ctrl - k : yabai -m window --move rel:0:-40
+shift + ctrl - l : yabai -m window --move rel:40:0
 
 # App specific hotkeys
 ctrl - j [
