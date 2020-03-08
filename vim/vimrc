@@ -180,8 +180,15 @@ nnoremap äf :call go_to_file_in_current_dir#go_to('next') <CR>
 nnoremap åF :call go_to_file_in_current_dir#go_to('first') <CR>
 nnoremap äF :call go_to_file_in_current_dir#go_to('last') <CR>
 
-nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
-nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
+if exists("$TMUX")
+    nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
+    nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
+else
+    nnoremap <silent> <c-h> <c-w>h
+    nnoremap <silent> <c-j> <c-w>j
+    nnoremap <silent> <c-k> <c-w>k
+    nnoremap <silent> <c-l> <c-w>l
+endif
 
 nnoremap <leader>pm :SendMakeCmd <CR>
 nnoremap <leader>pp :SendLine <CR>
