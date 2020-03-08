@@ -33,11 +33,11 @@ alias pv="qlmanage -p"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Start tmux when alacritty is started
-if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
-    tmux new-session -s slarwise
-fi
+# if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
+#     tmux new-session -s slarwise
+# fi
 
 # Start tmux when kitty is started
-if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "kitty" ]; then
-    tmux new-session -s slarwise
-fi
+# if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "kitty" ]; then
+#     tmux new-session -s slarwise
+# fi
