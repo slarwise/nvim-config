@@ -120,13 +120,13 @@ shift + ctrl - k : yabai -m window --move rel:0:-40
 shift + ctrl - l : yabai -m window --move rel:40:0
 
 # App specific hotkeys
-ctrl - j [
+cmd - j [
     "Skim" : skhd --key "down"
     "Förhandsvisning": skhd --key "down"
     "Safari": skhd --key "down"
 ]
 
-ctrl - k [
+cmd - k [
     "Skim" : skhd --key "up"
     "Förhandsvisning": skhd --key "up"
     "Safari": skhd --key "up"
