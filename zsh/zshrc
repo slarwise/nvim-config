@@ -30,6 +30,7 @@ alias context-commands="open ~/Dropbox/Chalmers/report-writing/context/docs/setu
 alias context-ref="open ~/Dropbox/Chalmers/report-writing/context/docs/contextref.pdf"
 alias pv="qlmanage -p"
 alias icat="kitty +kitten icat"
+alias termpdf="~/termpdf/termpdf.py"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
