@@ -147,7 +147,8 @@ function! LifelineGetRightCornerSymbol() "{{{
 endfunction "}}}
 
 function! s:get_hl_attr(group, attribute) "{{{
-    return synIDattr(synIDtrans(hlID(a:group)), a:attribute)
+    let hl_attr = synIDattr(synIDtrans(hlID(a:group)), a:attribute)
+    return (len(hl_attr) ? hl_attr : 'none')
 endfunction "}}}
 
 function! s:set_hl_groups() "{{{
