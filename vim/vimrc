@@ -68,6 +68,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
+    Plug 'lifepillar/vim-gruvbox8'
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
     Plug 'slarwise/vim-tmux-cycle'
@@ -79,11 +80,17 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " gruvbox
-let g:gruvbox_contrast_light='soft'
-let g:gruvbox_contrast_dark='soft'
-let g:gruvbox_italic=1
-let g:gruvbox_italicize_comments=1
-let g:gruvbox_invert_selection=0
+" let g:gruvbox_contrast_light='soft'
+" let g:gruvbox_contrast_dark='soft'
+" let g:gruvbox_italic=1
+" let g:gruvbox_italicize_comments=1
+" let g:gruvbox_invert_selection=0
+
+" gruvbox8
+let g:gruvbox_transp_bg = 0
+let g:gruvbox_italics = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_filetype_hi_groups = 1
 
 " tex
 let g:tex_no_error=1
@@ -112,7 +119,7 @@ augroup END
 set background=light
 if exists("$COLORTERM")
     set termguicolors
-    colorscheme gruvbox
+    colorscheme gruvbox8_soft
 else
     colorscheme zellner
 endif
