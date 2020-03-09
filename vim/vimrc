@@ -1,4 +1,4 @@
-" General settings{{{
+""""""""""""""""" GENERAL SETTINGS """""""""""""""""""""""{{{
 if has('nvim')
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
@@ -56,9 +56,9 @@ set relativenumber " Show numbers relative to current line number
 set ignorecase " Ignore cases in search, substitute
 set smartcase " Unless typing a capital letter
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
-"}}}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Plugins {{{
+"""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""{{{
 
 " Ensure vim-plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -79,26 +79,27 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
 call plug#end()
 
-" gruvbox
+""""""""""""""""""""""""""""""""""" gruvbox """"""""""""""""""""""""""""""""""""
 " let g:gruvbox_contrast_light='soft'
 " let g:gruvbox_contrast_dark='soft'
 " let g:gruvbox_italic=1
 " let g:gruvbox_italicize_comments=1
 " let g:gruvbox_invert_selection=0
 
-" gruvbox8
+""""""""""""""""""""""""""""""""""" gruvbox8 """"""""""""""""""""""""""""""""""" 
 let g:gruvbox_transp_bg = 1
 let g:gruvbox_italics = 1
 let g:gruvbox_italicize_strings = 1
 let g:gruvbox_filetype_hi_groups = 1
+let g:gruvbox_plugin_hi_groups = 1
 
-" tex
+"""""""""""""""""""""""""""""""""""""" tex """""""""""""""""""""""""""""""""""""
 let g:tex_no_error=1
 let g:tex_flavor='latex'
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
 
-" neomake
+"""""""""""""""""""""""""""""""""""" neomake """""""""""""""""""""""""""""""""""
 augroup compile_on_write
     autocmd!
     autocmd BufWritePost *.mkiv,*.md
@@ -107,15 +108,15 @@ augroup compile_on_write
                 \ endif
 augroup END
 
-" sneak
+""""""""""""""""""""""""""""""""""""" sneak """"""""""""""""""""""""""""""""""""
 highlight link Sneak None
 augroup sneak_hl
     autocmd!
     autocmd ColorScheme * highlight link Sneak None
 augroup END
-"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Colors {{{
+"""""""""""""""" COLORS """""""""""""""""""""""""""""""""{{{
 set background=light
 if exists("$COLORTERM")
     set termguicolors
@@ -123,9 +124,9 @@ if exists("$COLORTERM")
 else
     colorscheme zellner
 endif
-"}}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
-" Mappings{{{
+""""""""""""""" MAPPINGS """""""""""""""""""""""""""""""{{{
 nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
@@ -181,7 +182,7 @@ nnoremap ääb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
 nnoremap ääh :set hlsearch! <CR>
 nnoremap ää- :set cursorline! <CR>
 
-" Plugin mappings
+"""""""""""""""""""""""""""""""" Plugin mappings """""""""""""""""""""""""""""""
 nnoremap åf :call go_to_file_in_current_dir#go_to('previous') <CR>
 nnoremap äf :call go_to_file_in_current_dir#go_to('next') <CR>
 nnoremap åF :call go_to_file_in_current_dir#go_to('first') <CR>
@@ -220,6 +221,6 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
-"}}}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
 
 " vim:set foldmethod=marker foldlevel=0:
