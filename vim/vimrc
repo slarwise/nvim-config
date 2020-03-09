@@ -1,9 +1,9 @@
-""""""""""""""""" GENERAL SETTINGS """""""""""""""""""""""{{{
+" General settings {{{
 if has('nvim')
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
     set completeopt=menu,menuone " Display insertion completion as a popup
-    set fillchars=eob:\     " Remove the tilde at lines at end of buffer
+    set fillchars=eob:\ ,fold:\  " Remove the tilde at lines at end of buffer
     set inccommand=nosplit " Show preview of what will happen on e.g. :s
     let g:python3_host_prog = "/usr/local/bin/python3"
 else
@@ -56,9 +56,9 @@ set relativenumber " Show numbers relative to current line number
 set ignorecase " Ignore cases in search, substitute
 set smartcase " Unless typing a capital letter
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
-"""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""{{{
+" Plugins {{{
 
 " Ensure vim-plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -114,9 +114,9 @@ augroup sneak_hl
     autocmd!
     autocmd ColorScheme * highlight link Sneak None
 augroup END
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
-"""""""""""""""" COLORS """""""""""""""""""""""""""""""""{{{
+" Colors {{{
 set background=light
 if exists("$COLORTERM")
     set termguicolors
@@ -124,9 +124,9 @@ if exists("$COLORTERM")
 else
     colorscheme zellner
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
-""""""""""""""" MAPPINGS """""""""""""""""""""""""""""""{{{
+" Mappings {{{
 nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
@@ -221,6 +221,6 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""}}}
+"}}}
 
 " vim:set foldmethod=marker foldlevel=0:
