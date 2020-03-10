@@ -131,3 +131,6 @@ cmd - k [
     "Förhandsvisning": skhd --key "up"
     "Safari": skhd --key "up"
 ]
+
+cmd - return : open -a "Kitty"
+shift + cmd - return : open -a "Safari"
