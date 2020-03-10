@@ -58,4 +58,4 @@ echo "yabai configuration loaded.."
 # Start batterywall-macos
 ~/Dropbox/Chalmers/projects/battery-level/batterywall-macos \
     ~/Dropbox/Chalmers/projects/battery-level/imgs/win95-gruvbox-bright-zooom-tiled- \
-    .png
+    .png &
