@@ -74,22 +74,22 @@ alt - c : yabai -m window --toggle float;\
           yabai -m window --grid 10:10:6:0:4:10
 
 # Centered floating variants
-alt - 1 : yabai -m window --toggle float;\
+shift + cmd - 1 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:6:0:8:1
 
-alt - 2 : yabai -m window --toggle float;\
+shift + cmd - 2 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:5:0:10:1
 
-alt - 3 : yabai -m window --toggle float;\
+shift + cmd - 3 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:4:0:12:1
 
-alt - 4 : yabai -m window --toggle float;\
+shift + cmd - 4 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:3:0:14:1
 
-alt - 5 : yabai -m window --toggle float;\
+shift + cmd - 5 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:2:0:16:1
 
-alt - 6 : yabai -m window --toggle float;\
+shift + cmd - 6 : yabai -m window --toggle float;\
           yabai -m window --grid 1:20:1:0:18:1
 
 # move window in tree
