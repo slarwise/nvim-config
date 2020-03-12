@@ -213,8 +213,8 @@ nnoremap <silent>ääz :Zen <CR>
 nnoremap <leader>m :Neomake <CR>
 nnoremap <leader>M :Neomake! <CR>
 
-map <f90> <Plug>Sneak_s
-map <f91> <Plug>Sneak_S
+map § <Plug>Sneak_s
+map ° <Plug>Sneak_S
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
