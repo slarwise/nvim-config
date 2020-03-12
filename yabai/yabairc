@@ -56,6 +56,6 @@ yabai -m rule --add app="Word" border=off
 echo "yabai configuration loaded.."
 
 # Start batterywall-macos
-~/Dropbox/Chalmers/projects/battery-level/batterywall-macos \
-    ~/Dropbox/Chalmers/projects/battery-level/imgs/win95-gruvbox-bright-zooom-tiled- \
-    .png &
+~/Dropbox/Chalmers/projects/batterywall-macos/batterywall-macos \
+    -p ~/Dropbox/Chalmers/projects/batterywall-macos/imgs/win95-gruvbox-bright-zooom-tiled- \
+    -s .png &
