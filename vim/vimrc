@@ -165,7 +165,6 @@ nnoremap åb :bprevious <CR>
 nnoremap äb :bnext <CR>
 nnoremap åB :bfirst <CR>
 nnoremap äB :blast <CR>
-nnoremap ääb :ls <CR>
 
 nnoremap åc :cprevious <CR>
 nnoremap äc :cnext <CR>
