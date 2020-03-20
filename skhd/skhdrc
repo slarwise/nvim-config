@@ -74,17 +74,23 @@ alt - c : yabai -m window --toggle float;\
           yabai -m window --grid 10:10:6:0:4:10
 
 # Centered floating variants
-shift + cmd - 1 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:6:0:8:1; fi
+shift + cmd - 1 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:6:0:8:1; fi
 
-shift + cmd - 2 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:5:0:10:1; fi
+shift + cmd - 2 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:5:0:10:1; fi
 
-shift + cmd - 3 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:4:0:12:1; fi
+shift + cmd - 3 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:4:0:12:1; fi
 
-shift + cmd - 4 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:3:0:14:1; fi
+shift + cmd - 4 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:3:0:14:1; fi
 
-shift + cmd - 5 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:2:0:16:1; fi
+shift + cmd - 5 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:2:0:16:1; fi
 
-shift + cmd - 6 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];then yabai -m window --grid 1:20:1:0:18:1; fi
+shift + cmd - 6 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+                    then yabai -m window --grid 1:20:1:0:18:1; fi
 
 # move window in tree
 shift + cmd - h : yabai -m window --warp west
