@@ -47,6 +47,7 @@ yabai -m config window_gap                   25
 yabai -m rule --add app="^System.*" manage=off
 yabai -m rule --add app=".*" border=off
 yabai -m rule --add app="kitty" border=on
+yabai -m rule --add app="Finder" title=".*info" manage=off
 
 echo "yabai configuration loaded.."
 
