@@ -136,6 +136,7 @@ noremap _ ?
 nnoremap q- q/
 noremap gh ^
 noremap gl $
+noremap ¨ ~
 
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
