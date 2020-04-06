@@ -1,4 +1,4 @@
-" General settings {{{
+" General settings {{{1
 if has('nvim')
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
@@ -56,9 +56,8 @@ set relativenumber " Show numbers relative to current line number
 set ignorecase " Ignore cases in search, substitute
 set smartcase " Unless typing a capital letter
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
-"}}}
 
-" Plugins {{{
+" Plugins {{{1
 
 " Ensure vim-plug is installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -112,9 +111,8 @@ augroup sneak_hl
 augroup END
 """"""""""""""""""""""""""""""""""" hexokinase """""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = ['backgroundfull']
-"}}}
 
-" Colors {{{
+" Colors {{{1
 set background=light
 if exists("$COLORTERM")
     set termguicolors
@@ -122,9 +120,8 @@ if exists("$COLORTERM")
 else
     colorscheme zellner
 endif
-"}}}
 
-" Mappings {{{
+" Mappings {{{1
 nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
@@ -225,6 +222,5 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 map , <Plug>Sneak_;
 map ; <Plug>Sneak_,
-"}}}
 
 " vim:set foldmethod=marker:
