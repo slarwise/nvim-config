@@ -39,10 +39,26 @@
 #       
 
 # focus window
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+# alt - h : yabai -m window --focus west
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus east
+alt - h [
+    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator west
+    *       : yabai -m window --focus west
+]
+alt - j [
+    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator south
+    *       : yabai -m window --focus south
+]
+alt - k [
+    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator north
+    *       : yabai -m window --focus north
+]
+alt - l [
+    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator east
+    *       : yabai -m window --focus east
+]
 
 # focus space
 alt - n : skhd --key "ctrl - right"
