@@ -39,24 +39,31 @@
 #       
 
 # focus window
-# alt - h : yabai -m window --focus west
-# alt - j : yabai -m window --focus south
-# alt - k : yabai -m window --focus north
-# alt - l : yabai -m window --focus east
+# alt - q [
+#     "kitty" : kitty @ --to unix:/tmp/mykitty launch --type=background sh ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/is_nvim.sh
+# ]
 alt - h [
-    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator west
+    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
+              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'west\',\'h\'\)\\x0d;\
+              else yabai -m window --focus west; fi
     *       : yabai -m window --focus west
 ]
 alt - j [
-    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator south
+    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
+              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'south\',\'j\'\)\\x0d;\
+              else yabai -m window --focus south; fi
     *       : yabai -m window --focus south
 ]
 alt - k [
-    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator north
+    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
+              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'north\',\'k\'\)\\x0d;\
+              else yabai -m window --focus north; fi
     *       : yabai -m window --focus north
 ]
 alt - l [
-    "kitty" : ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/kitty_yabai_navigator east
+    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
+              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'east\'\,\'l\'\)\\x0d;\
+              else yabai -m window --focus east; fi
     *       : yabai -m window --focus east
 ]
 
