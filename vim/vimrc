@@ -200,20 +200,11 @@ else
     nnoremap <silent> <c-l> <c-w>l
 endif
 
-function! NvimYabaiNavigate(direction)
-    if a:direction ==# 'west'
-        let wincmd_direction = 'h'
-    elseif a:direction ==# 'south'
-        let wincmd_direction = 'j'
-    elseif a:direction ==# 'north'
-        let wincmd_direction = 'k'
-    elseif a:direction ==# 'east'
-        let wincmd_direction = 'l'
-    endif
+function! NvimYabaiNavigate(yabai_direction, vim_direction)
     let win_nr_before = winnr()
-    execute("wincmd " . wincmd_direction)
+    execute("wincmd " . a:vim_direction)
     if win_nr_before ==# winnr()
-        call system("yabai -m window --focus " . a:direction)
+        call system("yabai -m window --focus " . a:yabai_direction)
     endif
 endfunction
 
