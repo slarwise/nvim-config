@@ -39,9 +39,6 @@
 #       
 
 # focus window
-# alt - q [
-#     "kitty" : kitty @ --to unix:/tmp/mykitty launch --type=background sh ~/Dropbox/Chalmers/projects/kitty-yabai-navigator/is_nvim.sh
-# ]
 alt - h [
     "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
               then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'west\',\'h\'\)\\x0d;\
