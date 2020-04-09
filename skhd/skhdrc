@@ -40,27 +40,19 @@
 
 # focus window
 alt - h [
-    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
-              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'west\',\'h\'\)\\x0d;\
-              else yabai -m window --focus west; fi
+    "kitty" : kitty @ --to unix:/tmp/mykitty launch --copy-env --type background sh ~/Dropbox/Chalmers/projects/nvim-yabai-navigator/nvim_yabai_navigate.sh west h
     *       : yabai -m window --focus west
 ]
 alt - j [
-    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
-              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'south\',\'j\'\)\\x0d;\
-              else yabai -m window --focus south; fi
+    "kitty" : kitty @ --to unix:/tmp/mykitty launch --copy-env --type background sh ~/Dropbox/Chalmers/projects/nvim-yabai-navigator/nvim_yabai_navigate.sh south j
     *       : yabai -m window --focus south
 ]
 alt - k [
-    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
-              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'north\',\'k\'\)\\x0d;\
-              else yabai -m window --focus north; fi
+    "kitty" : kitty @ --to unix:/tmp/mykitty launch --copy-env --type background sh ~/Dropbox/Chalmers/projects/nvim-yabai-navigator/nvim_yabai_navigate.sh north k
     *       : yabai -m window --focus north
 ]
 alt - l [
-    "kitty" : if [ "$(kitty @ --to unix:/tmp/mykitty ls | jq '.[] | select(.is_focused) | .tabs[].windows[].foreground_processes[].cmdline[] | select(. == "nvim")' | wc -l)" -eq 1 ];\
-              then kitty @ --to unix:/tmp/mykitty send-text :call NvimYabaiNavigate\(\'east\'\,\'l\'\)\\x0d;\
-              else yabai -m window --focus east; fi
+    "kitty" : kitty @ --to unix:/tmp/mykitty launch --copy-env --type background sh ~/Dropbox/Chalmers/projects/nvim-yabai-navigator/nvim_yabai_navigate.sh east l
     *       : yabai -m window --focus east
 ]
 

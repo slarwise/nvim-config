@@ -44,3 +44,19 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "kitty" ]; then
 #     tmux new-session -s slarwise
 # fi
+
+export NVIM_IS_RUNNING=0
+
+preexec() {
+    if [[ $1 == "nvim"* ]]
+    then
+        export NVIM_IS_RUNNING=1
+    fi
+}
+
+precmd() {
+    if [ "$NVIM_IS_RUNNING" -eq 1 ]
+    then
+        export NVIM_IS_RUNNING=0
+    fi
+}
