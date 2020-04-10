@@ -45,18 +45,12 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #     tmux new-session -s slarwise
 # fi
 
-export NVIM_IS_RUNNING=0
-
+# Set the title to the command just before it is run
 preexec() {
-    if [[ $1 == "nvim"* ]]
-    then
-        export NVIM_IS_RUNNING=1
-    fi
+   print -Pn "\e]0;$1\a"
 }
 
+# Set the title to zsh after the command is done
 precmd() {
-    if [ "$NVIM_IS_RUNNING" -eq 1 ]
-    then
-        export NVIM_IS_RUNNING=0
-    fi
+    print -Pn "\e]0;zsh\a"
 }

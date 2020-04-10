@@ -193,6 +193,11 @@ nnoremap äF :call go_to_file_in_current_dir#go_to('last') <CR>
 if exists("$TMUX")
     nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
     nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
+elseif exists("$KITTY_WINDOW_ID")
+    nnoremap <silent> <c-h> :call NvimYabaiNavigate('west', 'h')<CR>
+    nnoremap <silent> <c-j> :call NvimYabaiNavigate('south', 'j')<CR>
+    nnoremap <silent> <c-k> :call NvimYabaiNavigate('north', 'k')<CR>
+    nnoremap <silent> <c-l> :call NvimYabaiNavigate('east', 'l')<CR>
 else
     nnoremap <silent> <c-h> <c-w>h
     nnoremap <silent> <c-j> <c-w>j
