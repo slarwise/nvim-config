@@ -88,11 +88,11 @@ endfunction "}}}
 
 function! LifelineGetFilename() "{{{
     if !strlen(expand("%"))
-        return "No filename" . ' '
+        return "No filename"
     elseif &filetype == 'help'
-        return expand('%:t') . ' '
+        return expand('%:t')
     else
-        return fnamemodify(expand("%"), ":~:.") . ' '
+        return fnamemodify(expand("%"), ":~:.")
     endif
 endfunction "}}}
 
