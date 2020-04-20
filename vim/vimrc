@@ -125,7 +125,7 @@ endif
 nnoremap Y y$
 
 " Make having a Swedish keyboard layout easier
-let mapleader= "ö"
+let mapleader = "ö"
 
 call execute(['nnoremap Ö :', 'vnoremap Ö :'])
 call execute(['nnoremap qö q:', 'vnoremap qö q:'])
