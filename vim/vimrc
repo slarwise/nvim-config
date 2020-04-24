@@ -135,7 +135,11 @@ noremap - /
 noremap _ ?
 nnoremap q- q/
 noremap gh ^
+noremap gj G
+noremap gk gg
 noremap gl $
+noremap gm :call cursor(0, len(getline('.'))/2)<CR>
+
 noremap ¨ ~
 
 nnoremap <leader>w :w<CR>
