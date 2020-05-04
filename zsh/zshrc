@@ -32,6 +32,7 @@ alias context-ref="open ~/Dropbox/Chalmers/report-writing/context/docs/contextre
 alias pv="qlmanage -p"
 alias icat="kitty +kitten icat"
 alias termpdf="~/termpdf/termpdf.py"
+alias unimatrix="~/unimatrix/unimatrix.py"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
