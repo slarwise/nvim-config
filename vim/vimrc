@@ -109,8 +109,11 @@ augroup sneak_hl
     autocmd!
     autocmd ColorScheme * highlight link Sneak None
 augroup END
+
 """"""""""""""""""""""""""""""""""" hexokinase """""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = ['backgroundfull']
+"""""""""""""""""""""""""""""""""""" lifeline """"""""""""""""""""""""""""""""""
+let g:lifeline_dashed=0
 
 " Colors {{{1
 set background=light
@@ -120,6 +123,7 @@ if exists("$COLORTERM")
 else
     colorscheme zellner
 endif
+
 
 " Mappings {{{1
 nnoremap Y y$
