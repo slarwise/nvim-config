@@ -1,6 +1,7 @@
 # Completion
 autoload -Uz compinit
 compinit
+setopt menucomplete # Go to first match straight away
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
