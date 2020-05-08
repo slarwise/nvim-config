@@ -115,8 +115,6 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 """""""""""""""""""""""""""""""""""" lifeline """"""""""""""""""""""""""""""""""
 let g:lifeline_dashed=0
 let g:loaded_lifeline=1
-" set statusline=%m\ \ %f%=%l/%L,%c\ \ 
-set statusline=\ %{&modified?'●':'\ '}\ \ %f%=%l/%L,%c\ \ 
 
 " Colors {{{1
 set background=light
@@ -125,6 +123,20 @@ if exists("$COLORTERM")
     colorscheme gruvbox8_soft
 else
     colorscheme zellner
+endif
+
+" Statusline
+if exists("$COLORTERM")
+    if synIDattr(synIDtrans(hlID('StatusLine')), 'reverse')
+        let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
+    else
+        let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+    endif
+    let s:corner_bg = synIDattr(synIDtrans(hlID('Normal')), 'bg')
+    execute 'highlight User1 guifg='.s:corner_fg.' guibg='.s:corner_bg
+    set statusline=%1*%*\ %{&modified?'●':'\ '}\ \ %f%=%l/%L,%c\ %1*%*
+else
+    set statusline=\ %m\ \ %f%=%l/%L,%c\ 
 endif
 
 " Mappings {{{1
