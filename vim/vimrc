@@ -69,10 +69,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
-    Plug 'slarwise/vim-tmux-cycle'
-    Plug 'slarwise/vim-tmux-send'
-    Plug 'slarwise/vim-zen'
-    Plug 'junegunn/limelight.vim'
+    " Plug 'slarwise/vim-tmux-cycle'
+    " Plug 'slarwise/vim-tmux-send'
+    " Plug 'slarwise/vim-zen'
+    " Plug 'junegunn/limelight.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -112,6 +112,7 @@ augroup END
 
 """"""""""""""""""""""""""""""""""" hexokinase """""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = ['backgroundfull']
+
 """""""""""""""""""""""""""""""""""" lifeline """"""""""""""""""""""""""""""""""
 let g:lifeline_dashed=0
 let g:loaded_lifeline=1
