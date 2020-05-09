@@ -128,14 +128,21 @@ endif
 
 " Statusline
 if exists("$COLORTERM")
-    if synIDattr(synIDtrans(hlID('StatusLine')), 'reverse')
-        let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
-    else
-        let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
-    endif
-    let s:corner_bg = synIDattr(synIDtrans(hlID('Normal')), 'bg')
-    execute 'highlight User1 guifg='.s:corner_fg.' guibg='.s:corner_bg
+    function SetStatusLineCornersHLGroup()
+        if synIDattr(synIDtrans(hlID('StatusLine')), 'reverse')
+            let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
+        else
+            let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'bg')
+        endif
+        let s:corner_bg = synIDattr(synIDtrans(hlID('Normal')), 'bg')
+        execute 'highlight User1 guifg='.s:corner_fg.' guibg='.s:corner_bg
+    endfunction
+    call SetStatusLineCornersHLGroup()
     set statusline=%1*%*\ %{&modified?'●':'\ '}\ \ %f%=%l/%L,%c\ %1*%*
+    augroup statusline_corner_hl
+        autocmd!
+        autocmd ColorScheme * call SetStatusLineCornersHLGroup()
+    augroup END
 else
     set statusline=\ %m\ \ %f%=%l/%L,%c\ 
 endif
