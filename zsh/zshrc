@@ -48,11 +48,11 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # fi
 
 # Set the title to the command just before it is run
-preexec() {
-   print -Pn "\e]0;$1\a"
-}
+# preexec() {
+#    print -Pn "\e]0;$1\a"
+# }
 
 # Set the title to zsh after the command is done
-precmd() {
-    print -Pn "\e]0;zsh\a"
-}
+# precmd() {
+#     print -Pn "\e]0;zsh\a"
+# }
