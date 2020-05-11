@@ -39,22 +39,27 @@
 #       
 
 # focus window
-alt - h [
-    "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - h"; else yabai -m window --focus west; fi
-    *       : yabai -m window --focus west
-]
-alt - j [
-    "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - j"; else yabai -m window --focus south; fi
-    *       : yabai -m window --focus south
-]
-alt - k [
-    "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - k"; else yabai -m window --focus north; fi
-    *       : yabai -m window --focus north
-]
-alt - l [
-    "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - l"; else yabai -m window --focus east; fi
-    *       : yabai -m window --focus east
-]
+# alt - h [
+#     "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - h"; else yabai -m window --focus west; fi
+#     *       : yabai -m window --focus west
+# ]
+# alt - j [
+#     "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - j"; else yabai -m window --focus south; fi
+#     *       : yabai -m window --focus south
+# ]
+# alt - k [
+#     "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - k"; else yabai -m window --focus north; fi
+#     *       : yabai -m window --focus north
+# ]
+# alt - l [
+#     "kitty" : if [[ "$(yabai -m query --windows --window | jq '.title')" == *"nvim"* ]]; then skhd --key "ctrl - l"; else yabai -m window --focus east; fi
+#     *       : yabai -m window --focus east
+# ]
+
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
 # focus space
 alt - n : skhd --key "ctrl - right"
