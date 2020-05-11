@@ -44,8 +44,8 @@ set path=.,, " Search relative to current dir and in current dir
 set path+=/Users/arvidbjurklint/Dropbox/Chalmers/
 set path+=/Users/arvidbjurklint/Dropbox/dotfiles/
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
-set wildignorecase
-set nohlsearch
+set wildignorecase " Ignore case when completing file names
+set nohlsearch " Don't highlight matches after search
 set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words 
@@ -69,10 +69,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
-    " Plug 'slarwise/vim-tmux-cycle'
-    " Plug 'slarwise/vim-tmux-send'
-    " Plug 'slarwise/vim-zen'
-    " Plug 'junegunn/limelight.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -95,13 +91,6 @@ let g:gruvbox_filetype_hi_groups = 1
 let g:gruvbox_plugin_hi_groups = 1
 
 """""""""""""""""""""""""""""""""""" neomake """""""""""""""""""""""""""""""""""
-augroup compile_on_write
-    autocmd!
-    autocmd BufWritePost *.mkiv,*.md
-                \ :if exists("b:compile_on_write") && b:compile_on_write | 
-                \ Neomake! |
-                \ endif
-augroup END
 let g:neomake_virtualtext_current_error=0
 let g:neomake_place_signs=0
 
@@ -116,7 +105,6 @@ augroup END
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 """""""""""""""""""""""""""""""""""" lifeline """"""""""""""""""""""""""""""""""
-let g:lifeline_dashed=0
 let g:loaded_lifeline=1
 
 " Colors {{{1
@@ -153,36 +141,23 @@ endif
 nnoremap Y y$
 
 nnoremap Zu :update<CR>
-nnoremap m :Neomake!<CR>
-nnoremap m :Neomake<CR>
-" coc = change option quickfix list
-nnoremap <silent> coc
+nnoremap Zm :edit ~/.vim/vimrc <CR>
+nnoremap Zf :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
+nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
+
+nnoremap m :update <bar> Neomake!<CR>
+nnoremap m :update <bar> Neomake<CR>
+nnoremap <silent> m
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
 
-" Make having a Swedish keyboard layout easier
-let mapleader = "ö"
-
-nnoremap <leader>ss :source % <CR>
-
-nnoremap <leader>em :edit ~/.vim/vimrc <CR>
-nnoremap <leader>ef :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
-nnoremap <leader>et :edit ~/Dropbox/Chalmers/todo.md<CR>
-
-nnoremap <leader>f :find **/
-
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
+nnoremap <C-p> :find **/
 
 set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
 
-" map § <Plug>Sneak_s
 map s <Plug>Sneak_s
-" map ° <Plug>Sneak_S
 map S <Plug>Sneak_S
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
