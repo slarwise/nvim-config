@@ -102,6 +102,8 @@ augroup compile_on_write
                 \ Neomake! |
                 \ endif
 augroup END
+let g:neomake_virtualtext_current_error=0
+let g:neomake_place_signs=0
 
 """"""""""""""""""""""""""""""""""""" sneak """"""""""""""""""""""""""""""""""""
 highlight link Sneak None
@@ -150,29 +152,17 @@ endif
 " Mappings {{{1
 nnoremap Y y$
 
+nnoremap Zu :update<CR>
+nnoremap m :Neomake!<CR>
+nnoremap m :Neomake<CR>
+" coc = change option quickfix list
+nnoremap <silent> coc
+            \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
+            \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
+
 " Make having a Swedish keyboard layout easier
 let mapleader = "ö"
 
-call execute(['nnoremap Ö :', 'vnoremap Ö :'])
-call execute(['nnoremap qö q:', 'vnoremap qö q:'])
-noremap , ;
-noremap ; ,
-noremap - /
-noremap _ ?
-nnoremap q- q/
-noremap gh ^
-noremap gj G
-noremap gk gg
-noremap gl $
-noremap gm :call cursor(0, len(getline('.'))/2)<CR>
-
-noremap ¨ ~
-
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :qall<CR>
-
-nnoremap <leader>sm :source ~/.vim/vimrc <CR>
 nnoremap <leader>ss :source % <CR>
 
 nnoremap <leader>em :edit ~/.vim/vimrc <CR>
@@ -181,82 +171,14 @@ nnoremap <leader>et :edit ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap <leader>f :find **/
 
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
 set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
-
-" Swedish version of vim-unimpaired, åä instead of [], ää toggles
-nnoremap åa :previous <CR>
-nnoremap äa :next <CR>
-nnoremap åA :first <CR>
-nnoremap äA :last <CR>
-nnoremap ääa :args <CR>
-
-nnoremap åb :bprevious <CR>
-nnoremap äb :bnext <CR>
-nnoremap åB :bfirst <CR>
-nnoremap äB :blast <CR>
-
-nnoremap åc :cprevious <CR>
-nnoremap äc :cnext <CR>
-nnoremap åC :cfirst <CR>
-nnoremap äC :clast <CR>
-nnoremap <silent> ääc
-            \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
-            \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
-
-nnoremap ål :lprevious <CR>
-nnoremap äl :lnext <CR>
-nnoremap åL :lfirst <CR>
-nnoremap äL :llast <CR>
-
-nnoremap ääb :let &bg = (&bg==#'dark' ? 'light' : 'dark') <CR>
-nnoremap ääh :set hlsearch! <CR>
-nnoremap ää- :set cursorline! <CR>
-
-"""""""""""""""""""""""""""""""" Plugin mappings """""""""""""""""""""""""""""""
-nnoremap åf :call go_to_file_in_current_dir#go_to('previous') <CR>
-nnoremap äf :call go_to_file_in_current_dir#go_to('next') <CR>
-nnoremap åF :call go_to_file_in_current_dir#go_to('first') <CR>
-nnoremap äF :call go_to_file_in_current_dir#go_to('last') <CR>
-
-if exists("$TMUX")
-    nnoremap <silent> <c-j> :VimTmuxCycleNext <CR>
-    nnoremap <silent> <c-k> :VimTmuxCyclePrevious <CR>
-elseif exists("$KITTY_WINDOW_ID")
-    nnoremap <silent> <c-h> :call NvimYabaiNavigate('west', 'h')<CR>
-    nnoremap <silent> <c-j> :call NvimYabaiNavigate('south', 'j')<CR>
-    nnoremap <silent> <c-k> :call NvimYabaiNavigate('north', 'k')<CR>
-    nnoremap <silent> <c-l> :call NvimYabaiNavigate('east', 'l')<CR>
-else
-    nnoremap <silent> <c-h> <c-w>h
-    nnoremap <silent> <c-j> <c-w>j
-    nnoremap <silent> <c-k> <c-w>k
-    nnoremap <silent> <c-l> <c-w>l
-endif
-
-function! NvimYabaiNavigate(yabai_direction, vim_direction)
-    let win_nr_before = winnr()
-    execute("wincmd " . a:vim_direction)
-    if win_nr_before ==# winnr()
-        call system("yabai -m window --focus " . a:yabai_direction)
-    endif
-endfunction
-
-nnoremap <leader>pm :SendMakeCmd <CR>
-nnoremap <leader>pp :SendLine <CR>
-nnoremap <silent><leader>p :set operatorfunc=vim_tmux_send#send_selection<CR>g@
-nnoremap <leader>pe :SendKeys "ENTER" <CR>
-nnoremap <leader>pl :SendKeys "C-l" <CR>
-nnoremap <leader>pu :SendKeys "C-u" <CR>
-nnoremap <leader>pc :SendKeys "C-c" <CR>
-nnoremap <leader>pd :SendKeys "C-d" <CR>
-
-nnoremap <silent>ääl :Limelight!! 0.8 <CR>
-nnoremap <silent>ääz :Zen <CR>
-
-nnoremap <leader>m :Neomake <CR>
-nnoremap <leader>M :Neomake! <CR>
 
 " map § <Plug>Sneak_s
 map s <Plug>Sneak_s
