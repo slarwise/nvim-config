@@ -147,7 +147,7 @@ augroup END
 " Mappings {{{1
 nnoremap Y y$
 
-nnoremap  :update<CR>
+nnoremap Zu :update<CR>
 nnoremap Zm :edit ~/.vim/vimrc <CR>
 nnoremap Zf :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
 nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
