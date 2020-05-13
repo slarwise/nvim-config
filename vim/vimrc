@@ -72,6 +72,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    Plug 'tpope/vim-surround'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""" tex """""""""""""""""""""""""""""""""""""
@@ -137,10 +138,16 @@ else
     set statusline=\ %m\ \ %f%=%l/%L,%c\ 
 endif
 
+" Display {{{1
+augroup auto_equal_windows
+    autocmd!
+    autocmd VimResized * wincmd =
+augroup END
+
 " Mappings {{{1
 nnoremap Y y$
 
-nnoremap Zu :update<CR>
+nnoremap  :update<CR>
 nnoremap Zm :edit ~/.vim/vimrc <CR>
 nnoremap Zf :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
 nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
@@ -159,11 +166,5 @@ cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
 
 map s <Plug>Sneak_s
 map S <Plug>Sneak_S
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-map , <Plug>Sneak_;
-map ; <Plug>Sneak_,
 
 " vim:set foldmethod=marker:
