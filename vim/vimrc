@@ -161,7 +161,4 @@ set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
 
-map s <Plug>Sneak_s
-map S <Plug>Sneak_S
-
 " vim:set foldmethod=marker:
