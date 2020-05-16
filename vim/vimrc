@@ -40,9 +40,6 @@ if has('clipboard')
 endif
 set foldlevel=99 " Start with all folds open
 set ttimeoutlen=0 " Delay after pressing ESC and another character
-set path=.,, " Search relative to current dir and in current dir
-set path+=/Users/arvidbjurklint/Dropbox/Chalmers/
-set path+=/Users/arvidbjurklint/Dropbox/dotfiles/
 set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
 set wildignorecase " Ignore case when completing file names
 set nohlsearch " Don't highlight matches after search
