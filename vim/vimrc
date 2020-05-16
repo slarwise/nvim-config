@@ -1,5 +1,6 @@
 " General settings {{{1
 if has('nvim')
+    " Use vim's directory architecture
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
     set completeopt=menu,menuone " Display insertion completion as a popup
@@ -139,12 +140,14 @@ nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
 
 nnoremap m :update <bar> Neomake!<CR>
 nnoremap m :update <bar> Neomake<CR>
+" Toggle quickfix window
 nnoremap <silent> m
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
 
 nnoremap <C-p> :find **/
 
+" Use Ctrl-h and Ctrl-l to go up/down directories
 set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
