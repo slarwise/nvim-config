@@ -1,12 +1,17 @@
-# Completion
-autoload -Uz compinit
+# Zsh settings
+autoload -Uz compinit # Initialize auto completion
 compinit
-setopt menucomplete # Go to first match straight away
+setopt menucomplete # Go to first completion match straight away
+setopt autocd # Don't have to write cd before dir
+setopt globstarshort # Writing ** means **/*
 
-# Completion for kitty
+# Zsh syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Completion for kitty functions
 kitty + complete setup zsh | source /dev/stdin
 
-# Vi mode in terminal
+# Vi keybindings in zsh
 bindkey -v
 
 # Set stand-alone context earlier than texlive version in PATH. Screws up
@@ -16,15 +21,14 @@ bindkey -v
 # Python path
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 
-# My own scripts
+# Add path to my scripts
 export PATH=$PATH:~/.bin
 
+# Language settings
 export LANG="sv_SE.UTF-8"
 export LC_ALL="sv_SE.UTF-8"
 
-setopt autocd # Don't have to write cd before dir
-setopt globstarshort # Writing ** means **/*
-
+# Aliases
 alias cdd="cd ~/Dropbox/dotfiles/"
 alias cdc="cd ~/Dropbox/Chalmers/"
 alias cde="cd ~/Dropbox/Chalmers/exjobb"
@@ -35,24 +39,6 @@ alias icat="kitty +kitten icat"
 alias termpdf="~/termpdf/termpdf.py"
 alias unimatrix="~/unimatrix/unimatrix.py"
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Start tmux when alacritty is started
-# if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "alacritty" ]; then
-#     tmux new-session -s slarwise
-# fi
-
-# Start tmux when kitty is started
-# if [ "$TMUX" = "" ] && [ "$TERM_PROGRAM" = "kitty" ]; then
-#     tmux new-session -s slarwise
-# fi
-
-# Set the title to the command just before it is run
-# preexec() {
-#    print -Pn "\e]0;$1\a"
-# }
-
-# Set the title to zsh after the command is done
-# precmd() {
-#     print -Pn "\e]0;zsh\a"
-# }
+# Environment variables to directories
+export DOTS=/Users/arvidbjurklint/Dropbox/dotfiles
+export CHALMERS=/Users/arvidbjurklint/Dropbox/Chalmers
