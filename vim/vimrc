@@ -102,9 +102,6 @@ augroup END
 """"""""""""""""""""""""""""""""""" hexokinase """""""""""""""""""""""""""""""""
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-"""""""""""""""""""""""""""""""""""" lifeline """"""""""""""""""""""""""""""""""
-let g:loaded_lifeline=1
-
 " Colors {{{1
 set background=light
 if exists("$COLORTERM")
