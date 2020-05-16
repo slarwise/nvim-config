@@ -46,13 +46,10 @@ set wildignorecase " Ignore case when completing file names
 set nohlsearch " Don't highlight matches after search
 set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
-set linebreak " Ensures word-wrap does not split words 
+set linebreak " Ensures word-wrap does not split words
 set splitbelow splitright " Open new windows below the current and to the right
 set shortmess+=I " Disables intro on startup
-set number " Show line number on the left
-set relativenumber " Show numbers relative to current line number
-set ignorecase " Ignore cases in search, substitute
-set smartcase " Unless typing a capital letter
+set number relativenumber " Show current and relative to current line number
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
 " Plugins {{{1
