@@ -30,26 +30,23 @@ else
     endif
 endif
 
-set langmenu=none " Disable localized menus
 filetype plugin indent on
 set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
 set softtabstop=4 " Actual length when using tabs
+set breakindent " Indents word-wrapped lines as much as the parent line
 if has('clipboard')
     set clipboard=unnamed " Yank/paste automatically to/from system clipboard
 endif
 set foldlevel=99 " Start with all folds open
 set ttimeoutlen=0 " Delay after pressing ESC and another character
-set wildignore=*.aux,*.log,*.fdb_latexmk,*.fls,*.out,*.synctex.gz,
-set wildignorecase " Ignore case when completing file names
 set nohlsearch " Don't highlight matches after search
-set breakindent " Indents word-wrapped lines as much as the parent line
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words
 set splitbelow splitright " Open new windows below the current and to the right
 set shortmess+=I " Disables intro on startup
-set number relativenumber " Show current and relative to current line number
+" set number relativenumber " Show current and relative to current line number
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
 " Plugins {{{1
@@ -83,11 +80,11 @@ let g:gruvbox_plugin_hi_groups = 1
 let g:neomake_virtualtext_current_error=0
 let g:neomake_place_signs=0
 
-highlight link Sneak None
-augroup sneak_hl
-    autocmd!
-    autocmd ColorScheme * highlight link Sneak None
-augroup END
+" highlight link Sneak None
+" augroup sneak_hl
+"     autocmd!
+"     autocmd ColorScheme * highlight link Sneak None
+" augroup END
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 
