@@ -78,35 +78,23 @@ shift + cmd - e : yabai -m window --toggle split
 alt - t : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
-# Make floating window fill left-most 4/10 of the screen
-alt - z : yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:0:0:4:10
-
-# Make floating window fill middle 4/10 of the screen
-alt - x : yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:3:0:4:10
-
-# Make floating window fill right-most 4/10 of the screen
-alt - c : yabai -m window --toggle float;\
-          yabai -m window --grid 10:10:6:0:4:10
-
-# Centered floating variants
-shift + cmd - 1 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+# centered floating variants
+shift + alt - 1 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:6:0:8:1; fi
 
-shift + cmd - 2 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+shift + alt - 2 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:5:0:10:1; fi
 
-shift + cmd - 3 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+shift + alt - 3 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:4:0:12:1; fi
 
-shift + cmd - 4 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+shift + alt - 4 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:3:0:14:1; fi
 
-shift + cmd - 5 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+shift + alt - 5 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:2:0:16:1; fi
 
-shift + cmd - 6 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
+shift + alt - 6 : if [[ "$(yabai -m query --windows --window | jq '.floating')" == 1 ]];\
                     then yabai -m window --grid 1:20:1:0:18:1; fi
 
 # move window in tree
@@ -125,8 +113,8 @@ shift + alt - l : yabai -m window --swap east
 shift + cmd - r : yabai -m space --rotate 90
 
 # send window to desktop and follow focus
-shift + cmd - n : yabai -m window --space next; skhd --key "ctrl - right"
-shift + cmd - p : yabai -m window --space prev; skhd --key "ctrl - left"
+shift + alt - n : yabai -m window --space next; skhd --key "ctrl - right"
+shift + alt - p : yabai -m window --space prev; skhd --key "ctrl - left"
 
 # mirror tree y-axis
 shift + cmd - y : yabai -m space --mirror y-axis
@@ -149,7 +137,7 @@ shift + cmd - d : yabai -m window --resize right:-40:0
 # balance size of windows
 shift + cmd - 0 : yabai -m space --balance
 
-# Toggle padding and borders
+# toggle padding and borders
 shift + alt - p : yabai -m space --toggle padding;\
                   yabai -m space --toggle gap
 
@@ -159,18 +147,6 @@ shift + ctrl - j : yabai -m window --move rel:0:40
 shift + ctrl - k : yabai -m window --move rel:0:-40
 shift + ctrl - l : yabai -m window --move rel:40:0
 
-# App specific hotkeys
-cmd - j [
-    "Skim" : skhd --key "down"
-    "Förhandsvisning": skhd --key "down"
-    "Safari": skhd --key "down"
-]
-
-cmd - k [
-    "Skim" : skhd --key "up"
-    "Förhandsvisning": skhd --key "up"
-    "Safari": skhd --key "up"
-]
-
-cmd - return : open -a "Kitty"
-shift + cmd - return : open -a "Safari"
+# App specific shortcuts
+alt - return : open -a "Kitty"
+shift + alt - return : open -a "Safari"
