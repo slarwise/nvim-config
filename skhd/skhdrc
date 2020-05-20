@@ -138,7 +138,7 @@ shift + cmd - d : yabai -m window --resize right:-40:0
 shift + cmd - 0 : yabai -m space --balance
 
 # toggle padding and borders
-shift + alt - p : yabai -m space --toggle padding;\
+shift + cmd - p : yabai -m space --toggle padding;\
                   yabai -m space --toggle gap
 
 # move window
