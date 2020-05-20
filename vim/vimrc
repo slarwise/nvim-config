@@ -35,18 +35,15 @@ set expandtab " Expands tab into spaces
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
 set softtabstop=4 " Actual length when using tabs
-set breakindent " Indents word-wrapped lines as much as the parent line
 if has('clipboard')
     set clipboard=unnamed " Yank/paste automatically to/from system clipboard
 endif
 set foldlevel=99 " Start with all folds open
 set ttimeoutlen=0 " Delay after pressing ESC and another character
-set nohlsearch " Don't highlight matches after search
 set textwidth=80 " Sets when the line should break
 set linebreak " Ensures word-wrap does not split words
-set splitbelow splitright " Open new windows below the current and to the right
+set breakindent " Indents word-wrapped lines as much as the parent line
 set shortmess+=I " Disables intro on startup
-" set number relativenumber " Show current and relative to current line number
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
 " Plugins {{{1
