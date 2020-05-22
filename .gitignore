@@ -7,3 +7,4 @@ scripts/battery-level
 vim/.netrwhist
 **/*.bak
 vim/plugged
+nvim/plugged
