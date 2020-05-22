@@ -1,18 +1,15 @@
-" source ~/.vim/vimrc
 " General settings {{{1
 
-" Indentation
+" Indentation/whitespace
 set expandtab " Expand tabs into spaces
+set softtabstop=4 " Actual length when inserting tabs
 set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
-set softtabstop=4 " Actual length when inserting tabs
 
-" Yank to system clipboard by default
+" Yank/paste to/from system clipboard by default
 if has('clipboard')
-    set clipboard=unnamed " Yank/paste automatically to/from system clipboard
+    set clipboard=unnamed
 endif
-
-set ttimeoutlen=0 " Delay after pressing ESC and another character
 
 " Text formatting
 set textwidth=80 " Sets when the line should break
@@ -56,7 +53,6 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 " Plugin specific settings
-
 let g:tex_no_error=1
 let g:tex_flavor='latex'
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
@@ -106,6 +102,9 @@ else
 endif
 
 " Mappings {{{1
+
+" Remove delay after pressing ESC and another character
+set ttimeoutlen=0
 
 " Make Y behave the same way as C and D
 nnoremap Y y$
