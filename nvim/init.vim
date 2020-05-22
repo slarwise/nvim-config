@@ -1,10 +1,6 @@
 " source ~/.vim/vimrc
 " General settings {{{1
 
-" Use vim's directory architecture
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-
 " Indentation
 set expandtab " Expand tabs into spaces
 set shiftwidth=4 " Width when using <, >
@@ -44,12 +40,12 @@ filetype plugin indent on
 let g:python3_host_prog = "/usr/local/bin/python3" 
 
 " Ensure vim-plug is installed
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
