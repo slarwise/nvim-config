@@ -106,7 +106,7 @@ endif
 " Remove delay after pressing ESC and another character
 set ttimeoutlen=0
 
-" Make Y behave the same way as C and D
+" Make Y behave the same way as C and D, i.e. yank to the end of the line
 nnoremap Y y$
 
 " Write, edit and find files
