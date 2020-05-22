@@ -4,7 +4,7 @@ if has('nvim')
     set runtimepath^=~/.vim runtimepath+=~/.vim/after
     let &packpath = &runtimepath
     set completeopt=menu,menuone " Display insertion completion as a popup
-    set fillchars=eob:\ ,fold:\  " Remove the tilde at lines at end of buffer
+    " set fillchars=eob:\ ,fold:\  " Remove the tilde at lines at end of buffer
     set inccommand=nosplit " Show preview of what will happen on e.g. :s
     let g:python3_host_prog = "/usr/local/bin/python3"
 else
@@ -45,6 +45,7 @@ set linebreak " Ensures word-wrap does not split words
 set breakindent " Indents word-wrapped lines as much as the parent line
 set shortmess+=I " Disables intro on startup
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
+set nohlsearch " Do not highlight search matches
 
 " Plugins {{{1
 
