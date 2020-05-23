@@ -112,9 +112,8 @@ nnoremap Y y$
 " Write, edit and find files
 nnoremap Zu :update<CR>
 nnoremap Zm :edit $MYVIMRC <CR>
-nnoremap Zf :edit ~/Dropbox/dotfiles/vim/after/ftplugin/
+nnoremap Zf :edit ~/Dropbox/dotfiles/nvim/after/ftplugin/
 nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
-nnoremap <C-p> :find **/
 
 " Compile programs and toggle the quickfix window
 nnoremap m :update <bar> Neomake!<CR>
