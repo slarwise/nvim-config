@@ -75,8 +75,6 @@ set background=light
 if exists("$COLORTERM")
     set termguicolors
     colorscheme gruvbox8_soft
-else
-    colorscheme zellner
 endif
 
 " Use a statusline with some fancy symbols if the terminal can handle it.
