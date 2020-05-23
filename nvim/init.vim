@@ -18,6 +18,8 @@ set breakindent " Indents word-wrapped lines as much as the parent line
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
 " Display
+
+" Make window sizes equal when the terminal window is resized
 augroup auto_equal_windows
     autocmd!
     autocmd VimResized * wincmd =
