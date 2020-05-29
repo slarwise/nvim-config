@@ -2,6 +2,8 @@
 " Equivalent to writing texdoc <packagename> on the command line
 setlocal keywordprg=texdoc
 
+setlocal formatoptions-=tc
+
 " Mappings
 " Insert mode mappings
 
