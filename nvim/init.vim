@@ -33,7 +33,7 @@ set completeopt=menu,menuone " Display insertion completion as a popup
 " Plugins {{{1
 
 " Enable filetype specific plugins and indentation
-filetype plugin indent on
+" filetype plugin indent on
 
 " Tell neovim which python3 executable to use
 let g:python3_host_prog = "/usr/local/bin/python3" 
@@ -69,6 +69,7 @@ let g:neomake_virtualtext_current_error=0
 let g:neomake_place_signs=0
 
 let g:Hexokinase_highlighters = ['backgroundfull']
+let g:Hexokinase_ftEnabled = []
 
 " Colors {{{1
 
