@@ -27,6 +27,7 @@ augroup END
 set nohlsearch " Do not highlight search matches
 set inccommand=nosplit " Show preview of what will happen on e.g. :s
 set foldlevel=99 " Start with all folds open
+set foldopen-=block " Don't open folds when using (, {, [[, [{, etc. motions
 set shortmess+=I " Disables intro on startup
 set completeopt=menu,menuone " Display insertion completion as a popup
 
