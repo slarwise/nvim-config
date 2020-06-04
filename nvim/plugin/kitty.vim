@@ -23,6 +23,8 @@ function! KittySendContinuous()
     echo message
     echohl None
     try
+        " If I open another Kitty window using cmd+n, the screen doesn't get
+        " redrawn. redraw and redraw! doesn't seem to work.
         while 1
             let c = nr2char(getchar())
             call KittySend(c, 0)
