@@ -17,8 +17,8 @@ function! KittySendContinuous()
     if !s:EnsureKittyTargetWinIdSet()
         return
     endif
-    let message = ">> Sending keystrokes to Kitty Window " . g:KittyTargetWinId
-                \ .". Exit with CTRL-C."
+    let message = "-- Sending keystrokes to Kitty Window " . g:KittyTargetWinId
+                \ .". Exit with CTRL-C. --"
     echohl ModeMsg
     echo message
     echohl None
