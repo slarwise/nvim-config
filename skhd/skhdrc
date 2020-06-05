@@ -142,10 +142,10 @@ shift + cmd - p : yabai -m space --toggle padding;\
                   yabai -m space --toggle gap
 
 # move window
-shift + ctrl - h : yabai -m window --move rel:-40:0
-shift + ctrl - j : yabai -m window --move rel:0:40
-shift + ctrl - k : yabai -m window --move rel:0:-40
-shift + ctrl - l : yabai -m window --move rel:40:0
+shift + ctrl - a : yabai -m window --move rel:-40:0
+shift + ctrl - s : yabai -m window --move rel:0:40
+shift + ctrl - w : yabai -m window --move rel:0:-40
+shift + ctrl - d : yabai -m window --move rel:40:0
 
 # App specific shortcuts
 alt - return : open -a "Kitty"
