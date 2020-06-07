@@ -7,9 +7,7 @@ set shiftwidth=4 " Width when using <, >
 set shiftround " When using <, >, round to nearest shiftwidth
 
 " Yank/paste to/from system clipboard by default
-if has('clipboard')
-    set clipboard=unnamed
-endif
+set clipboard+=unnamed
 
 " Text formatting
 set textwidth=80 " Sets when the line should break
@@ -32,9 +30,6 @@ set shortmess+=I " Disables intro on startup
 set completeopt=menu,menuone " Display insertion completion as a popup
 
 " Plugins {{{1
-
-" Enable filetype specific plugins and indentation
-" filetype plugin indent on
 
 " Tell neovim which python3 executable to use
 let g:python3_host_prog = "/usr/local/bin/python3" 
