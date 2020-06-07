@@ -15,7 +15,7 @@ set linebreak " Ensures word-wrap does not split words
 set breakindent " Indents word-wrapped lines as much as the parent line
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
-" Display
+" Display {{{1
 
 " Make window sizes equal when the terminal window is resized
 augroup auto_equal_windows
@@ -44,28 +44,27 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
-    Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'tpope/vim-surround'
 call plug#end()
 
 " Plugin specific settings
-let g:tex_no_error=1
-let g:tex_flavor='latex'
+let g:tex_no_error = 1
+let g:tex_flavor = 'latex'
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
 let g:tex_fold_enabled = 1
 
-let g:markdown_fenced_languages = ['python']
+let g:markdown_fenced_languages = ['python'] " Syntax highlighting for code blocks
 
-let g:gruvbox_filetype_hi_groups = 1
-let g:gruvbox_plugin_hi_groups = 1
+let g:gruvbox_filetype_hi_groups = 1 " Include highlights for some popular plugins
+let g:gruvbox_plugin_hi_groups = 1 " Include highlights for several filetypes
 
-let g:neomake_virtualtext_current_error=0
-let g:neomake_place_signs=0
+let g:neomake_virtualtext_current_error = 0 " Don't display errors for the current line
+let g:neomake_place_signs = 0 " Don't use the signs column for neomake warnings/errors
 
 let g:Hexokinase_highlighters = ['backgroundfull']
-let g:Hexokinase_ftEnabled = []
+let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by default
 
 " Colors {{{1
 
