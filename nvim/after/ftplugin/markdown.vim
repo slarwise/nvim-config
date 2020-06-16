@@ -1,31 +1,22 @@
-" Folding, fold on headers only
-function! MarkdownLevel()
-    if getline(v:lnum) =~ '^# .*$'
-        return ">1"
+" Folding based on header levels
+function! MarkdownFoldHeaders()
+    let current_line = getline(v:lnum)
+    let header_level = matchstr(current_line, '^#\+\ze .*$')
+    if empty(header_level)
+        return "="
+    else
+        return ">" .. len(header_level)
     endif
-    if getline(v:lnum) =~ '^## .*$'
-        return ">2"
-    endif
-    if getline(v:lnum) =~ '^### .*$'
-        return ">3"
-    endif
-    if getline(v:lnum) =~ '^#### .*$'
-        return ">4"
-    endif
-    if getline(v:lnum) =~ '^##### .*$'
-        return ">5"
-    endif
-    if getline(v:lnum) =~ '^###### .*$'
-        return ">6"
-    endif
-    return "=" 
 endfunction
 
-setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
-let b:compile_on_write=0
-setlocal foldexpr=MarkdownLevel()
+setlocal foldexpr=MarkdownFoldHeaders()
 setlocal foldmethod=expr
 
+" Compile to pdf using pandoc
+setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
+
+" Regular text are highlighted as code in nested lists with multiline items.
+" This should prevent this from happening.
 augroup NoMarkdownCodeHL
     autocmd!
     autocmd BufEnter *.md syn clear markdownCodeBlock
