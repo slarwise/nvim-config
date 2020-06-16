@@ -9,3 +9,4 @@ vim/plugged
 vim/.netrwhist
 nvim/plugged
 nvim/.netrwhist
+nvim/spell/*
