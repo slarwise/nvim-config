@@ -3,10 +3,7 @@
 scripts/*png
 scripts/*jpg
 scripts/*pdf
-scripts/battery-level
 **/*.bak
-vim/plugged
-vim/.netrwhist
 nvim/plugged
 nvim/.netrwhist
 nvim/spell/*
