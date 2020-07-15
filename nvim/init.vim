@@ -105,13 +105,10 @@ set ttimeoutlen=0
 " Make Y behave the same way as C and D, i.e. yank to the end of the line
 nnoremap Y y$
 
-" Write, edit and find files
-nnoremap Zu :update<CR>
-nnoremap Zm :edit $MYVIMRC <CR>
-nnoremap Zf :edit ~/Dropbox/dotfiles/nvim/after/ftplugin/
-nnoremap Zt :edit ~/Dropbox/Chalmers/todo.md<CR>
+" Update current buffer
+nnoremap du :update<CR>
 
-" Compile programs and toggle the quickfix window
+" Run make and toggle the quickfix window
 nnoremap m :update <bar> Neomake!<CR>
 nnoremap m :update <bar> Neomake<CR>
 nnoremap <silent> m
