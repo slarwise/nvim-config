@@ -15,6 +15,10 @@ set linebreak " Ensures word-wrap does not split words
 set breakindent " Indents word-wrapped lines as much as the parent line
 set nojoinspaces " Do not put two spaces after [.!?] when formatting
 
+" Searching
+set ignorecase " Ignore case when searching
+set smartcase " Overrides the ignorecase option when using capital letters
+
 " Display {{{1
 
 " Make window sizes equal when the terminal window is resized
