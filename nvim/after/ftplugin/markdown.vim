@@ -13,7 +13,7 @@ setlocal foldexpr=MarkdownFoldHeaders()
 setlocal foldmethod=expr
 
 " Compile to pdf using pandoc
-setlocal makeprg=pandoc\ -o\ %:r.pdf\ -V\ colorlinks\ %
+setlocal makeprg=pandoc\ -o\ %:p:r.pdf\ -V\ colorlinks\ %:p
 
 " Regular text are highlighted as code in nested lists with multiline items.
 " This should prevent this from happening.
