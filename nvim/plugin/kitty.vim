@@ -1,6 +1,7 @@
-" Send text to the kitty window with window id `KittyTargetWinId`. If bang is 1,
-" append the text with the escape sequence for enter, i.e. execute the text.
-function! KittySend(text, bang)
+function! KittySend(text, bang) "{{{1
+    " Send text to the kitty window with window id `KittyTargetWinId`. If bang
+    " is 1, append the text with the escape sequence for enter, i.e. execute the
+    " text.
     if !s:EnsureKittyTargetWinIdSet()
         return
     endif
@@ -13,7 +14,15 @@ function! KittySend(text, bang)
     call system(system_cmd)
 endfunction
 
-function! KittySendContinuous()
+function! KittySendMake() "{{{1
+    if !s:EnsureKittyTargetWinIdSet()
+        return
+    endif
+    let make_cmd = substitute(&makeprg, '%\(:\a\)*', '\=expand(submatch(0))', 'g')
+    call KittySend(make_cmd, 1)
+endfunction
+
+function! KittySendContinuous() "{{{1
     if !s:EnsureKittyTargetWinIdSet()
         return
     endif
@@ -36,9 +45,9 @@ function! KittySendContinuous()
     endtry
 endfunction
 
-" Return 0 if `g:KittyTargetWinId` is not set or if it is smaller than 1. Else
-" return 1.
-function! s:EnsureKittyTargetWinIdSet()
+function! s:EnsureKittyTargetWinIdSet() "{{{1
+    " Return 0 if `g:KittyTargetWinId` is not set or if it is smaller than 1.
+    " Else return 1.
     if !exists('g:KittyTargetWinId')
         echohl WarningMsg
                     \| echo "Must set the target window id in `g:KittyTargetWinId`"
@@ -64,3 +73,6 @@ command! -bang -nargs=1 KittySend call KittySend(<q-args>, <bang>0)
 command! -nargs=1 KittySetTargetWinId let g:KittyTargetWinId=<args>
 
 command! KittySendContinuous call KittySendContinuous()
+command! KittySendMake call KittySendMake()
+
+"vim: foldmethod=marker
