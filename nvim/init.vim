@@ -110,11 +110,10 @@ set ttimeoutlen=0
 nnoremap Y y$
 
 " Update current buffer
-nnoremap du :update<CR>
+nnoremap <space> :update<CR>
 
 " Run make and toggle the quickfix window
-nnoremap m :update <bar> Neomake!<CR>
-nnoremap m :update <bar> Neomake<CR>
+nnoremap m<space> :update <bar> execute &filetype=='vim' ? 'source%' : 'Neomake!'<CR>
 nnoremap <silent> m
             \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
             \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
@@ -123,5 +122,11 @@ nnoremap <silent> m
 set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
+
+" Exit terminal mode using CTRL-7
+tnoremap <C-_> <C-\><C-N>
+
+" Spelling - replace word under cursor with the first suggested word
+nnoremap z<space> 1z=
 
 " vim:set foldmethod=marker:
