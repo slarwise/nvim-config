@@ -92,7 +92,7 @@ if exists("$COLORTERM")
         execute 'highlight User1 guifg='.s:corner_fg.' guibg='.s:corner_bg
     endfunction
     call SetStatusLineCornersHLGroup()
-    set statusline=%1*%*\ %{&modified?'●':'\ '}\ \ %f%=%l/%L,%c\ %1*%*
+    set statusline=%1*%*\ %{&modified?'':'\ '}\ \ %f%=%l/%L,%c\ %1*%*
     augroup statusline_corner_hl
         autocmd!
         autocmd ColorScheme * call SetStatusLineCornersHLGroup()
