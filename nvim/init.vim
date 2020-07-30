@@ -30,6 +30,7 @@ set nohlsearch " Do not highlight search matches
 set inccommand=nosplit " Show preview of what will happen on e.g. :s
 set foldlevel=99 " Start with all folds open
 set foldopen-=block " Don't open folds when using (, {, [[, [{, etc. motions
+set foldmethod=marker " Use markers to define folds by default
 set shortmess+=I " Disables intro on startup
 set completeopt=menu,menuone " Display insertion completion as a popup
 
@@ -46,18 +47,17 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
-    Plug 'tpope/vim-commentary'
     Plug 'neomake/neomake'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    Plug 'tpope/vim-surround'
 call plug#end()
 
 " Plugin specific settings
 let g:tex_no_error = 1
 let g:tex_flavor = 'latex'
-let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|center'
-let g:tex_fold_enabled = 1
+let g:tex_comment_nospell = 1
 
 let g:markdown_fenced_languages = ['python'] " Syntax highlighting for code blocks
 
