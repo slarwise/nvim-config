@@ -1,4 +1,4 @@
-function! KittySend(text, bang) "{{{1
+function! s:KittySend(text, bang) "{{{1
     " Send text to the kitty window with window id `KittyTargetWinId`. If bang
     " is 1, append the text with the escape sequence for enter, i.e. execute the
     " text.
@@ -14,15 +14,15 @@ function! KittySend(text, bang) "{{{1
     call system(system_cmd)
 endfunction
 
-function! KittySendMake() "{{{1
+function! s:KittySendMake() "{{{1
     if !s:EnsureKittyTargetWinIdSet()
         return
     endif
     let make_cmd = substitute(&makeprg, '%\(:\a\)*', '\=expand(submatch(0))', 'g')
-    call KittySend(make_cmd, 1)
+    call s:KittySend(make_cmd, 1)
 endfunction
 
-function! KittySendContinuous() "{{{1
+function! s:KittySendContinuous() "{{{1
     if !s:EnsureKittyTargetWinIdSet()
         return
     endif
@@ -36,7 +36,7 @@ function! KittySendContinuous() "{{{1
         " redrawn. redraw and redraw! doesn't seem to work.
         while 1
             let c = nr2char(getchar())
-            call KittySend(c, 0)
+            call s:KittySend(c, 0)
         endwhile
     catch /Vim:Interrupt/
         echo ""
@@ -66,13 +66,13 @@ endfunction
 " q-args means that the text supplied after KittySend will be treated as a
 " string. Don't need to escape e.g. spaces or use quotes. Using the command
 " with a bang appends ENTER to the text, i.e. executes it.
-command! -bang -nargs=1 KittySend call KittySend(<q-args>, <bang>0)
+command! -bang -nargs=1 KittySend call s:KittySend(<q-args>, <bang>0)
 
 " Set the variable `KittyTargetWinId`. Easier than having to remember the name
 " of the variable if it is not set.
 command! -nargs=1 KittySetTargetWinId let g:KittyTargetWinId=<args>
 
-command! KittySendContinuous call KittySendContinuous()
-command! KittySendMake call KittySendMake()
+command! KittySendContinuous call s:KittySendContinuous()
+command! KittySendMake call s:KittySendMake()
 
 "vim: foldmethod=marker
