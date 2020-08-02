@@ -1,10 +1,4 @@
-" Map between ======= sections with method movements
-" nnoremap <silent> <buffer> ]] :<C-U>keeppatterns /^=<CR>
-" nnoremap <silent> <buffer> [[ :<C-U>keeppatterns ?^=<CR>
-
-" nnoremap <silent> <buffer> ]] /^=<CR>
-" nnoremap <silent> <buffer> [[ ?^=<CR>
-
+" Move between `===========...` sections using ]] and [[
 nnoremap <silent><buffer> ]] :<C-U> call <SID>Jump("n", "W")<CR>
 nnoremap <silent><buffer> [[ :<C-U> call <SID>Jump("n", "Wb")<CR>
 xnoremap <silent><buffer> ]] :<C-U> call <SID>Jump("v", "W")<CR>
