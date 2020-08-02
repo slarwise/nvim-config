@@ -82,7 +82,7 @@ endif
 " Use a statusline with some fancy symbols if the terminal can handle it.
 " Also need to have a font which can handle the symbols.
 if exists("$COLORTERM")
-    function SetStatusLineCornersHLGroup()
+    function s:SetStatusLineCornersHLGroup()
         if synIDattr(synIDtrans(hlID('StatusLine')), 'reverse')
             let s:corner_fg = synIDattr(synIDtrans(hlID('StatusLine')), 'fg')
         else
@@ -91,11 +91,11 @@ if exists("$COLORTERM")
         let s:corner_bg = synIDattr(synIDtrans(hlID('Normal')), 'bg')
         execute 'highlight User1 guifg='.s:corner_fg.' guibg='.s:corner_bg
     endfunction
-    call SetStatusLineCornersHLGroup()
+    call s:SetStatusLineCornersHLGroup()
     set statusline=%1*%*\ %{&modified?'':'\ '}\ \ %f%=%l/%L,%c\ %1*%*
     augroup statusline_corner_hl
         autocmd!
-        autocmd ColorScheme * call SetStatusLineCornersHLGroup()
+        autocmd ColorScheme * call s:SetStatusLineCornersHLGroup()
     augroup END
 else
     set statusline=\ %m\ \ %f%=%l/%L,%c\ 
