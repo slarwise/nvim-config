@@ -52,6 +52,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+    " Plug '~/Dropbox/Chalmers/projects/vim-erlang-tags'
+    Plug '~/Dropbox/Chalmers/projects/vim-erlang-defitinion-search'
 call plug#end()
 
 " Plugin specific settings
@@ -59,7 +61,7 @@ let g:tex_no_error = 1
 let g:tex_flavor = 'latex'
 let g:tex_comment_nospell = 1
 
-let g:markdown_fenced_languages = ['python'] " Syntax highlighting for code blocks
+let g:markdown_fenced_languages = ['python', 'vim'] " Syntax highlighting for code blocks
 
 let g:gruvbox_filetype_hi_groups = 1 " Include highlights for some popular plugins
 let g:gruvbox_plugin_hi_groups = 1 " Include highlights for several filetypes
