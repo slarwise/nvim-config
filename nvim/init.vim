@@ -53,7 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     " Plug '~/Dropbox/Chalmers/projects/vim-erlang-tags'
-    Plug '~/Dropbox/Chalmers/projects/vim-erlang-defitinion-search'
+    Plug '~/Dropbox/Chalmers/projects/vim-erlang-definition-search'
 call plug#end()
 
 " Plugin specific settings
