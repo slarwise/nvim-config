@@ -31,6 +31,9 @@ export LC_ALL="sv_SE.UTF-8"
 # Color output of commands, used by e.g. ls
 export CLICOLOR=1
 
+# Set my editor to neovim
+export EDITOR=nvim
+
 # Aliases
 alias cdd="cd ~/Dropbox/dotfiles/"
 alias cdc="cd ~/Dropbox/Chalmers/"
