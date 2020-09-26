@@ -53,6 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug '~/Dropbox/Chalmers/projects/vim-erlang-definition-search'
+    Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Plugin specific settings
@@ -70,6 +71,10 @@ let g:neomake_place_signs = 0 " Don't use the signs column for neomake warnings/
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by default
+
+lua <<EOF
+require'nvim_lsp'.vimls.setup{}
+EOF
 
 " Colors {{{1
 
