@@ -52,7 +52,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    " Plug '~/Dropbox/Chalmers/projects/vim-erlang-tags'
     Plug '~/Dropbox/Chalmers/projects/vim-erlang-definition-search'
 call plug#end()
 
@@ -108,27 +107,12 @@ endif
 " Remove delay after pressing ESC and another character
 set ttimeoutlen=0
 
-" Make Y behave the same way as C and D, i.e. yank to the end of the line
-nnoremap Y y$
-
-" Update current buffer
-nnoremap <space> :update<CR>
-
-" Run make and toggle the quickfix window
-nnoremap m<space> :update <bar> execute &filetype=='vim' ? 'source%' : 'Neomake!'<CR>
-nnoremap <silent> m
-            \ :if getqflist({'winid' : 0}).winid <BAR> cclose <BAR> else <BAR>
-            \ execute "copen <BAR> wincmd p" <BAR> endif <CR>
-
 " Use Ctrl-h and Ctrl-l to go up/down directories when the wildmenu is open
 set wildcharm=<Tab>
 cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
 cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
 
-" Exit terminal mode using CTRL-7
+" Exit terminal mode using CTRL-/ or CTRL-7
 tnoremap <C-_> <C-\><C-N>
-
-" Spelling - replace word under cursor with the first suggested word
-nnoremap z<space> 1z=
 
 " vim:set foldmethod=marker:
