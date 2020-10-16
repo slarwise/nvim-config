@@ -61,6 +61,8 @@ let g:tex_no_error = 1
 let g:tex_flavor = 'latex'
 let g:tex_comment_nospell = 1
 
+let g:vimsyn_embed = 'l' " Syntax highlighting for lua in vim files
+
 let g:markdown_fenced_languages = ['python', 'vim'] " Syntax highlighting for code blocks
 
 let g:gruvbox_filetype_hi_groups = 1 " Include highlights for some popular plugins
@@ -74,6 +76,8 @@ let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by defau
 
 lua <<EOF
 require'nvim_lsp'.vimls.setup{}
+-- Disable diagnostics
+vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 EOF
 
 lua <<EOF
