@@ -52,8 +52,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    Plug '~/Dropbox/Chalmers/projects/vim-erlang-definition-search'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 " Plugin specific settings
@@ -74,6 +74,15 @@ let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by defau
 
 lua <<EOF
 require'nvim_lsp'.vimls.setup{}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = 'python',
+  highlight = {
+    enable = true,
+  },
+}
 EOF
 
 " Colors {{{1
