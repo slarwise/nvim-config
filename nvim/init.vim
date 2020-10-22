@@ -54,7 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-treesitter/nvim-treesitter'
-    Plug '~/Dropbox/Chalmers/projects/vim-find'
+    Plug '~/Dropbox/Chalmers/projects/vim-filepaths'
 call plug#end()
 
 " Plugin specific settings
