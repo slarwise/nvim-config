@@ -1,11 +1,6 @@
 setlocal suffixesadd=.erl,.hrl
 
-let &l:define = '\(' .
-            \ '^-define(' . '\|' .
-            \ '^-record(' . '\|' .
-            \ '^-type ' . '\|' .
-            \ '^-type(' .
-            \ '\)'
+let &l:define = '^-define(\|^-record(\|^-type \|^-type('
 
 let &l:include = '^\s*-include("\zs\f*\ze").$'
 
