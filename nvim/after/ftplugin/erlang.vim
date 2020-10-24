@@ -8,15 +8,8 @@ let &l:define = '\(' .
             \ '\)'
 
 let &l:include = '^\s*-include("\zs\f*\ze").$'
-setlocal includeexpr=ErlangIncludeexpr(v:fname)
 
-function! ErlangIncludeexpr(fname) abort
-    let suffixes = [''] + split(&l:suffixesadd, ',', 1)
-    for suffix in suffixes
-        let paths = Filepaths#GetPaths(a:fname . suffix)
-        if !empty(paths)
-            return paths[0]
-        endif
-    endfor
-    return a:fname
-endfunction
+nnoremap <buffer><silent> gd
+            \ :<C-U>call ErlangNotIncludeSearch#GotoDefinitionUnderCursor(0)<CR>
+nnoremap <buffer><silent> <C-W>gd
+            \ :<C-U>call ErlangNotIncludeSearch#GotoDefinitionUnderCursor(1)<CR>

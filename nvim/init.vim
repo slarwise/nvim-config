@@ -46,15 +46,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'lifepillar/vim-gruvbox8'
-    Plug 'neomake/neomake'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-    Plug 'neovim/nvim-lspconfig'
+
+    Plug 'lifepillar/vim-gruvbox8'
     Plug 'nvim-treesitter/nvim-treesitter'
-    Plug '~/Dropbox/Chalmers/projects/vim-filepaths'
+    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+    Plug 'neomake/neomake'
+    Plug 'neovim/nvim-lspconfig'
+
+    Plug '~/Dropbox/Chalmers/projects/vim-erlang-not-include-search'
 call plug#end()
 
 " Plugin specific settings
