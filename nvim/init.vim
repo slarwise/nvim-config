@@ -33,6 +33,7 @@ set foldopen-=block " Don't open folds when using (, {, [[, [{, etc. motions
 set foldmethod=marker " Use markers to define folds by default
 set shortmess+=I " Disables intro on startup
 set completeopt=menu,menuone " Display insertion completion as a popup
+set splitbelow splitright " Open new splits below/to the right
 
 " Plugins {{{1
 
