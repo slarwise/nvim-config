@@ -51,6 +51,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
 
+    Plug 'slarwise/vim-oldfiles'
+
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -58,7 +60,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neomake/neomake'
     Plug 'neovim/nvim-lspconfig'
 
-    Plug '~/Dropbox/Chalmers/projects/vim-erlang-not-include-search'
+    Plug 'slarwise/vim-erlang-not-include-search'
+    Plug 'slarwise/vim-show-full-definition'
 call plug#end()
 
 " Plugin specific settings
@@ -78,6 +81,8 @@ let g:neomake_place_signs = 0 " Don't use the signs column for neomake warnings/
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by default
+
+let g:oldfiles_ignore = ['COMMIT_EDITMSG', '/runtime/doc/']
 
 lua <<EOF
 require'nvim_lsp'.vimls.setup{}
