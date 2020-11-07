@@ -8,3 +8,4 @@ nvim/plugged
 nvim/.netrwhist
 nvim/spell/*
 nvim/autoload/plug.vim
+neofetch/config.conf
