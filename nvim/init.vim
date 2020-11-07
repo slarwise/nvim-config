@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
 
     Plug 'slarwise/vim-oldfiles'
+    Plug 'slarwise/vim-project-files'
 
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'nvim-treesitter/nvim-treesitter'
