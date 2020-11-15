@@ -56,13 +56,14 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
     Plug 'neomake/neomake'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'junegunn/vader.vim'
 
     Plug 'slarwise/vim-erlang-not-include-search'
     Plug 'slarwise/vim-show-full-definition'
+    Plug '~/Dropbox/Chalmers/projects/vim-erlang-runtime'
 call plug#end()
 
 " Plugin specific settings
@@ -136,10 +137,19 @@ endif
 " Remove delay after pressing ESC and another character
 set ttimeoutlen=0
 
-" Use Ctrl-h and Ctrl-l to go up/down directories when the wildmenu is open
+" Cycle through splits
+nnoremap <C-J> <C-W>w
+nnoremap <C-K> <C-W>W
+
+" Use CTRL-H and CTRL-L to go up/down directories when the wildmenu is open
 set wildcharm=<Tab>
-cnoremap <expr> <C-l> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
-cnoremap <expr> <C-h> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
+cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"
+cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"
+
+" Use CTRL-J and CTRL-K to find the next/previous matching command on the
+" command-line
+cnoremap <C-J> <Down>
+cnoremap <C-K> <Up>
 
 " Exit terminal mode using CTRL-/ or CTRL-7
 tnoremap <C-_> <C-\><C-N>
