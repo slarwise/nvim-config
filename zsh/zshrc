@@ -35,9 +35,6 @@ export CLICOLOR=1
 export EDITOR=nvim
 
 # Aliases
-alias cdd="cd ~/Dropbox/dotfiles/"
-alias cdc="cd ~/Dropbox/Chalmers/"
-alias cde="cd ~/Dropbox/Chalmers/exjobb"
 alias context-commands="open ~/Dropbox/Chalmers/report-writing/context/docs/setup-en.pdf"
 alias context-ref="open ~/Dropbox/Chalmers/report-writing/context/docs/contextref.pdf"
 alias pv="qlmanage -p"
