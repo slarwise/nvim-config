@@ -1,7 +1,6 @@
 # Zsh settings
 autoload -Uz compinit # Initialize auto completion
 compinit
-setopt menucomplete # Go to first completion match straight away
 setopt autocd # Don't have to write cd before dir
 setopt globstarshort # Writing ** means **/*
 
