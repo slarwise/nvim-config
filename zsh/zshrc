@@ -33,7 +33,6 @@ export EDITOR=nvim
 # Aliases
 alias pv="qlmanage -p"
 alias icat="kitty +kitten icat"
-alias termpdf="~/termpdf/termpdf.py"
 alias unimatrix="~/unimatrix/unimatrix.py"
 
 # Environment variables to directories
