@@ -1,10 +1,4 @@
-setlocal suffixesadd=.erl,.hrl
-
-let &l:define = '^-define(\|^-record(\|^-type \|^-type('
-
-let &l:include = '^\s*-include\%(\|_lib\)("\zs\f*\ze").$'
-
-" let &l:includeexpr = 'ProjectFiles#Includeexpr(".projectfiles", v:fname)'
+let &l:includeexpr = 'ProjectFiles#Includeexpr(".projectfiles", v:fname)'
 if !exists('ErlangIncludeexpr')
     let ErlangIncludeexpr = ProjectFiles#CreateCustomIncludeexpr('.projectfiles')
 endif
