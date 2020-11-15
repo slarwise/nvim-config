@@ -35,4 +35,3 @@ alias icat="kitty +kitten icat"
 
 # Environment variables to directories
 export DOTS=/Users/arvidbjurklint/Dropbox/dotfiles
-export CHALMERS=/Users/arvidbjurklint/Dropbox/Chalmers
