@@ -1,9 +1,3 @@
-let &l:includeexpr = 'ProjectFiles#Includeexpr(".projectfiles", v:fname)'
-if !exists('ErlangIncludeexpr')
-    let ErlangIncludeexpr = ProjectFiles#CreateCustomIncludeexpr('.projectfiles')
-endif
-let &l:includeexpr = 'ErlangIncludeexpr(v:fname)'
-
 nnoremap <buffer><silent> gd
             \ :<C-U>call ErlangNotIncludeSearch#GotoDefinitionUnderCursor(0)<CR>
 nnoremap <buffer><silent> <C-W>gd
