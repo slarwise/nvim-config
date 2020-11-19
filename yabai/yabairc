@@ -52,6 +52,6 @@ yabai -m rule --add app="Finder" title=".*info" manage=off
 echo "yabai configuration loaded.."
 
 # Start batterywall-macos
-~/Dropbox/Chalmers/projects/batterywall-macos/batterywall-macos \
-    -p ~/Dropbox/Chalmers/projects/batterywall-macos/imgs/win95-gruvbox-bright-zooom-tiled- \
+~/Dropbox/projects/batterywall-macos/batterywall-macos \
+    -p ~/Dropbox/projects/batterywall-macos/imgs/win95-gruvbox-bright-zooom-tiled- \
     -s .png &
