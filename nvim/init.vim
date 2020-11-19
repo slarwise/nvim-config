@@ -62,7 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'slarwise/vim-erlang-not-include-search'
     Plug 'slarwise/vim-show-full-definition'
-    Plug '~/Dropbox/Chalmers/projects/vim-erlang-runtime'
+    Plug '~/Dropbox/projects/vim-erlang-runtime'
 call plug#end()
 
 " Plugin specific settings
