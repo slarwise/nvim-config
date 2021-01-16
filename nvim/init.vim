@@ -35,6 +35,12 @@ set shortmess+=I " Disables intro on startup
 set completeopt=menu,menuone " Display insertion completion as a popup
 set splitbelow splitright " Open new splits below/to the right
 
+" Terminal settings
+augroup terminal
+    autocmd!
+    autocmd TermOpen * startinsert
+augroup END
+
 " Plugins {{{1
 
 " Tell neovim which python3 executable to use
@@ -52,9 +58,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
 
     Plug 'slarwise/vim-oldfiles'
+    Plug 'slarwise/vim-projectfiles'
 
     Plug 'lifepillar/vim-gruvbox8'
-    Plug 'nvim-treesitter/nvim-treesitter'
+    " Plug 'nvim-treesitter/nvim-treesitter'
 
     Plug 'neomake/neomake'
     Plug 'neovim/nvim-lspconfig'
@@ -62,7 +69,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'slarwise/vim-erlang-not-include-search'
     Plug 'slarwise/vim-show-full-definition'
-    Plug '~/Dropbox/projects/vim-erlang-runtime'
+    Plug 'slarwise/vim-erlang-syntax-simple'
 call plug#end()
 
 " Plugin specific settings
@@ -86,19 +93,19 @@ let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by defau
 let g:oldfiles_ignore = ['COMMIT_EDITMSG', '/runtime/doc/']
 
 lua <<EOF
-require'nvim_lsp'.vimls.setup{}
+require'lspconfig'.vimls.setup{}
 -- Disable diagnostics
 vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 EOF
 
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = 'python',
-  highlight = {
-    enable = true,
-  },
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = 'python',
+"   highlight = {
+"     enable = true,
+"   },
+" }
+" EOF
 
 " Colors {{{1
 
@@ -135,10 +142,6 @@ endif
 
 " Remove delay after pressing ESC and another character
 set ttimeoutlen=0
-
-" Cycle through splits
-nnoremap <C-J> <C-W>w
-nnoremap <C-K> <C-W>W
 
 " Use CTRL-H and CTRL-L to go up/down directories when the wildmenu is open
 set wildcharm=<Tab>
