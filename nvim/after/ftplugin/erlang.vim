@@ -5,3 +5,8 @@ nnoremap <buffer><silent> <C-W>gd
 
 nnoremap <buffer><silent> [d
             \ :<C-U>call ShowFullDefinition#FirstDefinition('^[^%]*\.\s*\(%.*\)\?$')<CR>
+
+setlocal formatprg=erlfmt\ -
+
+setlocal makeprg=erlc\ %
+setlocal errorformat=%f:%l:\ %m
