@@ -36,3 +36,6 @@ alias icat="kitty +kitten icat"
 # Environment variables to directories
 export DOTS=/Users/arvidbjurklint/Dropbox/dotfiles
 export MYPROJECTS=/Users/arvidbjurklint/Dropbox/projects
+
+# vim vader testing env variable
+export VADER_OUTPUT_FILE=out
