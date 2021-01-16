@@ -10,3 +10,4 @@ nvim/spell/*
 nvim/autoload/plug.vim
 neofetch/config.conf
 bin/unimatrix
+bin/erlfmt
