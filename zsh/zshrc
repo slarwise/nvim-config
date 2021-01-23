@@ -39,3 +39,6 @@ export MYPROJECTS=/Users/arvidbjurklint/Dropbox/projects
 
 # vim vader testing env variable
 export VADER_OUTPUT_FILE=out
+
+# Use english as language
+export LC_ALL=en_US.UTF-8
