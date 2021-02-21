@@ -61,15 +61,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'slarwise/vim-projectfiles'
 
     Plug 'lifepillar/vim-gruvbox8'
-    " Plug 'nvim-treesitter/nvim-treesitter'
 
     Plug 'neomake/neomake'
     Plug 'neovim/nvim-lspconfig'
     Plug 'junegunn/vader.vim'
 
-    Plug 'slarwise/vim-erlang-not-include-search'
-    Plug 'slarwise/vim-show-full-definition'
     Plug 'slarwise/vim-erlang-syntax-simple'
+    Plug 'slarwise/vim-erlang-compilers'
+
+    Plug '/Users/arvidbjurklint/Dropbox/projects/vim-erlang-goto-definition'
 call plug#end()
 
 " Plugin specific settings
