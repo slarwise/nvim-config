@@ -63,7 +63,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
 
     Plug 'neomake/neomake'
-    Plug 'neovim/nvim-lspconfig'
     Plug 'junegunn/vader.vim'
 
     Plug 'slarwise/vim-erlang-syntax-simple'
@@ -91,21 +90,6 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_ftEnabled = [] " Hexokinase disabled for all filetypes by default
 
 let g:oldfiles_ignore = ['COMMIT_EDITMSG', '/runtime/doc/']
-
-lua <<EOF
-require'lspconfig'.vimls.setup{}
--- Disable diagnostics
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-EOF
-
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = 'python',
-"   highlight = {
-"     enable = true,
-"   },
-" }
-" EOF
 
 " Colors {{{1
 
