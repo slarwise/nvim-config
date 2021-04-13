@@ -66,7 +66,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/vader.vim'
 
     Plug 'slarwise/vim-erlang-syntax-simple'
-    Plug 'slarwise/vim-erlang-compilers'
 
     Plug '/Users/arvidbjurklint/Dropbox/projects/vim-erlang-goto-definition'
 call plug#end()
