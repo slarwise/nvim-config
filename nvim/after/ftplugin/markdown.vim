@@ -30,8 +30,8 @@ function! <SID>Jump(mode, flags)
     endwhile
 endfunction
 
-" Compile to pdf using pandoc
-setlocal makeprg=pandoc\ -o\ %:p:r.pdf\ -V\ colorlinks\ %:p
+" Compile to html using pandoc
+setlocal makeprg=pandoc\ -o\ %:p:r.html\ -V\ colorlinks\ %:p\ --standalone
 
 " Regular text are highlighted as code in nested lists with multiline items.
 " This should prevent this from happening.
