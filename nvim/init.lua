@@ -71,6 +71,12 @@ vim.cmd([[
 	autocmd TextYankPost * silent! lua vim.highlight.on_yank()
     augroup END
 ]])
+vim.cmd([[
+    augroup terminal
+        autocmd!
+        autocmd TermOpen * startinsert
+    augroup END
+]])
 
 vim.cmd([[cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"]])
 vim.cmd([[cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"]])
