@@ -35,8 +35,8 @@ return require("packer").startup({function()
             require"telescope".setup()
             vim.api.nvim_set_keymap("n", "sb", "<Cmd>Telescope buffers<CR>", { noremap = true })
             vim.api.nvim_set_keymap("n", "sf", "<Cmd>Telescope find_files<CR>", { noremap = true })
-            vim.api.nvim_set_keymap("n", "sd", "<Cmd>Telescope find_files search_dirs=~/.config<CR>", { noremap = true })
-            vim.api.nvim_set_keymap("n", "sD", "<Cmd>Telescope live_grep search_dirs=~/.config<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("n", "sd", "<Cmd>Telescope find_files search_dirs=~/.config,$DOTS<CR>", { noremap = true })
+            vim.api.nvim_set_keymap("n", "sD", "<Cmd>Telescope live_grep search_dirs=~/.config,$DOTS<CR>", { noremap = true })
             vim.api.nvim_set_keymap("n", "so", "<Cmd>Telescope oldfiles<CR>", { noremap = true })
         end,
         requires = "nvim-lua/plenary.nvim",
