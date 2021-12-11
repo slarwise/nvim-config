@@ -67,7 +67,7 @@ return require("packer").startup({function()
             require"telescope".load_extension"interesting_files"
             vim.api.nvim_set_keymap("n", "si", "<Cmd>Telescope interesting_files<CR>", { noremap = true })
         end,
-        requires = "nvim-lua/popup.nvim",
+        requires = "nvim-lua/plenary.nvim",
     }
     use "~/Dropbox/projects/lists.nvim"
     use {
