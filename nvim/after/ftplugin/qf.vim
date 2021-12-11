@@ -1,0 +1,2 @@
+setlocal nowinfixheight
+setlocal nowinfixwidth
