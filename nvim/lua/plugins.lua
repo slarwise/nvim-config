@@ -5,6 +5,13 @@ vim.g.tex_comment_nospell = 1
 vim.g.vimsyn_embed = "l" -- Syntax highlighting for lua in vim files
 vim.g.markdown_fenced_languages = { "python", "vim" }
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 return require("packer").startup({function()
     use "wbthomason/packer.nvim"
 
