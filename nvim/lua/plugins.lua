@@ -34,6 +34,14 @@ return require("packer").startup({function()
         end,
         requires = "nvim-lua/plenary.nvim",
     }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+        config = function()
+            require"telescope".load_extension"fzf"
+        end,
+        requires = "nvim-telescope/telescope.nvim",
+    }
 
     use "skanehira/preview-uml.vim"
 
