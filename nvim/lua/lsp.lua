@@ -99,6 +99,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.markdownlint,
         plantuml,
+        null_ls.builtins.diagnostics.write_good,
     },
     on_attach = on_attach,
     debug = true,
