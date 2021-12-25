@@ -21,6 +21,8 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true 
 vim.cmd [[set wildcharm=<Tab>]]
 
+vim.diagnostic.config({signs = false})
+
 vim.cmd([[
 " Use a statusline with some fancy symbols if the terminal can handle it.
 " Also need to have a font which can handle the symbols.

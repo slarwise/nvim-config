@@ -27,6 +27,11 @@ return require("packer").startup({function()
 
     use "neovim/nvim-lspconfig"
 
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    }
+
     use "nvim-lua/plenary.nvim"
 
     use {
