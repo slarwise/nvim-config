@@ -1,5 +1,5 @@
-require "plugins"
-require "lsp"
+require("plugins")
+require("lsp")
 
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
@@ -11,17 +11,15 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.hlsearch = false 
-vim.opt.foldlevel = 99 
-vim.opt.foldopen:remove { "block" } 
-vim.opt.foldmethod = "marker" 
-vim.opt.shortmess:append "I" 
-vim.opt.completeopt = { "menu", "menuone" } 
-vim.opt.splitbelow = true 
-vim.opt.splitright = true 
-vim.cmd [[set wildcharm=<Tab>]]
-
-vim.diagnostic.config({signs = false})
+vim.opt.hlsearch = false
+vim.opt.foldlevel = 99
+vim.opt.foldopen:remove({ "block" })
+vim.opt.foldmethod = "marker"
+vim.opt.shortmess:append("I")
+vim.opt.completeopt = { "menu", "menuone" }
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.cmd([[set wildcharm=<Tab>]])
 
 vim.cmd([[
 " Use a statusline with some fancy symbols if the terminal can handle it.
@@ -59,7 +57,7 @@ endif
 if vim.env.COLORTERM then
     vim.opt.termguicolors = true
 end
-vim.cmd "colorscheme base16-tomorrow-night-eighties"
+vim.cmd("colorscheme base16-tomorrow-night-eighties")
 
 vim.cmd([[
     augroup make_split_sizes_equal_on_terminal_window_resize
@@ -82,8 +80,8 @@ vim.cmd([[
 
 vim.cmd([[cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"]])
 vim.cmd([[cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"]])
-vim.api.nvim_set_keymap("c", "<C-J>", "<Down>", { noremap = true} )
-vim.api.nvim_set_keymap("c", "<C-K>", "<Up>", { noremap = true} )
+vim.api.nvim_set_keymap("c", "<C-J>", "<Down>", { noremap = true })
+vim.api.nvim_set_keymap("c", "<C-K>", "<Up>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<C-J>", "<Cmd>cnext<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-K>", "<Cmd>cprevious<CR>", { noremap = true })
