@@ -26,11 +26,6 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "Qr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap("n", "Qd", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", opts)
     buf_set_keymap("n", "Xf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-    local do_format_on_write = not vim.tbl_contains({ "erlangls" }, client.name)
-    if do_format_on_write and client.resolved_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
 end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
