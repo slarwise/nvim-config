@@ -15,22 +15,18 @@ local on_attach = function(client, bufnr)
     local opts = { noremap=true, silent=true }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap('n', 'Xn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', 'Xa', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', 'Qr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', 'Qd', '<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>', opts)
+    buf_set_keymap("n", "Xf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+    local do_format_on_write = not vim.tbl_contains({ "erlangls" }, client.name)
+    if (do_format_on_write and client.resolved_capabilities.document_formatting) then
+        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    end
 
 end
 
@@ -40,24 +36,47 @@ vim.lsp.handlers.hover, {
 }
 )
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- Disable signs
-    signs = false,
-}
-)
+vim.diagnostic.config({signs = false})
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "erlangls" }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
-        },
+-- local servers = { "erlangls", "sumneko_lua" }
+-- for _, lsp in ipairs(servers) do
+--     nvim_lsp[lsp].setup {
+--         on_attach = on_attach,
+--         flags = {
+--             debounce_text_changes = 150,
+--         },
+--     }
+-- end
+nvim_lsp.erlangls.setup {
+    on_attach = on_attach,
+    flags = { debounce_text_changes = 150 },
     }
-end
+nvim_lsp.sumneko_lua.setup {
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = runtime_path,
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+}
 
 local plantuml = {
     name = "plantuml",
@@ -96,11 +115,12 @@ local plantuml = {
 }
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with{ args = { "--stdin-filepath", "--prose-wrap=always", "$FILENAME" } },
         null_ls.builtins.diagnostics.markdownlint,
         plantuml,
-        null_ls.builtins.diagnostics.write_good,
+        null_ls.builtins.diagnostics.vale,
+        null_ls.builtins.formatting.stylua,
     },
     on_attach = on_attach,
-    debug = true,
+    debug = false,
 })
