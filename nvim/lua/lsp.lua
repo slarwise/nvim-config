@@ -15,10 +15,8 @@ local on_attach = function(client, bufnr)
     --Enable completion triggered by <c-x><c-o>
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    -- Mappings.
     local opts = { noremap = true, silent = true }
 
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap("n", "Xn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
@@ -34,17 +32,6 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 
 vim.diagnostic.config({ signs = false })
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- local servers = { "erlangls", "sumneko_lua" }
--- for _, lsp in ipairs(servers) do
---     nvim_lsp[lsp].setup {
---         on_attach = on_attach,
---         flags = {
---             debounce_text_changes = 150,
---         },
---     }
--- end
 nvim_lsp.erlangls.setup({
     on_attach = on_attach,
     flags = { debounce_text_changes = 150 },
