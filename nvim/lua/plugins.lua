@@ -13,7 +13,7 @@ vim.cmd([[
 ]])
 
 return require("packer").startup({
-    function()
+    function(use)
         use("wbthomason/packer.nvim")
 
         use("RRethy/nvim-base16")
