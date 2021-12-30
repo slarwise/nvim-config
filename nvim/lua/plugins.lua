@@ -80,7 +80,6 @@ return require("packer").startup {
                 )
                 vim.api.nvim_set_keymap("n", "so", "<Cmd>Telescope oldfiles<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sq", "<Cmd>Telescope quickfix<CR>", { noremap = true })
-                vim.api.nvim_set_keymap("n", "sc", "<Cmd>Telescope commands<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sh", "<Cmd>Telescope command_history<CR>", { noremap = true })
             end,
             requires = "nvim-lua/plenary.nvim",
@@ -142,6 +141,14 @@ return require("packer").startup {
             requires = "nvim-telescope/telescope.nvim",
             config = function()
                 require("telescope").load_extension "git_diff"
+            end,
+        }
+        use {
+            "~/Dropbox/projects/telescope-extended-commands.nvim",
+            requires = "nvim-telescope/telescope.nvim",
+            config = function()
+                require("telescope").load_extension "extended_commands"
+                vim.api.nvim_set_keymap("n", "sc", "<Cmd>Telescope extended_commands<CR>", { noremap = true })
             end,
         }
     end,
