@@ -19,6 +19,7 @@ vim.opt.shortmess:append("I")
 vim.opt.completeopt = { "menu", "menuone" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.list = true
 vim.cmd([[set wildcharm=<Tab>]])
 
 vim.cmd([[
