@@ -19,11 +19,11 @@ local on_attach = function(client, bufnr)
 
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "Xn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    buf_set_keymap("n", "Xa", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    buf_set_keymap("n", "Qr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    buf_set_keymap("n", "Qd", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", opts)
-    buf_set_keymap("n", "Xf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap("n", "xn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    buf_set_keymap("n", "xa", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    buf_set_keymap("n", "xr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    buf_set_keymap("n", "xd", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", opts)
+    buf_set_keymap("n", "xf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
