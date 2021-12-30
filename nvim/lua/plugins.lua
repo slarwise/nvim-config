@@ -61,7 +61,9 @@ return require("packer").startup({
         use({
             "nvim-telescope/telescope.nvim",
             config = function()
-                require("telescope").setup()
+                require("telescope").setup({
+                    defaults = { layout_strategy = "flex" },
+                })
                 vim.api.nvim_set_keymap("n", "sb", "<Cmd>Telescope buffers<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sf", "<Cmd>Telescope find_files<CR>", { noremap = true })
                 vim.api.nvim_set_keymap(
