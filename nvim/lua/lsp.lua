@@ -101,9 +101,9 @@ null_ls.setup({
         }),
         null_ls.builtins.diagnostics.markdownlint,
         plantuml,
-        null_ls.builtins.diagnostics.vale.with({
-            filetypes = { "markdown", "tex", "gitcommit" },
-        }),
+        -- null_ls.builtins.diagnostics.vale.with({
+        --     filetypes = { "markdown", "tex", "gitcommit" },
+        -- }),
         null_ls.builtins.formatting.stylua,
     },
     on_attach = on_attach,
