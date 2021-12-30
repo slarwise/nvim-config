@@ -1,69 +1,69 @@
-vim.cmd("packadd cfilter")
+vim.cmd "packadd cfilter"
 vim.g.tex_no_error = 1
 vim.g.tex_flavor = "latex"
 vim.g.tex_comment_nospell = 1
 vim.g.vimsyn_embed = "l" -- Syntax highlighting for lua in vim files
 vim.g.markdown_fenced_languages = { "python", "vim", "lua" }
 
-vim.cmd([[
+vim.cmd [[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
-]])
+]]
 
-return require("packer").startup({
+return require("packer").startup {
     function(use)
-        use("wbthomason/packer.nvim")
+        use "wbthomason/packer.nvim"
 
-        use({
+        use {
             "akinsho/toggleterm.nvim",
             config = function()
-                require("toggleterm").setup({
+                require("toggleterm").setup {
                     direction = "float",
-                })
+                }
             end,
-        })
+        }
 
-        use("RRethy/nvim-base16")
+        use "RRethy/nvim-base16"
 
-        use("junegunn/vader.vim")
+        use "junegunn/vader.vim"
 
-        use({
+        use {
             "iamcco/markdown-preview.nvim",
             run = function()
                 vim.fn["mkdp#util#install"]()
             end,
             cmd = "MarkdownPreview",
-        })
+        }
 
-        use("neovim/nvim-lspconfig")
+        use "neovim/nvim-lspconfig"
 
-        use({
+        use {
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
             config = function()
-                require("nvim-treesitter.configs").setup({
+                require("nvim-treesitter.configs").setup {
                     ensure_installed = "maintained",
                     highlight = { enable = true },
                     indent = { enable = true },
-                })
+                }
             end,
-        })
+        }
 
-        use({
+        use {
             "jose-elias-alvarez/null-ls.nvim",
             requires = { "nvim-lua/plenary.nvim" },
-        })
+        }
 
-        use("nvim-lua/plenary.nvim")
+        use "nvim-lua/plenary.nvim"
 
-        use({
+        use {
             "nvim-telescope/telescope.nvim",
             config = function()
-                require("telescope").setup({
+                require("telescope").setup {
                     defaults = { layout_strategy = "flex" },
-                })
+                }
                 vim.api.nvim_set_keymap("n", "sb", "<Cmd>Telescope buffers<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sf", "<Cmd>Telescope find_files<CR>", { noremap = true })
                 vim.api.nvim_set_keymap(
@@ -80,42 +80,44 @@ return require("packer").startup({
                 )
                 vim.api.nvim_set_keymap("n", "so", "<Cmd>Telescope oldfiles<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sq", "<Cmd>Telescope quickfix<CR>", { noremap = true })
+                vim.api.nvim_set_keymap("n", "sc", "<Cmd>Telescope commands<CR>", { noremap = true })
+                vim.api.nvim_set_keymap("n", "sh", "<Cmd>Telescope command_history<CR>", { noremap = true })
             end,
             requires = "nvim-lua/plenary.nvim",
-        })
-        use({
+        }
+        use {
             "nvim-telescope/telescope-fzf-native.nvim",
             run = "make",
             config = function()
-                require("telescope").load_extension("fzf")
+                require("telescope").load_extension "fzf"
             end,
             requires = "nvim-telescope/telescope.nvim",
-        })
+        }
 
-        use("skanehira/preview-uml.vim")
+        use "skanehira/preview-uml.vim"
 
-        use("slarwise/vim-erlang-syntax-simple")
-        use({
+        use "slarwise/vim-erlang-syntax-simple"
+        use {
             "slarwise/vim-oldfiles",
             config = function()
                 vim.g.oldfiles_ignore = { "COMMIT_EDITMSG", "/runtime/doc/" }
             end,
-        })
-        use("slarwise/vim-projectfiles")
+        }
+        use "slarwise/vim-projectfiles"
 
-        use("tpope/vim-commentary")
-        use("tpope/vim-repeat")
-        use("tpope/vim-surround")
+        use "tpope/vim-commentary"
+        use "tpope/vim-repeat"
+        use "tpope/vim-surround"
 
-        use("aklt/plantuml-syntax")
+        use "aklt/plantuml-syntax"
 
-        use({
+        use {
             "~/Dropbox/projects/interesting-files.nvim",
             config = function()
-                require("interesting_files").setup({
+                require("interesting_files").setup {
                     locations = { "interesting-files" },
-                })
-                require("telescope").load_extension("interesting_files")
+                }
+                require("telescope").load_extension "interesting_files"
                 vim.api.nvim_set_keymap("n", "si", "<Cmd>Telescope interesting_files<CR>", { noremap = true })
                 vim.api.nvim_set_keymap(
                     "n",
@@ -125,29 +127,29 @@ return require("packer").startup({
                 )
             end,
             requires = "nvim-lua/plenary.nvim",
-        })
-        use("~/Dropbox/projects/lists.nvim")
-        use({
+        }
+        use "~/Dropbox/projects/lists.nvim"
+        use {
             "~/Dropbox/projects/telescope-args.nvim",
             requires = "nvim-telescope/telescope.nvim",
             config = function()
-                require("telescope").load_extension("args")
+                require("telescope").load_extension "args"
                 vim.api.nvim_set_keymap("n", "sa", "<Cmd>Telescope args<CR>", { noremap = true })
             end,
-        })
-        use({
+        }
+        use {
             "~/Dropbox/projects/telescope-git-diff.nvim",
             requires = "nvim-telescope/telescope.nvim",
             config = function()
-                require("telescope").load_extension("git_diff")
+                require("telescope").load_extension "git_diff"
             end,
-        })
+        }
     end,
     config = {
         display = {
             open_fn = function()
-                return require("packer.util").float({ border = "rounded" })
+                return require("packer.util").float { border = "rounded" }
             end,
         },
     },
-})
+}

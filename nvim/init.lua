@@ -1,5 +1,5 @@
-require("plugins")
-require("lsp")
+require "plugins"
+require "lsp"
 
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
@@ -13,16 +13,16 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.foldlevel = 99
-vim.opt.foldopen:remove({ "block" })
+vim.opt.foldopen:remove { "block" }
 vim.opt.foldmethod = "marker"
-vim.opt.shortmess:append("I")
+vim.opt.shortmess:append "I"
 vim.opt.completeopt = { "menu", "menuone" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.list = true
-vim.cmd([[set wildcharm=<Tab>]])
+vim.cmd [[set wildcharm=<Tab>]]
 
-vim.cmd([[
+vim.cmd [[
 " Use a statusline with some fancy symbols if the terminal can handle it.
 " Also need to have a font which can handle the symbols.
 if exists("$COLORTERM")
@@ -53,34 +53,34 @@ if exists("$COLORTERM")
 else
     set statusline=\ %m\ \ %f%=%l/%L,%c\ 
 endif
-]])
+]]
 
 if vim.env.COLORTERM then
     vim.opt.termguicolors = true
 end
-vim.cmd("colorscheme base16-tomorrow-night-eighties")
+vim.cmd "colorscheme base16-tomorrow-night-eighties"
 
-vim.cmd([[
+vim.cmd [[
     augroup make_split_sizes_equal_on_terminal_window_resize
 	autocmd!
 	autocmd VimResized * wincmd =
     augroup END
-]])
-vim.cmd([[
+]]
+vim.cmd [[
     augroup highlight_on_yank
 	autocmd!
 	autocmd TextYankPost * silent! lua vim.highlight.on_yank()
     augroup END
-]])
-vim.cmd([[
+]]
+vim.cmd [[
     augroup terminal
         autocmd!
         autocmd TermOpen * startinsert
     augroup END
-]])
+]]
 
-vim.cmd([[cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"]])
-vim.cmd([[cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"]])
+vim.cmd [[cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"]]
+vim.cmd [[cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"]]
 vim.api.nvim_set_keymap("c", "<C-J>", "<Down>", { noremap = true })
 vim.api.nvim_set_keymap("c", "<C-K>", "<Up>", { noremap = true })
 
@@ -92,4 +92,4 @@ vim.api.nvim_set_keymap("n", "m<C-M>", "<Cmd>update<bar>make<CR>", { noremap = t
 
 vim.api.nvim_set_keymap("t", "<C-_>", [[<C-\><C-N>]], { noremap = true })
 
-vim.cmd([[command! EngToSwe %s/[;'[]/\={';': 'ö', "'": 'ä', '[': 'å'}[submatch(0)]/ge]])
+vim.cmd [[command! EngToSwe %s/[;'[]/\={';': 'ö', "'": 'ä', '[': 'å'}[submatch(0)]/ge]]

@@ -1,6 +1,6 @@
-local nvim_lsp = require("lspconfig")
-local null_ls = require("null-ls")
-local helpers = require("null-ls.helpers")
+local nvim_lsp = require "lspconfig"
+local null_ls = require "null-ls"
+local helpers = require "null-ls.helpers"
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -30,13 +30,13 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
 })
 
-vim.diagnostic.config({ signs = false })
+vim.diagnostic.config { signs = false }
 
-nvim_lsp.erlangls.setup({
+nvim_lsp.erlangls.setup {
     on_attach = on_attach,
     flags = { debounce_text_changes = 150 },
-})
-nvim_lsp.sumneko_lua.setup({
+}
+nvim_lsp.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
@@ -57,7 +57,7 @@ nvim_lsp.sumneko_lua.setup({
             },
         },
     },
-})
+}
 
 local plantuml = {
     name = "plantuml",
@@ -65,7 +65,7 @@ local plantuml = {
     filetypes = { "plantuml" },
     -- null_ls.generator creates an async source
     -- that spawns the command with the given arguments and options
-    generator = null_ls.generator({
+    generator = null_ls.generator {
         command = "plantuml",
         args = { "-stdrpt", "$FILENAME" },
         to_stdin = true,
@@ -85,20 +85,20 @@ local plantuml = {
         end,
         -- use helpers to parse the output from string matchers,
         -- or parse it manually with a function
-        on_output = helpers.diagnostics.from_patterns({
+        on_output = helpers.diagnostics.from_patterns {
             {
                 -- test.puml:9:error:Syntax Error?
                 pattern = [[%w+:(%d+):(.*)]],
                 groups = { "row", "message" },
             },
-        }),
-    }),
+        },
+    },
 }
-null_ls.setup({
+null_ls.setup {
     sources = {
-        null_ls.builtins.formatting.prettier.with({
+        null_ls.builtins.formatting.prettier.with {
             args = { "--stdin-filepath", "--prose-wrap=always", "$FILENAME" },
-        }),
+        },
         null_ls.builtins.diagnostics.markdownlint,
         plantuml,
         -- null_ls.builtins.diagnostics.vale.with({
@@ -108,4 +108,4 @@ null_ls.setup({
     },
     on_attach = on_attach,
     debug = false,
-})
+}
