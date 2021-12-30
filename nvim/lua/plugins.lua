@@ -117,7 +117,6 @@ return require("packer").startup({
                 })
                 require("telescope").load_extension("interesting_files")
                 vim.api.nvim_set_keymap("n", "si", "<Cmd>Telescope interesting_files<CR>", { noremap = true })
-                -- Interesting files
                 vim.api.nvim_set_keymap(
                     "n",
                     "'",
