@@ -16,6 +16,15 @@ return require("packer").startup({
     function(use)
         use("wbthomason/packer.nvim")
 
+        use({
+            "akinsho/toggleterm.nvim",
+            config = function()
+                require("toggleterm").setup({
+                    direction = "float",
+                })
+            end,
+        })
+
         use("RRethy/nvim-base16")
 
         use("junegunn/vader.vim")
