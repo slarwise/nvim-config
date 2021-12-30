@@ -79,6 +79,7 @@ return require("packer").startup({
                     { noremap = true }
                 )
                 vim.api.nvim_set_keymap("n", "so", "<Cmd>Telescope oldfiles<CR>", { noremap = true })
+                vim.api.nvim_set_keymap("n", "sq", "<Cmd>Telescope quickfix<CR>", { noremap = true })
             end,
             requires = "nvim-lua/plenary.nvim",
         })
