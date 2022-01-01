@@ -109,16 +109,3 @@ null_ls.setup {
     on_attach = on_attach,
     debug = false,
 }
-
-vim.cmd [[ command! LspCodeAction lua vim.lsp.buf.code_action() ]]
-vim.cmd [[ command! LspCompletion lua vim.lsp.buf.completion() ]]
-vim.cmd [[ command! LspDefinition lua vim.lsp.buf.definition() ]]
-vim.cmd [[ command! LspDocumentSymbol lua vim.lsp.buf.document_symbol() ]]
-vim.cmd [[ command! LspFormat lua vim.lsp.buf.formatting() ]]
-vim.cmd [[ command! LspHover lua vim.lsp.buf.hover() ]]
-vim.cmd [[ command! LspIncomingCalls lua vim.lsp.buf.incoming_calls() ]]
-vim.cmd [[ command! LspOutgoingCalls lua vim.lsp.buf.outgoing_calls() ]]
-vim.cmd [[ command! LspReferences lua vim.lsp.buf.references() ]]
-vim.cmd [[ command! LspRename lua vim.lsp.buf.rename() ]]
-vim.cmd [[ command! LspWorkspaceSymbol lua vim.lsp.buf.workspace_symbol() ]]
-vim.cmd [[ command! LspDiagnosticSetQf lua vim.lsp.diagnostic.set_qflist() ]]
