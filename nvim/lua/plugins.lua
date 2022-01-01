@@ -66,19 +66,28 @@ return require("packer").startup {
                 }
                 vim.api.nvim_set_keymap("n", "sb", "<Cmd>Telescope buffers<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sf", "<Cmd>Telescope find_files<CR>", { noremap = true })
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "sd",
-                    "<Cmd>Telescope find_files search_dirs=~/.config,$DOTS<CR>",
-                    { noremap = true }
-                )
+                -- vim.api.nvim_set_keymap(
+                --     "n",
+                --     "sd",
+                --     "<Cmd>Telescope find_files search_dirs=~/.config,$DOTS<CR>",
+                --     { noremap = true }
+                -- )
                 vim.api.nvim_set_keymap(
                     "n",
                     "sD",
                     "<Cmd>Telescope live_grep search_dirs=~/.config,$DOTS<CR>",
                     { noremap = true }
                 )
-                vim.api.nvim_set_keymap("n", "so", "<Cmd>Telescope oldfiles<CR>", { noremap = true })
+                vim.api.nvim_set_keymap("n",
+                    "sc",
+                    "<Cmd>lua require'telescope.builtin'.commands(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+                    { noremap = true })
+                vim.api.nvim_set_keymap(
+                    "n",
+                    "so",
+                    "<Cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+                    { noremap = true }
+                )
                 vim.api.nvim_set_keymap("n", "sq", "<Cmd>Telescope quickfix<CR>", { noremap = true })
                 vim.api.nvim_set_keymap("n", "sh", "<Cmd>Telescope command_history<CR>", { noremap = true })
             end,
