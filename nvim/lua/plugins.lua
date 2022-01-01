@@ -153,11 +153,20 @@ return require("packer").startup {
             end,
         }
         use {
-            "~/Dropbox/projects/telescope-extended-commands.nvim",
-            requires = "nvim-telescope/telescope.nvim",
+            "~/Dropbox/projects/select.nvim",
             config = function()
-                require("telescope").load_extension "extended_commands"
-                vim.api.nvim_set_keymap("n", "sc", "<Cmd>Telescope extended_commands<CR>", { noremap = true })
+                vim.api.nvim_set_keymap(
+                    "n",
+                    [[<space>]],
+                    "<cmd>lua require'select'.select_args()<cr>",
+                    { noremap = true }
+                )
+                vim.api.nvim_set_keymap(
+                    "n",
+                    "sd",
+                    "<cmd>lua require'select'.select_nvim_dots()<cr>",
+                    { noremap = true }
+                )
             end,
         }
     end,
