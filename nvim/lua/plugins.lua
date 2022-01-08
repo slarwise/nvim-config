@@ -16,101 +16,31 @@ return require("packer").startup {
     function(use)
         use "wbthomason/packer.nvim"
 
-        use {
-            "akinsho/toggleterm.nvim",
-            config = function()
-                require("toggleterm").setup {
-                    direction = "float",
-                }
-            end,
-        }
+        use(require "plugins.toggleterm")
 
         use "RRethy/nvim-base16"
 
         use "junegunn/vader.vim"
 
-        use {
-            "iamcco/markdown-preview.nvim",
-            run = function()
-                vim.fn["mkdp#util#install"]()
-            end,
-            cmd = "MarkdownPreview",
-        }
+        use(require "plugins.markdown_preview")
 
         use "neovim/nvim-lspconfig"
 
-        use {
-            "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate",
-            config = function()
-                require("nvim-treesitter.configs").setup {
-                    ensure_installed = "maintained",
-                    highlight = { enable = true },
-                    indent = { enable = true },
-                }
-            end,
-        }
+        use(require "plugins.treesitter")
 
-        use {
-            "jose-elias-alvarez/null-ls.nvim",
-            requires = { "nvim-lua/plenary.nvim" },
-        }
+        use(require "plugins.null_ls")
 
         use "nvim-lua/plenary.nvim"
 
-        use {
-            "nvim-telescope/telescope.nvim",
-            config = function()
-                require("telescope").setup {
-                    defaults = { layout_strategy = "flex" },
-                }
-                vim.api.nvim_set_keymap("n", "sb", "<Cmd>Telescope buffers<CR>", { noremap = true })
-                vim.api.nvim_set_keymap("n", "sf", "<Cmd>Telescope find_files<CR>", { noremap = true })
-                -- vim.api.nvim_set_keymap(
-                --     "n",
-                --     "sd",
-                --     "<Cmd>Telescope find_files search_dirs=~/.config,$DOTS<CR>",
-                --     { noremap = true }
-                -- )
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "sD",
-                    "<Cmd>Telescope live_grep search_dirs=~/.config,$DOTS<CR>",
-                    { noremap = true }
-                )
-                vim.api.nvim_set_keymap("n",
-                    "sc",
-                    "<Cmd>lua require'telescope.builtin'.commands(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-                    { noremap = true })
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "so",
-                    "<Cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-                    { noremap = true }
-                )
-                vim.api.nvim_set_keymap("n", "sq", "<Cmd>Telescope quickfix<CR>", { noremap = true })
-                vim.api.nvim_set_keymap("n", "sh", "<Cmd>Telescope command_history<CR>", { noremap = true })
-            end,
-            requires = "nvim-lua/plenary.nvim",
-        }
-        use {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-            config = function()
-                require("telescope").load_extension "fzf"
-            end,
-            requires = "nvim-telescope/telescope.nvim",
-        }
+        use(require "plugins.telescope")
+        use(require "plugins.telescope_fzf_native")
 
         use "skanehira/preview-uml.vim"
 
+        use "MunifTanjim/nui.nvim"
+
         use "slarwise/vim-erlang-syntax-simple"
-        use {
-            "slarwise/vim-oldfiles",
-            config = function()
-                vim.g.oldfiles_ignore = { "COMMIT_EDITMSG", "/runtime/doc/" }
-            end,
-        }
+        use(require "plugins.vim_oldfiles")
         use "slarwise/vim-projectfiles"
 
         use "tpope/vim-commentary"
@@ -119,56 +49,9 @@ return require("packer").startup {
 
         use "aklt/plantuml-syntax"
 
-        use {
-            "~/Dropbox/projects/interesting-files.nvim",
-            config = function()
-                require("interesting_files").setup {
-                    locations = { "interesting-files" },
-                }
-                require("telescope").load_extension "interesting_files"
-                vim.api.nvim_set_keymap("n", "si", "<Cmd>Telescope interesting_files<CR>", { noremap = true })
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "'",
-                    [[v:count ? "<cmd>lua require'interesting_files'.navigate(vim.v.count)<CR>" : "'"]],
-                    { noremap = true, expr = true }
-                )
-            end,
-            requires = "nvim-lua/plenary.nvim",
-        }
-        use "~/Dropbox/projects/lists.nvim"
-        use {
-            "~/Dropbox/projects/telescope-args.nvim",
-            requires = "nvim-telescope/telescope.nvim",
-            config = function()
-                require("telescope").load_extension "args"
-                vim.api.nvim_set_keymap("n", "sa", "<Cmd>Telescope args<CR>", { noremap = true })
-            end,
-        }
-        use {
-            "~/Dropbox/projects/telescope-git-diff.nvim",
-            requires = "nvim-telescope/telescope.nvim",
-            config = function()
-                require("telescope").load_extension "git_diff"
-            end,
-        }
-        use {
-            "~/Dropbox/projects/select.nvim",
-            config = function()
-                vim.api.nvim_set_keymap(
-                    "n",
-                    [[<space>]],
-                    "<cmd>lua require'select'.select_args()<cr>",
-                    { noremap = true }
-                )
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "sd",
-                    "<cmd>lua require'select'.select_nvim_dots()<cr>",
-                    { noremap = true }
-                )
-            end,
-        }
+        use(require "plugins.dressing")
+
+        use(require "plugins.microscope")
     end,
     config = {
         display = {

@@ -7,6 +7,6 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     default_cwd = "/Users/arvidbjurklint/Dropbox/projects",
     -- Maximize the window on start-up
-    initial_cols = 82,
+    initial_cols = 999,
     initial_rows = 999,
 }
