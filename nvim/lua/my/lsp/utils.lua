@@ -2,7 +2,7 @@ local M = {}
 
 local util = require "vim.lsp.util"
 local validate = vim.validate
-local buf_nnoremap = require "my.utils".nnoremap
+local buf_nnoremap = require("my.utils").nnoremap
 
 local function request(method, params, handler)
     validate {
@@ -25,17 +25,7 @@ M.rename_without_prepare = function()
 end
 
 M.common_on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
-
-    --Enable completion triggered by <c-x><c-o>
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
-    local opts = { noremap = true, silent = true }
 
     buf_nnoremap("gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
     buf_nnoremap("K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
@@ -44,6 +34,11 @@ M.common_on_attach = function(client, bufnr)
     buf_nnoremap(",d", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>")
     buf_nnoremap(",f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
     buf_nnoremap(",n", "<cmd>lua vim.lsp.buf.rename()<CR>")
+    buf_nnoremap(",c", "<cmd>lua vim.lsp.codelens.run()<CR>")
+
+    vim.cmd [[
+        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+    ]]
 end
 
 return M
