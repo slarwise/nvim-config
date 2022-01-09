@@ -5,42 +5,54 @@ vim.g.tex_comment_nospell = 1
 vim.g.vimsyn_embed = "l" -- Syntax highlighting for lua in vim files
 vim.g.markdown_fenced_languages = { "python", "vim", "lua" }
 
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
-
 return require("packer").startup {
     function(use)
         use "wbthomason/packer.nvim"
 
-        use(require "plugins.toggleterm")
+        use "akinsho/toggleterm.nvim"
 
         use "RRethy/nvim-base16"
 
         use "junegunn/vader.vim"
 
-        use(require "plugins.markdown_preview")
+        use {
+            "iamcco/markdown-preview.nvim",
+            run = function()
+                vim.fn["mkdp#util#install"]()
+            end,
+            cmd = "MarkdownPreview",
+            }
 
         use "neovim/nvim-lspconfig"
 
-        use(require "plugins.treesitter")
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
+        }
 
-        use(require "plugins.null_ls")
+        use {
+            "jose-elias-alvarez/null-ls.nvim",
+            requires = { "nvim-lua/plenary.nvim" },
+        }
 
         use "nvim-lua/plenary.nvim"
 
-        use(require "plugins.telescope")
-        use(require "plugins.telescope_fzf_native")
+        use {
+            "nvim-telescope/telescope.nvim",
+            requires = "nvim-lua/plenary.nvim",
+        }
+        use {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
+            requires = "nvim-telescope/telescope.nvim",
+        }
 
         use "skanehira/preview-uml.vim"
 
         use "MunifTanjim/nui.nvim"
 
         use "slarwise/vim-erlang-syntax-simple"
-        use(require "plugins.vim_oldfiles")
+        use "my.plugins.vim_oldfiles"
         use "slarwise/vim-projectfiles"
 
         use "tpope/vim-commentary"
@@ -49,9 +61,9 @@ return require("packer").startup {
 
         use "aklt/plantuml-syntax"
 
-        use(require "plugins.dressing")
+        use "stevearc/dressing.nvim"
 
-        use(require "plugins.microscope")
+        use "~/Dropbox/projects/microscope.nvim"
     end,
     config = {
         display = {
