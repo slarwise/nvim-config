@@ -45,9 +45,11 @@ M.common_on_attach = function(client, bufnr)
     buf_set_keymap("n", ",n", "<cmd>lua vim.lsp.buf.rename()<CR>", keymap_opts)
     buf_set_keymap("n", ",c", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
 
-    vim.cmd [[
-        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
-    ]]
+    if client.resolved_capabilities.code_lens then
+        vim.cmd [[
+            autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+        ]]
+    end
 end
 
 return M
