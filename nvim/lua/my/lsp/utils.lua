@@ -2,7 +2,6 @@ local M = {}
 
 local util = require "vim.lsp.util"
 local validate = vim.validate
-local buf_nnoremap = require("my.utils").nnoremap
 
 local function request(method, params, handler)
     validate {
@@ -43,11 +42,12 @@ M.common_on_attach = function(client, bufnr)
     buf_set_keymap("n", ",d", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", keymap_opts)
     buf_set_keymap("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", keymap_opts)
     buf_set_keymap("n", ",n", "<cmd>lua vim.lsp.buf.rename()<CR>", keymap_opts)
-    buf_set_keymap("n", ",c", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
 
     if client.resolved_capabilities.code_lens then
+        buf_set_keymap("n", ",c", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
+        vim.lsp.codelens.refresh()
         vim.cmd [[
-            autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+            autocmd BufEnter,CursorHold,InsertLeave,BufWritePost <buffer> lua vim.lsp.codelens.refresh()
         ]]
     end
 end
