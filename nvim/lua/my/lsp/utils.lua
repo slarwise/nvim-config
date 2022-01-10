@@ -25,16 +25,25 @@ M.rename_without_prepare = function()
 end
 
 M.common_on_attach = function(client, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    local function buf_set_keymap(...)
+        vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+    local function buf_set_option(...)
+        vim.api.nvim_buf_set_option(bufnr, ...)
+    end
+
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    buf_nnoremap("gd", "<Cmd>lua vim.lsp.buf.definition()<CR>")
-    buf_nnoremap("K", "<Cmd>lua vim.lsp.buf.hover()<CR>")
-    buf_nnoremap(",a", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    buf_nnoremap(",r", "<cmd>lua vim.lsp.buf.references()<CR>")
-    buf_nnoremap(",d", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>")
-    buf_nnoremap(",f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-    buf_nnoremap(",n", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    buf_nnoremap(",c", "<cmd>lua vim.lsp.codelens.run()<CR>")
+    local keymap_opts = { noremap = true }
+    buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", keymap_opts)
+    buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", keymap_opts)
+    buf_set_keymap("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>", keymap_opts)
+    buf_set_keymap("n", ",r", "<cmd>lua vim.lsp.buf.references()<CR>", keymap_opts)
+    buf_set_keymap("n", ",d", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", keymap_opts)
+    buf_set_keymap("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", keymap_opts)
+    buf_set_keymap("n", ",n", "<cmd>lua vim.lsp.buf.rename()<CR>", keymap_opts)
+    buf_set_keymap("n", ",c", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
 
     vim.cmd [[
         autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()

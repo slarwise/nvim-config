@@ -52,7 +52,7 @@ return require("packer").startup {
         use "MunifTanjim/nui.nvim"
 
         use "slarwise/vim-erlang-syntax-simple"
-        use "my.plugins.vim_oldfiles"
+        use "slarwise/vim-oldfiles"
         use "slarwise/vim-projectfiles"
 
         use "tpope/vim-commentary"
