@@ -1,9 +1,7 @@
 local null_ls = require "null-ls"
 local helpers = require "null-ls.helpers"
 
-local M = {}
-
-M.source = {
+local plantuml = {
     name = "plantuml",
     method = null_ls.methods.DIAGNOSTICS,
     filetypes = { "plantuml" },
@@ -23,4 +21,4 @@ M.source = {
     },
 }
 
-return M
+null_ls.register(plantuml)

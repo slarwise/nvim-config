@@ -1,10 +1,7 @@
+local nvim_lsp = require "lspconfig"
 local utils = require "my.lsp.utils"
 
-local M = {}
-
-M.on_attach = utils.common_on_attach
-
-M.settings = {
+local settings = {
     Lua = {
         runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -25,4 +22,8 @@ M.settings = {
     },
 }
 
-return M
+nvim_lsp.sumneko_lua.setup {
+    on_attach = utils.default_on_attach,
+    flags = { debounce_text_changes = 150 },
+    settings = settings
+}

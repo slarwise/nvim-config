@@ -2,13 +2,10 @@ local nvim_lsp = require "lspconfig"
 local utils = require "my.lsp.utils"
 
 local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", ",n",
-        "<cmd>lua require 'my.lsp.utils'.rename_without_prepare()<CR>",
-        { noremap = true })
     utils.default_on_attach(client, bufnr)
 end
 
-nvim_lsp.erlangls.setup {
+nvim_lsp.pyright.setup {
     on_attach = on_attach,
     flags = { debounce_text_changes = 150 },
 }
