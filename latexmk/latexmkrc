@@ -1,4 +1,0 @@
-$pdf_mode = 1;
-# $pdf_previewer = '/Users/arvidbjurklint/termpdf/termpdf.py'
-
-# vim:set ft=sh
