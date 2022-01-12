@@ -1,5 +1,0 @@
-#!/bin/sh
-
-tmux new-session -d -s slarwise
-tmux send-keys -t slarwise "monitor-background-mode &" Enter
-tmux attach -t slarwise
