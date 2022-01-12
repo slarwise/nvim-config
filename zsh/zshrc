@@ -34,7 +34,7 @@ alias pv="qlmanage -p"
 alias icat="kitty +kitten icat"
 
 # Environment variables to directories
-export DOTS=/Users/arvidbjurklint/Dropbox/dotfiles
+export DOTS=/Users/arvidbjurklint/Dropbox/projects/dotfiles
 export MYPROJECTS=/Users/arvidbjurklint/Dropbox/projects
 
 # vim vader testing env variable
