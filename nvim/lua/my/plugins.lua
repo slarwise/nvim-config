@@ -21,7 +21,7 @@ return require("packer").startup {
                 vim.fn["mkdp#util#install"]()
             end,
             cmd = "MarkdownPreview",
-            }
+        }
 
         use "neovim/nvim-lspconfig"
 
@@ -64,6 +64,14 @@ return require("packer").startup {
         use "stevearc/dressing.nvim"
 
         use "~/Dropbox/projects/microscope.nvim"
+
+        use "hrsh7th/nvim-cmp"
+        use "hrsh7th/cmp-nvim-lsp"
+        use "saadparwaiz1/cmp_luasnip"
+        use "L3MON4D3/LuaSnip"
+        use "hrsh7th/cmp-buffer"
+        use "hrsh7th/cmp-path"
+        use "hrsh7th/cmp-cmdline"
     end,
     config = {
         display = {

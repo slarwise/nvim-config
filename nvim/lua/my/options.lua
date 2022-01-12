@@ -13,7 +13,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldopen:remove { "block" }
 vim.opt.foldmethod = "marker"
 vim.opt.shortmess:append "I"
-vim.opt.completeopt = { "menu", "menuone" }
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.list = true
