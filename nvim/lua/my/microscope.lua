@@ -7,11 +7,11 @@ local M = {}
 M.nvim = function()
     local files = {
         "/Users/arvidbjurklint/Dropbox/dotfiles/nvim/init.lua",
-        "/Users/arvidbjurklint/Dropbox/dotfiles/nvim/lua/lsp.lua",
-        "/Users/arvidbjurklint/Dropbox/dotfiles/nvim/lua/plugins.lua",
+        "/Users/arvidbjurklint/Dropbox/dotfiles/nvim/lua/my/lsp.lua",
+        "/Users/arvidbjurklint/Dropbox/dotfiles/nvim/lua/my/plugins.lua",
     }
-    local locations = vim.tbl_map(utils.make_location, files)
-    state.set("locations", locations)
+    local items = vim.tbl_map(utils.make_item, files)
+    state.set("items", items)
 
     local action_map = {
         edit = on_choice.edit,
@@ -23,8 +23,8 @@ M.nvim = function()
     state.set("action_map", action_map)
     state.set("action", "edit")
 
-    local opts = { format_item = utils.format_location, prompt = "Nvim" }
-    vim.ui.select(locations, opts, on_choice.from_state)
+    local opts = { format_item = utils.format_item, prompt = "Nvim" }
+    vim.ui.select(items, opts, on_choice.from_state)
 end
 
 return M
