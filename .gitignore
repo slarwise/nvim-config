@@ -1,14 +1,8 @@
 **/.DS_Store
 **/*.swp
-scripts/*png
-scripts/*jpg
-scripts/*pdf
 **/*.bak
 nvim/plugged
 nvim/.netrwhist
 nvim/spell/*
 nvim/autoload/plug.vim
 nvim/plugin/packer_compiled.lua
-neofetch/config.conf
-bin/unimatrix
-bin/erlfmt
