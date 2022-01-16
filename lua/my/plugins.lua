@@ -64,6 +64,8 @@ return require("packer").startup {
         use "stevearc/dressing.nvim"
 
         use "~/Dropbox/projects/microscope.nvim"
+
+        use "antoinemadec/FixCursorHold.nvim"
     end,
     config = {
         display = {

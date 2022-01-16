@@ -11,6 +11,7 @@ require "my.plugins.telescope_fzf_native"
 require "my.plugins.vim_oldfiles"
 require "my.plugins.dressing"
 require "my.plugins.null_ls"
+require "my.plugins.fix_cursor_hold"
 
 require "my.lsp.erlangls"
 require "my.lsp.sumneko_lua"
