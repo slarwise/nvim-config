@@ -12,11 +12,7 @@ local on_attach = function(client, bufnr)
     )
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
 nvim_lsp.erlangls.setup {
     on_attach = on_attach,
     flags = { debounce_text_changes = 150 },
-    capabilities = capabilities,
 }
