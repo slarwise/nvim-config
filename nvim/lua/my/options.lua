@@ -55,3 +55,8 @@ if vim.env.COLORTERM then
     vim.opt.termguicolors = true
 end
 vim.cmd "colorscheme base16-tomorrow-night-eighties"
+
+vim.diagnostic.config { signs = false }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})

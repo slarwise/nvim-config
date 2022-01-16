@@ -12,7 +12,6 @@ require "my.plugins.vim_oldfiles"
 require "my.plugins.dressing"
 require "my.plugins.null_ls"
 
-require "my.lsp"
 require "my.lsp.erlangls"
 require "my.lsp.sumneko_lua"
 require "my.lsp.pyright"
