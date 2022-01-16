@@ -17,6 +17,7 @@ vim.opt.completeopt = { "menu", "menuone" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.list = true
+vim.opt.updatetime = 250
 vim.cmd [[set wildcharm=<Tab>]]
 vim.cmd [[
 " Use a statusline with some fancy symbols if the terminal can handle it.

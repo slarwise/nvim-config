@@ -47,7 +47,19 @@ M.default_on_attach = function(client, bufnr)
         buf_set_keymap("n", ",l", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
         vim.lsp.codelens.refresh()
         vim.cmd [[
-            autocmd BufEnter,CursorHold,InsertLeave,BufWritePost <buffer> lua vim.lsp.codelens.refresh()
+            augroup lsp_codelens
+            autocmd!
+                autocmd BufEnter,CursorHold,InsertLeave,BufWritePost <buffer> lua vim.lsp.codelens.refresh()
+            augroup END
+        ]]
+    end
+    if client.resolved_capabilities.document_highlight then
+        vim.cmd [[
+            augroup lsp_document_highlight
+            autocmd!
+                autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+            augroup END
         ]]
     end
 end
