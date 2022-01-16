@@ -1,8 +1,6 @@
 **/.DS_Store
 **/*.swp
 **/*.bak
-nvim/plugged
-nvim/.netrwhist
-nvim/spell/*
-nvim/autoload/plug.vim
-nvim/plugin/packer_compiled.lua
+.netrwhist
+spell/*
+plugin/packer_compiled.lua
