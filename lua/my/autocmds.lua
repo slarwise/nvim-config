@@ -22,3 +22,12 @@ vim.cmd [[
         autocmd TermOpen * startinsert
     augroup END
 ]]
+vim.cmd [[
+    augroup goto_last_position
+        autocmd!
+        autocmd BufReadPost *
+        \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ | execute "normal! g`\""
+        \ | endif
+    augroup END
+]]
