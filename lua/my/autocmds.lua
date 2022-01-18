@@ -5,12 +5,6 @@ vim.cmd [[
   augroup end
 ]]
 vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
-vim.cmd [[
     augroup make_split_sizes_equal_on_terminal_window_resize
         autocmd!
         autocmd VimResized * wincmd =
