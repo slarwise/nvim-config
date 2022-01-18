@@ -16,4 +16,8 @@ M.buf_nmap = function(lhs, rhs)
     vim.api.nvim_buf_set_keymap(0, "n", lhs, rhs, {})
 end
 
+M.tnoremap = function(lhs, rhs)
+    vim.api.nvim_set_keymap("t", lhs, rhs, {})
+end
+
 return M

@@ -1,5 +1,6 @@
 local nnoremap = require "my.utils".nnoremap
 local cnoremap = require "my.utils".cnoremap
+local tnoremap = require "my.utils".tnoremap
 
 vim.cmd [[cnoremap <expr> <C-L> wildmenumode() ? "\<Down>\<Tab>" : "\<C-l>"]]
 vim.cmd [[cnoremap <expr> <C-H> wildmenumode() ? "\<Up>\<Tab>" : "\<C-h>"]]
@@ -13,7 +14,7 @@ nnoremap("<C-N>", "<Cmd>cnfile<CR>")
 nnoremap("<C-P>", "<Cmd>cpfile<CR>")
 nnoremap("m<C-M>", "<Cmd>update<bar>make<CR>")
 
-nnoremap("<C-_>", [[<C-\><C-N>]])
+tnoremap("<C-_>", [[<C-\><C-N>]])
 
 nnoremap("<space>", "<cmd>lua require'microscope.builtin'.args()<cr>")
 nnoremap(",,", "<cmd>lua require'microscope.builtin'.pickers()<cr>")
