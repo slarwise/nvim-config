@@ -36,8 +36,18 @@ M.default_on_attach = function(client, bufnr)
 
     local keymap_opts = { noremap = true }
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", keymap_opts)
-    buf_set_keymap("n", "<C-W>d", "<Cmd>lua require'telescope.builtin'.lsp_definitions {jump_type = 'split' }<CR>", keymap_opts)
-    buf_set_keymap("n", "<C-W><C-D>", "<Cmd>lua require'telescope.builtin'.lsp_definitions {jump_type = 'vsplit' }<CR>", keymap_opts)
+    buf_set_keymap(
+        "n",
+        "<C-W>d",
+        "<Cmd>lua require'telescope.builtin'.lsp_definitions { jump_type = 'split' }<CR>",
+        keymap_opts
+    )
+    buf_set_keymap(
+        "n",
+        "<C-W><C-D>",
+        "<Cmd>lua require'telescope.builtin'.lsp_definitions { jump_type = 'vsplit' }<CR>",
+        keymap_opts
+    )
     buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", keymap_opts)
     buf_set_keymap("n", ",a", "<cmd>lua vim.lsp.buf.code_action()<CR>", keymap_opts)
     buf_set_keymap("n", ",r", "<cmd>lua vim.lsp.buf.references()<CR>", keymap_opts)
@@ -64,6 +74,7 @@ M.default_on_attach = function(client, bufnr)
             augroup END
         ]]
     end
+    require("folding").on_attach()
 end
 
 return M
