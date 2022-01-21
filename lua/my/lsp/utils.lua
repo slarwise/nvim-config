@@ -74,7 +74,6 @@ M.default_on_attach = function(client, bufnr)
             augroup END
         ]]
     end
-    require("folding").on_attach()
 end
 
 return M

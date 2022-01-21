@@ -10,6 +10,7 @@ local on_attach = function(client, bufnr)
         "<cmd>lua require 'my.lsp.utils'.rename_without_prepare()<CR>",
         { noremap = true }
     )
+    require("folding").on_attach()
 end
 
 nvim_lsp.erlangls.setup {
