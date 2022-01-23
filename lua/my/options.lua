@@ -18,6 +18,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.list = true
 vim.cmd [[set wildcharm=<Tab>]]
+vim.opt.timeoutlen = 500
 
 if vim.env.COLORTERM then
     vim.opt.termguicolors = true
