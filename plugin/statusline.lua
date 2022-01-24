@@ -85,6 +85,7 @@ local Errors = {
         return string.format("E:%d", #errors)
     end,
 }
+local Position = { provider = "%l/%L,%c" }
 local DefaultStatusline = {
     LeftCorner,
     Space,
@@ -96,6 +97,7 @@ local DefaultStatusline = {
     Space,
     FileName,
     Align,
+    Position,
     RightCorner,
 }
 
