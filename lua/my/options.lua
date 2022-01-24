@@ -20,10 +20,10 @@ vim.opt.list = true
 vim.cmd [[set wildcharm=<Tab>]]
 vim.opt.timeoutlen = 500
 
-if vim.env.COLORTERM then
+if vim.env.COLORTERM or vim.env.TERM == "tmux-256color" then
     vim.opt.termguicolors = true
+    vim.cmd "colorscheme base16-tomorrow-night-eighties"
 end
-vim.cmd "colorscheme base16-tomorrow-night-eighties"
 
 vim.diagnostic.config { signs = false }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

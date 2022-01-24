@@ -121,4 +121,8 @@ local StatusLines = {
     DefaultStatusline,
 }
 
-require("heirline").setup(StatusLines)
+if vim.env.COLORTERM or vim.env.TERM == "tmux-256color" then
+    require("heirline").setup(StatusLines)
+else
+    vim.opt.statusline = " %m  %f%=%l/%L,%c"
+end
