@@ -29,3 +29,6 @@ vim.diagnostic.config { signs = false }
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
 })
+
+vim.cmd [[ highlight link LspCodeLens Comment ]]
+vim.cmd [[ highlight link LspCodeLensSeparator Comment ]]
