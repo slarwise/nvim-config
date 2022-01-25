@@ -1,1 +1,1 @@
-require("packer").use "~/Dropbox/projects/microscope.nvim"
+require("packer").use "slarwise/microscope.nvim"
