@@ -3,7 +3,7 @@ require("packer").use {
     config = function()
         require("dressing").setup {
             select = {
-                backend = { "builtin", "telescope" },
+                backend = { "telescope", "builtin" },
             },
         }
     end,
