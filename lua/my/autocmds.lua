@@ -38,3 +38,9 @@ vim.cmd [[
         autocmd WinLeave * setlocal nocursorline
     augroup END
 ]]
+vim.cmd [[
+    augroup ignore_more_files_to_edit_error
+        autocmd!
+        autocmd QuitPre * if winnr("$") == 1 | blast | end
+    augroup END
+]]
