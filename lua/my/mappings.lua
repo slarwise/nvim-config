@@ -30,5 +30,6 @@ nnoremap("s<C-W>", "<cmd>lua require'lists'.cwd_to_args()<cr>")
 nnoremap("sb", "<cmd>lua require'lists'.select_buf_dir()<cr>")
 nnoremap("sB", "<cmd>lua require'lists'.buf_dir_to_quickfix()<cr>")
 nnoremap("s<C-B>", "<cmd>lua require'lists'.buf_dir_to_args()<cr>")
+nnoremap("sh", "<cmd>Telescope harpoon marks<cr>")
 
 tnoremap("<C-_>", [[<C-\><C-N>]])

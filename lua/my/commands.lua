@@ -13,3 +13,5 @@ vim.cmd [[ command! LspRename lua vim.lsp.buf.rename() ]]
 vim.cmd [[ command! LspWorkspaceSymbol lua vim.lsp.buf.workspace_symbol() ]]
 vim.cmd [[ command! LspDiagnosticSetQf lua vim.diagnostic.set_qflist() ]]
 vim.cmd [[ command! LspDiagnosticOpenFloat lua vim.diagnostic.open_float() ]]
+
+vim.cmd [[ command! HarpoonAddFile lua require"harpoon.mark".add_file() ]]
