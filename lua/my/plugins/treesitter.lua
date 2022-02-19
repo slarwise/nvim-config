@@ -5,7 +5,7 @@ require("packer").use {
         require("nvim-treesitter.configs").setup {
             ensure_installed = { "erlang", "markdown", "python", "lua" },
             highlight = { enable = true },
-            indent = { enable = true },
+            indent = { enable = false },
         }
     end,
 }
