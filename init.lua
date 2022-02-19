@@ -31,6 +31,7 @@ require "my.plugins.treesitter"
 require "my.plugins.vader"
 require "my.plugins.vim_oldfiles"
 require "my.plugins.which_key"
+require "my.plugins.make"
 
 require "my.lsp.erlangls"
 require "my.lsp.sumneko_lua"
