@@ -34,6 +34,7 @@ require "my.plugins.which_key"
 require "my.plugins.make"
 
 require "my.lsp.erlangls"
+require "my.lsp.gopls"
 require "my.lsp.sumneko_lua"
 require "my.lsp.pyright"
 
