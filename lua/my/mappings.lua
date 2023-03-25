@@ -20,6 +20,7 @@ nnoremap(
     "so",
     "<cmd>lua require'telescope.builtin'.oldfiles(require'telescope.themes'.get_dropdown{ previewer = false })<CR>"
 )
+nnoremap("sl", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 nnoremap("se", "<Cmd>Telescope diagnostics bufnr=0<CR>")
 nnoremap("sE", "<Cmd>lua vim.diagnostic.setqflist()<cr>")
 nnoremap("<space>", "<cmd>lua require'lists'.select_arg()<cr>")
@@ -31,5 +32,8 @@ nnoremap("sb", "<cmd>lua require'lists'.select_buf_dir()<cr>")
 nnoremap("sB", "<cmd>lua require'lists'.buf_dir_to_quickfix()<cr>")
 nnoremap("s<C-B>", "<cmd>lua require'lists'.buf_dir_to_args()<cr>")
 nnoremap("sh", "<cmd>Telescope harpoon marks<cr>")
+nnoremap("st", "<cmd>edit ~/todo.md<cr>")
+nnoremap("sT", "<cmd>split ~/todo.md<cr>")
+nnoremap("s<C-T>", "<cmd>vsplit ~/todo.md<cr>")
 
 tnoremap("<C-_>", [[<C-\><C-N>]])

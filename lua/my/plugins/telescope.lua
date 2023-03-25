@@ -3,7 +3,7 @@ require("packer").use {
     requires = "nvim-lua/plenary.nvim",
     config = function()
         require("telescope").setup {
-            defaults = { layout_strategy = "flex" },
+            defaults = { layout_strategy = "vertical" },
         }
     end,
 }
