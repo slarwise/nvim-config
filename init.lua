@@ -1,3 +1,5 @@
+vim.cmd "packadd cfilter"
+
 require("packer").startup(function(use)
     use "RRethy/nvim-base16"
     use "wbthomason/packer.nvim"
