@@ -127,7 +127,8 @@ filetypes:
       formatprg: "erlfmt -"
     language_server:
       name: erlangls
-      cmd: erlang_ls
+      cmd:
+        - erlang_ls
       root_dir:
         patterns:
           - rebar.config
@@ -177,8 +178,8 @@ filetypes:
       textwidth: 100
   qf:
     options:
-      nowinfixheight: true
-      nowinfixwidth: true
+      winfixheight: false
+      winfixwidth: false
   terraform:
     options:
       textwidth: 0
