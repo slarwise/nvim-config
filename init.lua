@@ -79,7 +79,7 @@ require("packer").startup(function(use)
         run = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup {
-                ensure_installed = { "erlang", "markdown", "python", "lua", "hcl" },
+                ensure_installed = { "erlang", "markdown", "python", "lua", "hcl", "terraform" },
                 highlight = { enable = true },
                 indent = { enable = false },
             }

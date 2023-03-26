@@ -125,6 +125,16 @@ filetypes:
   erlang:
     options:
       formatprg: "erlfmt -"
+    language_server:
+      name: erlangls
+      cmd: erlang_ls
+      root_dir:
+        patterns:
+          - rebar.config
+          - erlang.mk
+          - .git
+      settings:
+        single_file_support: true
   go:
     options:
       expandtab: false
@@ -172,6 +182,25 @@ filetypes:
   terraform:
     options:
       textwidth: 0
+    language_server:
+      name: terraform-ls
+      cmd:
+        - terraform-ls
+        - serve
+      root_dir:
+        patterns:
+          - .terraform
+          - .git
+  terraform-vars:
+    language_server:
+      name: terraform-ls
+      cmd:
+        - terraform-ls
+        - serve
+      root_dir:
+        patterns:
+          - .terraform
+          - .git
   tex:
     options:
       keywordprg: texdoc
@@ -201,3 +230,19 @@ filetypes:
     options:
       foldmethod: syntax
       iskeyword: "@,48-57,_,192-255"
+  yaml:
+    language_server:
+      name: yamlls
+      cmd:
+        - yaml-language-server
+        - --stdio
+      root_dir:
+        patterns:
+          - .git
+      settings:
+        single_file_support: true
+        yaml:
+          schemas:
+            Kubernetes: globPattern
+          schemaStore:
+            enable: true
