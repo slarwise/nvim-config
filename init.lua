@@ -51,7 +51,6 @@ require("packer").startup(function(use)
         end,
     }
     use "slarwise/lists.nvim"
-    use "slarwise/make.nvim"
     use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
@@ -59,16 +58,9 @@ require("packer").startup(function(use)
             require("null-ls").setup()
         end,
     }
-    use "nvim-lua/plenary.nvim"
     use "numToStr/prettierrc.nvim"
     use "tpope/vim-repeat"
     use "tpope/vim-surround"
-    use {
-        "akinsho/toggleterm.nvim",
-        config = function()
-            require("toggleterm").setup { direction = "float" }
-        end,
-    }
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
