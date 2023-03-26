@@ -57,7 +57,6 @@ require("packer").startup(function(use)
     }
     use "slarwise/lists.nvim"
     use "slarwise/make.nvim"
-    use "slarwise/microscope.nvim"
     use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
