@@ -248,3 +248,5 @@ filetypes:
             Kubernetes: globPattern
           schemaStore:
             enable: true
+      server_capabilities:
+        documentFormattingProvider: true
