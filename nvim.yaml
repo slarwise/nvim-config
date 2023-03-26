@@ -92,7 +92,7 @@ autocmds:
   QuitPre:
     command: if winnr("$") == 1 | blast | end
 commands:
-  LspCodeAction: vim.lsp.buf.code_action()
+  LspInfo: "print(vim.inspect(vim.lsp.get_active_clients({buf=0})))"
 language_server:
   mappings:
     normal:
