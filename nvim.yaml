@@ -116,6 +116,11 @@ syntax:
     LspCodeLens: Comment
     LspCodeLensSeparator: Comment
     markdownError: Normal
+filetype_mappings:
+  extension:
+    tf: terraform
+  filename:
+    Tiltfile: python
 filetypes:
   go:
     options:
