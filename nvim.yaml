@@ -122,10 +122,13 @@ filetype_mappings:
   filename:
     Tiltfile: python
 filetypes:
+  erlang:
+    formatprg: "erlfmt -"
   go:
     options:
       expandtab: false
       tabstop: 4
+      listchars: "tab:  ,trail:-,nbsp:+"
     language_server:
       name: gopls
       cmd:
@@ -158,6 +161,16 @@ filetypes:
         single_file_support: true
         init_options:
           hostInfo: neovim
+  python:
+    textwidth: 100
+  qf:
+    nowinfixheight: true
+    nowinfixwidth: true
+  terraform:
+    textwidth: 0
+  tex:
+    keywordprg: texdoc
+    formatoptions: qj
   typescript:
     options:
       shiftwidth: 2
@@ -176,6 +189,9 @@ filetypes:
         single_file_support: true
         init_options:
           hostInfo: neovim
+  typescriptreact:
+    options:
+      shiftwidth: 2
   vim:
     options:
       foldmethod: syntax
