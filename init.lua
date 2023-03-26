@@ -91,5 +91,6 @@ require("packer").startup(function(use)
             vim.g.oldfiles_ignore = { "COMMIT_EDITMSG", "/runtime/doc/" }
         end,
     }
+    use "lukas-reineke/indent-blankline.nvim"
 end)
 require("nvim_but_yaml").run("/home/arvid/.config/nvim/nvim.json")
