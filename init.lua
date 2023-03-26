@@ -1,6 +1,5 @@
 require "my.autocmds"
 require "my.options"
-require "my.commands"
 require "my.mappings"
 
 require "my.plugins.packer"
