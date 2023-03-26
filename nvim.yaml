@@ -123,7 +123,8 @@ filetype_mappings:
     Tiltfile: python
 filetypes:
   erlang:
-    formatprg: "erlfmt -"
+    options:
+      formatprg: "erlfmt -"
   go:
     options:
       expandtab: false
@@ -162,15 +163,19 @@ filetypes:
         init_options:
           hostInfo: neovim
   python:
-    textwidth: 100
+    options:
+      textwidth: 100
   qf:
-    nowinfixheight: true
-    nowinfixwidth: true
+    options:
+      nowinfixheight: true
+      nowinfixwidth: true
   terraform:
-    textwidth: 0
+    options:
+      textwidth: 0
   tex:
-    keywordprg: texdoc
-    formatoptions: qj
+    options:
+      keywordprg: texdoc
+      formatoptions: qj
   typescript:
     options:
       shiftwidth: 2
