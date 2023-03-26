@@ -104,7 +104,7 @@ language_server:
       ",a": <cmd>lua vim.lsp.buf.code_action()<CR>
       ",r": <cmd>lua vim.lsp.buf.references()<CR>
       ",d": <cmd>lua vim.lsp.diagnostic.set_qflist()<CR>
-      ",f": <cmd>lua vim.lsp.buf.formatting()<CR>
+      ",f": <cmd>lua vim.lsp.buf.format()<CR>
       ",n": <cmd>lua vim.lsp.buf.rename()<CR>
       ",e": <cmd>lua vim.diagnostic.open_float()<CR>
   handlers:
