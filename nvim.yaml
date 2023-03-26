@@ -115,6 +115,7 @@ syntax:
   highlight_links:
     LspCodeLens: Comment
     LspCodeLensSeparator: Comment
+    markdownError: Normal
 filetypes:
   go:
     options:
