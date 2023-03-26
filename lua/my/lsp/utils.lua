@@ -54,8 +54,9 @@ M.default_on_attach = function(client, bufnr)
     buf_set_keymap("n", ",d", "<cmd>lua vim.lsp.diagnostic.set_qflist()<CR>", keymap_opts)
     buf_set_keymap("n", ",f", "<cmd>lua vim.lsp.buf.formatting()<CR>", keymap_opts)
     buf_set_keymap("n", ",n", "<cmd>lua vim.lsp.buf.rename()<CR>", keymap_opts)
+    buf_set_keymap("n", ",e", "<cmd>lua vim.diagnostic.open_float()<CR>", keymap_opts)
 
-    if client.resolved_capabilities.code_lens then
+    if client.server_capabilities.codeLens then
         buf_set_keymap("n", ",l", "<cmd>lua vim.lsp.codelens.run()<CR>", keymap_opts)
         vim.lsp.codelens.refresh()
         vim.cmd [[
@@ -65,7 +66,7 @@ M.default_on_attach = function(client, bufnr)
             augroup END
         ]]
     end
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlight then
         vim.cmd [[
             augroup lsp_document_highlight
             autocmd!
@@ -73,6 +74,10 @@ M.default_on_attach = function(client, bufnr)
                 autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
             augroup END
         ]]
+    end
+    if client.name == "tsserver" then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
     end
 end
 
