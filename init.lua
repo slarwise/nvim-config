@@ -3,12 +3,7 @@ vim.cmd "packadd cfilter"
 require("packer").startup(function(use)
     use "RRethy/nvim-base16"
     use "wbthomason/packer.nvim"
-    use {
-        "slarwise/nvim-but-yaml",
-        config = function()
-            require("nvim_but_yaml").run("/home/arvid/.config/nvim/nvim.json")
-        end,
-    }
+    use "slarwise/nvim-but-yaml"
     use {
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -93,4 +88,5 @@ require("packer").startup(function(use)
     }
     use "lukas-reineke/indent-blankline.nvim"
 end)
-require("nvim_but_yaml").run("/home/arvid/.config/nvim/nvim.json")
+
+require("nvim_but_yaml").run("/home/arvid/.config/nvim/nvim.yaml")
