@@ -58,7 +58,6 @@ require("packer").startup(function(use)
             require("null-ls").setup()
         end,
     }
-    use "numToStr/prettierrc.nvim"
     use "tpope/vim-repeat"
     use "tpope/vim-surround"
     use {
