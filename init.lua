@@ -80,4 +80,4 @@ require("packer").startup(function(use)
     use "lukas-reineke/indent-blankline.nvim"
 end)
 
-require("nvim_but_yaml").run("/home/arvid/.config/nvim/nvim.yaml")
+require("nvim_but_yaml").apply("/home/arvid/.config/nvim/nvim.yaml")
