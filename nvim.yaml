@@ -62,6 +62,8 @@ mappings:
     sT: <cmd>split ~/todo.md<cr>
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
     ",f": msgggqG`s
+    si: <Cmd>lua require'lists'.select_interesting_dir_and_find_files()<CR>
+    sI: <Cmd>lua require'lists'.select_interesting_dir_and_grep()<CR>
   command:
     <C-K>: <Up>
     <C-J>: <Down>
