@@ -41,7 +41,9 @@ mappings:
     <C-P>: <Cmd>cpfile<CR>
     m<C-M>: <Cmd>update<bar>make<CR>
     sf: <Cmd>Telescope find_files<CR>
+    sF: <Cmd>lua require'telescope.builtin'.find_files({ search_dirs = { vim.fs.dirname(vim.api.nvim_buf_get_name(0)) } })<CR>
     sg: <Cmd>Telescope live_grep<CR>
+    sG: <Cmd>lua require'telescope.builtin'.live_grep({ search_dirs = { vim.fs.dirname(vim.api.nvim_buf_get_name(0)) } })<CR>
     sd: <Cmd>Telescope lsp_document_symbols<CR>
     so: <cmd>lua require'telescope.builtin'.oldfiles(require'telescope.themes'.get_dropdown{ previewer = false })<CR>
     sl: <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
