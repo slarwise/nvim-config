@@ -57,7 +57,6 @@ mappings:
     sb: <cmd>lua require'lists'.select_buf_dir()<cr>
     sB: <cmd>lua require'lists'.buf_dir_to_quickfix()<cr>
     s<C-B>: <cmd>lua require'lists'.buf_dir_to_args()<cr>
-    sh: <cmd>Telescope harpoon marks<cr>
     st: <cmd>edit ~/todo.md<cr>
     sT: <cmd>split ~/todo.md<cr>
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
