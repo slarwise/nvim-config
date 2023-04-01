@@ -59,6 +59,7 @@ mappings:
     st: <cmd>edit ~/todo.md<cr>
     sT: <cmd>split ~/todo.md<cr>
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
+    ",f": msgggqG`s
   command:
     <C-K>: <Up>
     <C-J>: <Down>
@@ -174,6 +175,9 @@ filetypes:
         single_file_support: true
         init_options:
           hostInfo: neovim
+  markdown:
+    options:
+      formatprg: prettier --stdin-filepath %
   python:
     options:
       textwidth: 100
