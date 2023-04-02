@@ -44,10 +44,7 @@ mappings:
     sF: <Cmd>lua require'fzf-lua'.files({ cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })<CR>
     sg: <Cmd>lua require'fzf-lua'.live_grep_native()<CR>
     sG: <Cmd>lua require'fzf-lua'.live_grep_native({ cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })<CR>
-    sd: <Cmd>lua require'fzf-lua'lsp_document_symbols<CR>
     so: <cmd>lua require'fzf-lua'.oldfiles()<CR>
-    sl: <Cmd>lua require'fzf-lua'.lsp_live_workspace_symbols<CR>
-    se: <Cmd>lua require'fzf-lua'.lsp_document_diagnostics()<CR>
     sE: <Cmd>lua vim.diagnostic.setqflist()<cr>
     <space>: <cmd>lua require'fzf-lua'.args()<cr>
     st: <cmd>edit ~/todo.md<cr>
@@ -97,6 +94,9 @@ language_server:
       <C-W>d: <Cmd>lua require'telescope.builtin'.lsp_definitions { jump_type = 'split' }<CR>
       <C-W><C-D>: <Cmd>lua require'telescope.builtin'.lsp_definitions { jump_type = 'vsplit' }<CR>
       K: <Cmd>lua vim.lsp.buf.hover()<CR>
+      sd: <Cmd>lua require'fzf-lua'.lsp_document_symbols()<CR>
+      sl: <Cmd>lua require'fzf-lua'.lsp_live_workspace_symbols()<CR>
+      se: <Cmd>lua require'fzf-lua'.lsp_document_diagnostics()<CR>
       ",a": <cmd>lua vim.lsp.buf.code_action()<CR>
       ",r": <cmd>lua vim.lsp.buf.references()<CR>
       ",d": <cmd>lua vim.lsp.diagnostic.set_qflist()<CR>
