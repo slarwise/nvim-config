@@ -112,13 +112,17 @@ require("packer").startup(function(use)
             local actions = require "fzf-lua.actions"
             local path = require "fzf-lua.path"
             require'fzf-lua'.setup {
+                keymap = {
+                    fzf = {
+                        ["ctrl-q"] = "select-all+accept",
+                    }
+                },
                 actions = {
                     files = {
                         ["default"] = actions.file_edit_or_qf,
                         ["ctrl-x"] = actions.file_split,
                         ["ctrl-v"] = actions.file_vsplit,
                         ["ctrl-t"] = actions.file_tabedit,
-                        ["ctrl-q"]  = actions.file_sel_to_qf,
                         ["ctrl-l"]  = actions.file_sel_to_ll,
                     },
                     buffers = {
