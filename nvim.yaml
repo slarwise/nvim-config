@@ -52,6 +52,8 @@ mappings:
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
     ",f": msgggqG`s
     d<CR>: <Cmd>Zi<CR>
+    zg: <Cmd>ZGrep<CR>
+    zf: <Cmd>ZFiles<CR>
   command:
     <C-K>: <Up>
     <C-J>: <Down>

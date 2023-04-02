@@ -88,7 +88,34 @@ require("packer").startup(function(use)
             end
         end
     }
-    use "vijaymarupudi/nvim-fzf"
+    use {
+        "vijaymarupudi/nvim-fzf",
+        config = function()
+            local fzf = require("fzf")
+
+            -- Grep in a zoxide directory
+            vim.api.nvim_create_user_command("ZGrep", function()
+                coroutine.wrap(function()
+                    local result = fzf.fzf("zoxide query --list")
+                    if result then
+                        print(vim.inspect(result[1]))
+                        require'fzf-lua'.live_grep { cwd = result[1] }
+                    end
+                end)()
+            end, {})
+
+            -- Find files in a zoxide directory
+            vim.api.nvim_create_user_command("ZFiles", function()
+                coroutine.wrap(function()
+                    local result = fzf.fzf("zoxide query --list")
+                    if result then
+                        print(vim.inspect(result[1]))
+                        require'fzf-lua'.files { cwd = result[1] }
+                    end
+                end)()
+            end, {})
+        end,
+    }
     use {
         "ibhagwan/fzf-lua",
         -- optional for icon support
