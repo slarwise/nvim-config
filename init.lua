@@ -88,39 +88,27 @@ require("packer").startup(function(use)
             end
         end
     }
-    use {
-        "vijaymarupudi/nvim-fzf",
-        config = function()
-            local fzf = require("fzf")
-
-            -- Grep in a zoxide directory
-            vim.api.nvim_create_user_command("ZGrep", function()
-                coroutine.wrap(function()
-                    local result = fzf.fzf("zoxide query --list")
-                    if result then
-                        print(vim.inspect(result[1]))
-                        require'fzf-lua'.live_grep { cwd = result[1] }
-                    end
-                end)()
-            end, {})
-
-            -- Find files in a zoxide directory
-            vim.api.nvim_create_user_command("ZFiles", function()
-                coroutine.wrap(function()
-                    local result = fzf.fzf("zoxide query --list")
-                    if result then
-                        print(vim.inspect(result[1]))
-                        require'fzf-lua'.files { cwd = result[1] }
-                    end
-                end)()
-            end, {})
-        end,
-    }
+    use "vijaymarupudi/nvim-fzf"
     use {
         "ibhagwan/fzf-lua",
         -- optional for icon support
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = function()
+            vim.api.nvim_create_user_command("FzfZoxide", function()
+                require'fzf-lua'.fzf_exec("zoxide query --list", {
+                    actions = {
+                        ["default"] = function(selected)
+                            vim.api.nvim_set_current_dir(selected[1])
+                        end,
+                        ["ctrl-g"] = function(selected)
+                            require'fzf-lua'.live_grep { cwd = selected[1] }
+                        end,
+                        ["ctrl-f"] = function(selected)
+                            require'fzf-lua'.files { cwd = selected[1] }
+                        end,
+                    }
+                })
+            end, {})
             local actions = require "fzf-lua.actions"
             local path = require "fzf-lua.path"
             require'fzf-lua'.setup {
