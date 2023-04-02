@@ -24,10 +24,11 @@ require("packer").startup(function(use)
     use "tpope/vim-commentary"
     use {
         "stevearc/dressing.nvim",
+        requires = "ibhagwan/fzf-lua",
         config = function()
             require("dressing").setup {
                 select = {
-                    backend = { "telescope", "builtin" },
+                    backend = { "fzf_lua", "builtin" },
                 },
             }
         end,
