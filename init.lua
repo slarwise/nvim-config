@@ -88,9 +88,38 @@ require("packer").startup(function(use)
         end
     }
     use "vijaymarupudi/nvim-fzf"
-    use { 'ibhagwan/fzf-lua',
+    use {
+        "ibhagwan/fzf-lua",
         -- optional for icon support
-        requires = { 'nvim-tree/nvim-web-devicons' }
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            local actions = require "fzf-lua.actions"
+            local path = require "fzf-lua.path"
+            require'fzf-lua'.setup {
+                actions = {
+                    files = {
+                        ["default"] = actions.file_edit_or_qf,
+                        ["ctrl-x"] = actions.file_split,
+                        ["ctrl-v"] = actions.file_vsplit,
+                        ["ctrl-t"] = actions.file_tabedit,
+                        ["ctrl-q"]  = actions.file_sel_to_qf,
+                        ["ctrl-l"]  = actions.file_sel_to_ll,
+                        ["ctrl-g"] = function(selected)
+                            local file = path.entry_to_file(selected[1])
+                            local filename = file.stripped
+                            local dirname = vim.fs.dirname(filename)
+                            require'fzf-lua'.live_grep { cwd = dirname }
+                        end,
+                    },
+                    buffers = {
+                        ["default"] = actions.buf_edit,
+                        ["ctrl-x"] = actions.buf_split,
+                        ["ctrl-v"] = actions.buf_vsplit,
+                        ["ctrl-t"] = actions.buf_tabedit,
+                    }
+                },
+            }
+        end
     }
 end)
 
