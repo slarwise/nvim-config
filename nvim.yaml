@@ -40,30 +40,21 @@ mappings:
     <C-N>: <Cmd>cnfile<CR>
     <C-P>: <Cmd>cpfile<CR>
     m<C-M>: <Cmd>update<bar>make<CR>
-    sf: <Cmd>Telescope find_files<CR>
-    sF: <Cmd>lua require'telescope.builtin'.find_files({ search_dirs = { vim.fs.dirname(vim.api.nvim_buf_get_name(0)) } })<CR>
-    sg: <Cmd>Telescope live_grep<CR>
-    sG: <Cmd>lua require'telescope.builtin'.live_grep({ search_dirs = { vim.fs.dirname(vim.api.nvim_buf_get_name(0)) } })<CR>
-    sd: <Cmd>Telescope lsp_document_symbols<CR>
-    so: <cmd>lua require'telescope.builtin'.oldfiles(require'telescope.themes'.get_dropdown{ previewer = false })<CR>
-    sl: <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
-    se: <Cmd>Telescope diagnostics bufnr=0<CR>
+    sf: <Cmd>lua require'fzf-lua'.files()<CR>
+    sF: <Cmd>lua require'fzf-lua'.files({ cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })<CR>
+    sg: <Cmd>lua require'fzf-lua'.live_grep_native()<CR>
+    sG: <Cmd>lua require'fzf-lua'.live_grep_native({ cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0)) })<CR>
+    sd: <Cmd>lua require'fzf-lua'lsp_document_symbols<CR>
+    so: <cmd>lua require'fzf-lua'.oldfiles()<CR>
+    sl: <Cmd>lua require'fzf-lua'.lsp_live_workspace_symbols<CR>
+    se: <Cmd>lua require'fzf-lua'.lsp_document_diagnostics()<CR>
     sE: <Cmd>lua vim.diagnostic.setqflist()<cr>
-    <space>: <cmd>lua require'lists'.select_arg()<cr>
-    sa: <cmd>lua require'lists'.select_arg()<cr>
-    sw: <cmd>lua require'lists'.select_cwd()<cr>
-    sW: <cmd>lua require'lists'.cwd_to_quickfix()<cr>
-    s<C-W>: <cmd>lua require'lists'.cwd_to_args()<cr>
-    sb: <cmd>lua require'lists'.select_buf_dir()<cr>
-    sB: <cmd>lua require'lists'.buf_dir_to_quickfix()<cr>
-    s<C-B>: <cmd>lua require'lists'.buf_dir_to_args()<cr>
+    <space>: <cmd>lua require'fzf-lua'.args()<cr>
     st: <cmd>edit ~/todo.md<cr>
     sT: <cmd>split ~/todo.md<cr>
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
     ",f": msgggqG`s
-    si: <Cmd>lua require'lists'.select_interesting_dir_and_find_files()<CR>
-    sI: <Cmd>lua require'lists'.select_interesting_dir_and_grep()<CR>
-    d<CR>: <Cmd>lua require'lists'.select_interesting_dir_and_cd()<CR>
+    d<CR>: <Cmd>Zi<CR>
   command:
     <C-K>: <Up>
     <C-J>: <Down>
