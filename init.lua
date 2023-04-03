@@ -112,6 +112,12 @@ require("packer").startup(function(use)
             local actions = require "fzf-lua.actions"
             local path = require "fzf-lua.path"
             require'fzf-lua'.setup {
+                winopts = {
+                    preview = {
+                        layout = "flex",
+                        flip_columns = 150,
+                    }
+                },
                 keymap = {
                     fzf = {
                         ["ctrl-q"] = "select-all+accept",
