@@ -187,8 +187,8 @@ filetypes:
       textwidth: 100
   qf:
     options:
-      winfixheight: false
-      winfixwidth: false
+      winfixheight: true
+      winfixwidth: true
   terraform:
     options:
       textwidth: 0
