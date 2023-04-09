@@ -24,10 +24,11 @@ require("packer").startup(function(use)
     use "tpope/vim-commentary"
     use {
         "stevearc/dressing.nvim",
+        requires = "ibhagwan/fzf-lua",
         config = function()
             require("dressing").setup {
                 select = {
-                    backend = { "telescope", "builtin" },
+                    backend = { "fzf_lua", "builtin" },
                 },
             }
         end,
@@ -50,7 +51,6 @@ require("packer").startup(function(use)
             require("lint").linters_by_ft = {}
         end,
     }
-    use "slarwise/lists.nvim"
     use {
         "jose-elias-alvarez/null-ls.nvim",
         requires = { "nvim-lua/plenary.nvim" },
@@ -78,6 +78,69 @@ require("packer").startup(function(use)
         end,
     }
     use "lukas-reineke/indent-blankline.nvim"
+    use {
+        "nanotee/zoxide.vim",
+        config = function()
+            vim.g.zoxide_use_select = 1
+            local zo_fzf_opts = os.getenv("_ZO_FZF_OPTS")
+            if zo_fzf_opts then
+                vim.g.zoxide_fzf_options = zo_fzf_opts
+            end
+        end
+    }
+    use "vijaymarupudi/nvim-fzf"
+    use {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            vim.api.nvim_create_user_command("FzfZoxide", function()
+                require'fzf-lua'.fzf_exec("zoxide query --list", {
+                    actions = {
+                        ["default"] = function(selected)
+                            vim.api.nvim_set_current_dir(selected[1])
+                        end,
+                        ["ctrl-g"] = function(selected)
+                            require'fzf-lua'.live_grep { cwd = selected[1] }
+                        end,
+                        ["ctrl-f"] = function(selected)
+                            require'fzf-lua'.files { cwd = selected[1] }
+                        end,
+                    }
+                })
+            end, {})
+            local actions = require "fzf-lua.actions"
+            local path = require "fzf-lua.path"
+            require'fzf-lua'.setup {
+                winopts = {
+                    preview = {
+                        layout = "flex",
+                        flip_columns = 150,
+                    }
+                },
+                keymap = {
+                    fzf = {
+                        ["ctrl-q"] = "select-all+accept",
+                    }
+                },
+                actions = {
+                    files = {
+                        ["default"] = actions.file_edit_or_qf,
+                        ["ctrl-x"] = actions.file_split,
+                        ["ctrl-v"] = actions.file_vsplit,
+                        ["ctrl-t"] = actions.file_tabedit,
+                        ["ctrl-l"]  = actions.file_sel_to_ll,
+                    },
+                    buffers = {
+                        ["default"] = actions.buf_edit,
+                        ["ctrl-x"] = actions.buf_split,
+                        ["ctrl-v"] = actions.buf_vsplit,
+                        ["ctrl-t"] = actions.buf_tabedit,
+                    }
+                },
+            }
+        end
+    }
 end)
 
 require("nvim_but_yaml").apply("/home/arvid/.config/nvim/nvim.yaml")
