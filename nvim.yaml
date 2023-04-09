@@ -173,6 +173,7 @@ filetypes:
   markdown:
     options:
       formatprg: prettier --stdin-filepath %
+      shiftwidth: 2
   python:
     options:
       textwidth: 100
