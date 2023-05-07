@@ -143,4 +143,4 @@ require("packer").startup(function(use)
     }
 end)
 
-require("nvim_but_yaml").apply("/home/arvid/.config/nvim/nvim.yaml")
+require("nvim_but_yaml").apply(vim.fs.normalize("~/.config/nvim/nvim.yaml"))
