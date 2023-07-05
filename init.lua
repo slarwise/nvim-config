@@ -141,6 +141,10 @@ require("packer").startup(function(use)
             }
         end
     }
+    use {
+      'stevearc/overseer.nvim',
+      config = function() require('overseer').setup() end
+    }
 end)
 
 require("nvim_but_yaml").apply(vim.fs.normalize("~/.config/nvim/nvim.yaml"))

@@ -53,6 +53,7 @@ mappings:
     ",f": msgggqG`s
     d<CR>: <Cmd>FzfZoxide<CR>
     sp: <Cmd>PackerSync<CR>
+    sr: <Cmd>OverseerRun<CR>
   command:
     <C-K>: <Up>
     <C-J>: <Down>
