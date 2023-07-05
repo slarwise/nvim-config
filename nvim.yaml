@@ -52,6 +52,7 @@ mappings:
     s<C-T>: <cmd>vsplit ~/todo.md<cr>
     ",f": msgggqG`s
     d<CR>: <Cmd>FzfZoxide<CR>
+    sp: <Cmd>PackerSync<CR>
   command:
     <C-K>: <Up>
     <C-J>: <Down>
